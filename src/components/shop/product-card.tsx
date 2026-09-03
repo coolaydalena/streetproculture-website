@@ -39,7 +39,7 @@ export function ProductCard({
   const aspect = ASPECTS[index % ASPECTS.length];
 
   function quickAdd() {
-    add(product.id);
+    add(product);
     setAdded(true);
     openCart();
     window.setTimeout(() => setAdded(false), 1200);
@@ -97,7 +97,7 @@ export function ProductCard({
         <p className="font-mono text-lg text-oxblood">{formatPrice(product.price)}</p>
       </div>
       <p className="mt-2 text-xs leading-relaxed text-ink-soft">{product.blurb}</p>
-      {product.mock && (
+      {product.isMock && (
         <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-soft/70">
           Preview listing
         </p>

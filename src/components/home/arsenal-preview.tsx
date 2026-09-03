@@ -3,10 +3,12 @@ import Link from "next/link";
 import { Cta, Kicker } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/reveal";
 import { formatPrice } from "@/lib/site";
-import { getFeatured } from "@/lib/products";
+import { getHighlightedProducts } from "@/lib/products-db";
 
-export function ArsenalPreview() {
-  const featured = getFeatured();
+export async function ArsenalPreview() {
+  const featured = await getHighlightedProducts();
+  if (featured.length === 0) return null;
+
   return (
     <section className="border-t border-line bg-paper py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

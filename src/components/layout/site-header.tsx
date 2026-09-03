@@ -4,12 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, ShoppingBag, X } from "lucide-react";
+import { Menu, ShoppingBag, User, X } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { useCart } from "@/lib/cart-context";
 import { useCheckoutFlow } from "@/lib/checkout-flow";
 
-export function SiteHeader() {
+export type HeaderAuth = {
+  signedIn: boolean;
+  isSuperadmin: boolean;
+  name: string | null;
+};
+
+export function SiteHeader({ auth }: { auth: HeaderAuth }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
@@ -71,9 +77,36 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          {auth.isSuperadmin && (
+            <Link
+              href="/admin"
+              className={`font-bold u-label text-oxblood transition-opacity hover:opacity-100 ${
+                pathname.startsWith("/admin") ? "opacity-100" : "opacity-80"
+              }`}
+            >
+              Admin
+            </Link>
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
+          {auth.signedIn ? (
+            <Link
+              href="/account"
+              className="hidden items-center gap-2 p-2 opacity-80 transition-opacity hover:opacity-100 sm:flex"
+              aria-label="Your account"
+            >
+              <User className="size-5" strokeWidth={1.75} />
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="hidden u-label p-2 opacity-80 transition-opacity hover:opacity-100 sm:block"
+            >
+              Login
+            </Link>
+          )}
+
           <button
             type="button"
             onClick={openCart}
@@ -108,6 +141,42 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            {auth.isSuperadmin && (
+              <Link
+                href="/admin"
+                onClick={() => setMenuOpen(false)}
+                className="u-label border-b border-line py-4 text-oxblood"
+              >
+                Admin
+              </Link>
+            )}
+            {auth.signedIn ? (
+              <>
+                <Link
+                  href="/account"
+                  onClick={() => setMenuOpen(false)}
+                  className="u-label border-b border-line py-4"
+                >
+                  Account
+                </Link>
+                <form action="/auth/signout" method="post">
+                  <button
+                    type="submit"
+                    className="u-label w-full border-b border-line py-4 text-left"
+                  >
+                    Sign Out
+                  </button>
+                </form>
+              </>
+            ) : (
+              <Link
+                href="/login"
+                onClick={() => setMenuOpen(false)}
+                className="u-label border-b border-line py-4"
+              >
+                Login
+              </Link>
+            )}
             <a
               href={SITE.social.facebook}
               target="_blank"

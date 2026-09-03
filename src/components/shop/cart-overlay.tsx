@@ -81,7 +81,7 @@ function PanelHeader({
 }
 
 function CartPanel() {
-  const { detailed, subtotal, setQty, remove, count } = useCart();
+  const { detailed, subtotal, setQty, remove, count, hasUnavailable } = useCart();
   const { close, goToCheckout } = useCheckoutFlow();
 
   return (
@@ -102,7 +102,7 @@ function CartPanel() {
       ) : (
         <>
           <ul className="flex-1 divide-y divide-line overflow-y-auto">
-            {detailed.map(({ product, qty, lineTotal }) => (
+            {detailed.map(({ product, qty, lineTotal, unavailable }) => (
               <li key={product.id} className="flex gap-4 p-5">
                 <div className="relative size-20 shrink-0 overflow-hidden bg-coal">
                   <Image
@@ -116,7 +116,13 @@ function CartPanel() {
                 <div className="flex flex-1 flex-col">
                   <p className="u-label text-ink-soft">{product.tag}</p>
                   <p className="u-display text-lg leading-tight">{product.name}</p>
-                  <p className="text-sm text-ink-soft">{formatPrice(product.price)}</p>
+                  {unavailable ? (
+                    <p className="text-sm text-oxblood">No longer available</p>
+                  ) : (
+                    <p className="text-sm text-ink-soft">
+                      {formatPrice(product.price)}
+                    </p>
+                  )}
                   <div className="mt-auto flex items-center justify-between pt-2">
                     <div className="flex items-center border border-line">
                       <button
@@ -163,10 +169,15 @@ function CartPanel() {
             <p className="u-label mt-2 text-ink-soft">
               Shipping calculated at pickup. Cash or card at the shop.
             </p>
+            {hasUnavailable && (
+              <p className="u-label mt-2 text-oxblood">
+                Remove unavailable items to continue.
+              </p>
+            )}
             <button
               type="button"
               onClick={goToCheckout}
-              disabled={count === 0}
+              disabled={count === 0 || hasUnavailable}
               className="u-label mt-4 w-full bg-oxblood py-4 text-paper transition-colors hover:bg-oxblood-deep disabled:opacity-40"
             >
               Proceed to Checkout

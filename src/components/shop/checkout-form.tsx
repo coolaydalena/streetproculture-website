@@ -9,7 +9,7 @@ import { CHECKOUT_ENABLED, formatPrice } from "@/lib/site";
 type Fulfilment = "pickup" | "delivery";
 
 export function CheckoutForm() {
-  const { detailed, subtotal, count, clear } = useCart();
+  const { detailed, subtotal, count, clear, hasUnavailable } = useCart();
   const { openCart, completeOrder } = useCheckoutFlow();
   const [fulfilment, setFulfilment] = useState<Fulfilment>("pickup");
 
@@ -76,7 +76,7 @@ export function CheckoutForm() {
             Order Summary
           </p>
           <ul className="divide-y divide-line">
-            {detailed.map(({ product, qty, lineTotal }) => (
+            {detailed.map(({ product, qty, lineTotal, unavailable }) => (
               <li
                 key={product.id}
                 className="flex items-center justify-between gap-3 p-3 text-sm"
@@ -84,7 +84,9 @@ export function CheckoutForm() {
                 <span>
                   {product.name} <span className="text-ink-soft">× {qty}</span>
                 </span>
-                <span className="u-display text-base">{formatPrice(lineTotal)}</span>
+                <span className="u-display text-base">
+                  {unavailable ? "—" : formatPrice(lineTotal)}
+                </span>
               </li>
             ))}
           </ul>
@@ -102,9 +104,14 @@ export function CheckoutForm() {
             reserve.
           </p>
         )}
+        {hasUnavailable && (
+          <p className="u-label mb-3 text-oxblood">
+            Some items are no longer available — remove them to place the order.
+          </p>
+        )}
         <button
           type="submit"
-          disabled={!CHECKOUT_ENABLED || count === 0}
+          disabled={!CHECKOUT_ENABLED || count === 0 || hasUnavailable}
           className="u-label w-full bg-oxblood py-4 text-paper transition-colors hover:bg-oxblood-deep disabled:cursor-not-allowed disabled:opacity-40"
         >
           Place Order — {formatPrice(subtotal)}

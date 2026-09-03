@@ -17,7 +17,7 @@ export function ProductBuyPanel({ product }: { product: Product }) {
   const [added, setAdded] = useState(false);
 
   function reserve() {
-    add(product.id, qty);
+    add(product, qty);
     setAdded(true);
     openCart();
     window.setTimeout(() => setAdded(false), 1400);

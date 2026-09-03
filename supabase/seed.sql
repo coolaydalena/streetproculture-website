@@ -1,0 +1,2 @@
+-- Local dev seed. The 11 catalogue products are seeded by migration
+-- 20260903000005_seed_catalog.sql so they exist on hosted projects too.

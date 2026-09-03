@@ -20,6 +20,12 @@ export const SITE = {
   },
 } as const;
 
+// Absolute site origin. Preview/staging deploys set NEXT_PUBLIC_SITE_URL so that
+// canonical URLs, OG tags, the sitemap and auth redirects resolve correctly.
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? SITE.url
+).replace(/\/$/, "");
+
 export type NavItem = { label: string; href: string };
 
 export const NAV: NavItem[] = [

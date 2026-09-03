@@ -7,7 +7,10 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { GrainOverlay } from "@/components/layout/grain-overlay";
 import { CartOverlay } from "@/components/shop/cart-overlay";
-import { SITE } from "@/lib/site";
+import { ToastProvider } from "@/components/ui/toast";
+import { SITE_URL } from "@/lib/site";
+import { getPublishedProducts } from "@/lib/products-db";
+import { getUser, isSuperadmin } from "@/lib/auth";
 
 const saira = Saira_Condensed({
   variable: "--font-saira",
@@ -34,7 +37,7 @@ const cousine = Cousine({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Street Pro Culture — Built for the Street",
     template: "%s — Street Pro Culture",
@@ -45,32 +48,50 @@ export const metadata: Metadata = {
     title: "Street Pro Culture — Built for the Street",
     description:
       "Caps, helmets and moto gear built for the street. Store, PMS service and cafe in the Philippines.",
-    url: SITE.url,
+    url: SITE_URL,
     siteName: "Street Pro Culture",
     type: "website",
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [products, user, superadmin] = await Promise.all([
+    getPublishedProducts(),
+    getUser(),
+    isSuperadmin(),
+  ]);
+
+  const auth = {
+    signedIn: !!user,
+    isSuperadmin: superadmin,
+    name:
+      (user?.user_metadata?.full_name as string | undefined) ??
+      (user?.user_metadata?.name as string | undefined) ??
+      user?.email ??
+      null,
+  };
+
   return (
     <html
       lang="en"
       className={`${saira.variable} ${elite.variable} ${cousine.variable} h-full`}
     >
       <body className="flex min-h-full flex-col bg-paper text-ink">
-        <CartProvider>
-          <CheckoutFlowProvider>
-            <GrainOverlay />
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
-            <CartOverlay />
-          </CheckoutFlowProvider>
-        </CartProvider>
+        <ToastProvider>
+          <CartProvider products={products}>
+            <CheckoutFlowProvider>
+              <GrainOverlay />
+              <SiteHeader auth={auth} />
+              <main className="flex-1">{children}</main>
+              <SiteFooter />
+              <CartOverlay />
+            </CheckoutFlowProvider>
+          </CartProvider>
+        </ToastProvider>
       </body>
     </html>
   );

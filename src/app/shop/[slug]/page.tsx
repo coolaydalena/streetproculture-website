@@ -1,58 +1,109 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
-import {
-  PRODUCTS,
-  categoryLabel,
-  getProductBySlug,
-  getRelated,
-} from "@/lib/products";
-import { SITE, formatPrice } from "@/lib/site";
+import { categoryLabel, getRelated } from "@/lib/products";
+import { getPublishedProductBySlug, getPublishedProducts } from "@/lib/products-db";
+import { SITE, SITE_URL, formatPrice } from "@/lib/site";
 import { Kicker } from "@/components/ui/primitives";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ProductCard } from "@/components/shop/product-card";
 import { ProductBuyPanel } from "@/components/shop/product-buy-panel";
+import { ProductGallery } from "@/components/shop/product-gallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
-/* Prerender one static page per product in the catalogue. */
-export function generateStaticParams() {
-  return PRODUCTS.map((p) => ({ slug: p.slug }));
+/* Prerender the current catalogue; new products render on-demand (dynamicParams). */
+export async function generateStaticParams() {
+  const products = await getPublishedProducts();
+  return products.map((p) => ({ slug: p.slug }));
 }
 
-/*
-  ── SEO — PARKED ────────────────────────────────────────────────────────────
-  UI first. When SEO work resumes, this route should also carry:
-    • canonical URL (alternates.canonical) + per-product openGraph/twitter image
-    • Product JSON-LD  (name, image, description, brand, offers → price,
-      priceCurrency PHP, availability, itemCondition)
-    • BreadcrumbList JSON-LD mirroring the visible breadcrumb
-    • sitemap.ts entry enumerating every /shop/[slug]
-  Emit the JSON-LD from a <script type="application/ld+json"> in this file.
-  Only the basic title/description is wired up for now.
-*/
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getPublishedProductBySlug(slug);
   if (!product) return {};
+
+  const url = `${SITE_URL}/shop/${product.slug}`;
+  const image = product.image.startsWith("http")
+    ? product.image
+    : `${SITE_URL}${product.image}`;
 
   return {
     title: product.name,
     description: product.blurb,
+    alternates: { canonical: `/shop/${product.slug}` },
+    openGraph: {
+      title: `${product.name} — ${SITE.name}`,
+      description: product.blurb,
+      url,
+      type: "website",
+      images: [{ url: image, alt: product.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} — ${SITE.name}`,
+      description: product.blurb,
+      images: [image],
+    },
   };
 }
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getPublishedProductBySlug(slug);
   if (!product) notFound();
 
-  const related = getRelated(product);
+  const related = getRelated(product, await getPublishedProducts());
   const category = categoryLabel(product.category);
+
+  const url = `${SITE_URL}/shop/${product.slug}`;
+  const images = (product.images.length > 0 ? product.images : [{ url: product.image }]).map(
+    (i) => (i.url.startsWith("http") ? i.url : `${SITE_URL}${i.url}`),
+  );
+
+  const productLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.blurb,
+    image: images,
+    sku: product.slug,
+    category,
+    ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
+    offers: {
+      "@type": "Offer",
+      url,
+      priceCurrency: "PHP",
+      price: product.price,
+      itemCondition: "https://schema.org/NewCondition",
+      availability: product.inStock
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+      seller: { "@type": "Organization", name: SITE.name },
+    },
+  };
+
+  const breadcrumbLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "The Arsenal", item: `${SITE_URL}/shop` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: category,
+        item: `${SITE_URL}/shop?category=${product.category}`,
+      },
+      { "@type": "ListItem", position: 3, name: product.name, item: url },
+    ],
+  };
 
   return (
     <div className="bg-paper pt-16">
+      <JsonLd data={productLd} />
+      <JsonLd data={breadcrumbLd} />
+
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb">
@@ -81,21 +132,13 @@ export default async function ProductPage({ params }: Props) {
         <article className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Image */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative border border-ink/15 p-3">
-              <p className="absolute -top-3 left-3 z-10 bg-oxblood px-2 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-paper">
-                {product.tag}
-              </p>
-              <div className="relative aspect-4/5 overflow-hidden bg-line">
-                <Image
-                  src={product.image}
-                  alt={`${product.name} — ${category} at ${SITE.name}`}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 45vw, 90vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
+            <ProductGallery
+              images={product.images}
+              fallback={product.image}
+              name={product.name}
+              category={category}
+              tag={product.tag}
+            />
           </div>
 
           {/* Details */}
@@ -128,7 +171,7 @@ export default async function ProductPage({ params }: Props) {
               {product.blurb}
             </p>
 
-            {product.mock && (
+            {product.isMock && (
               <p className="u-label mt-4 text-ink-soft/70">
                 Preview listing — final photography and pricing to follow.
               </p>
@@ -137,22 +180,24 @@ export default async function ProductPage({ params }: Props) {
             <ProductBuyPanel product={product} />
 
             {/* Spec table */}
-            <section className="mt-12">
-              <h2 className="u-label text-gold">Technical Breakdown</h2>
-              <dl className="mt-4 divide-y divide-line border-y border-line">
-                {product.specs.map((s) => (
-                  <div
-                    key={s.label}
-                    className="flex items-center justify-between gap-4 py-3"
-                  >
-                    <dt className="font-mono text-[11px] uppercase tracking-wider text-ink-soft">
-                      {s.label}
-                    </dt>
-                    <dd className="font-mono text-sm">{s.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
+            {product.specs.length > 0 && (
+              <section className="mt-12">
+                <h2 className="u-label text-gold">Technical Breakdown</h2>
+                <dl className="mt-4 divide-y divide-line border-y border-line">
+                  {product.specs.map((s) => (
+                    <div
+                      key={s.label}
+                      className="flex items-center justify-between gap-4 py-3"
+                    >
+                      <dt className="font-mono text-[11px] uppercase tracking-wider text-ink-soft">
+                        {s.label}
+                      </dt>
+                      <dd className="font-mono text-sm">{s.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
 
             {/* Pickup */}
             <section className="mt-12 border border-line bg-paper-card p-6">

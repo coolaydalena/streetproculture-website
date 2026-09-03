@@ -1,14 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { CATEGORIES, PRODUCTS, type ProductCategory } from "@/lib/products";
+import { CATEGORIES, type Product, type ProductCategory } from "@/lib/products";
 import { ProductCard } from "@/components/shop/product-card";
 
 type Filter = ProductCategory | "all";
 
 export function ShopBrowser({
+  products,
   initialFilter = "all",
 }: {
+  products: Product[];
   initialFilter?: Filter;
 }) {
   const [filter, setFilter] = useState<Filter>(initialFilter);
@@ -16,9 +18,9 @@ export function ShopBrowser({
   const visible = useMemo(
     () =>
       filter === "all"
-        ? PRODUCTS
-        : PRODUCTS.filter((p) => p.category === filter),
-    [filter],
+        ? products
+        : products.filter((p) => p.category === filter),
+    [filter, products],
   );
 
   const inStock = visible.filter((p) => p.inStock).length;
@@ -47,11 +49,15 @@ export function ShopBrowser({
         </p>
       </div>
 
-      <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((p, i) => (
-          <ProductCard key={p.id} product={p} index={i} />
-        ))}
-      </div>
+      {visible.length === 0 ? (
+        <p className="mt-14 text-ink-soft">Nothing in this category yet.</p>
+      ) : (
+        <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {visible.map((p, i) => (
+            <ProductCard key={p.id} product={p} index={i} />
+          ))}
+        </div>
+      )}
     </>
   );
 }
