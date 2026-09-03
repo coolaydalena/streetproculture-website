@@ -12,7 +12,7 @@ export function ArsenalPreview() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Kicker className="text-oxblood">The Arsenal — Preview</Kicker>
+            <Kicker className="text-oxblood">The Shop</Kicker>
             <h2 className="u-display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">
               Wear the Culture.
             </h2>
