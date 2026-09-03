@@ -31,12 +31,10 @@ export default function VisitPage() {
           <Reveal className="relative aspect-4/3 overflow-hidden border border-line bg-coal">
             <iframe
               title="Map to Street Pro Culture"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(
-                SITE.location.address,
-              )}&output=embed`}
+              src={SITE.location.embedMap}
               className="size-full grayscale-[0.3]"
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </Reveal>
 

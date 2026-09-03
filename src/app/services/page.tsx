@@ -44,8 +44,8 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        kicker="The PMS Bay"
-        title="Keep It Running."
+        kicker="Motorcycle Atelier"
+        title="The Services."
         intro="Preventive maintenance done by riders, not a call centre. We work on motorbikes, vintage builds and big bikes — booked through Facebook, serviced at the shop."
       />
 
@@ -63,12 +63,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-coal py-20 text-paper sm:py-28">
+      <section className="u-texture bg-coal py-20 text-paper sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <Reveal className="relative aspect-4/3 overflow-hidden bg-coal-soft">
             <Image
-              src="/images/home/heritage-garage.jpg"
-              alt="Workshop with a vintage motorcycle"
+              src="/images/services/pms-bay.jpg"
+              alt="Motorcycle up on the stand in the Street Pro Culture PMS bay"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
               className="object-cover"

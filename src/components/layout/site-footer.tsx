@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { NAV, SITE } from "@/lib/site";
-import { Checker } from "@/components/ui/primitives";
+import { Checker, FacebookIcon } from "@/components/ui/primitives";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-coal text-paper">
+    <footer className="u-texture bg-coal text-paper">
       <Checker className="text-paper/30" />
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
@@ -20,6 +20,17 @@ export function SiteFooter() {
               {SITE.motto}. Caps and helmets built for the street, made the
               analog way — in {SITE.location.country}.
             </p>
+            <div className="flex gap-2 items-center -ms-2">
+              <a
+                href={SITE.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Street Pro Culture on Facebook"
+                className="mt-6 inline-flex size-9 items-center justify-center rounded-full text-paper/70 transition-colors hover:border-gold hover:text-gold"
+              >
+                <FacebookIcon className="size-5" />
+              </a>
+            </div>
           </div>
 
           <div>
@@ -41,16 +52,6 @@ export function SiteFooter() {
           <div>
             <p className="u-label text-paper/50">Connect</p>
             <ul className="mt-4 space-y-3">
-              <li>
-                <a
-                  href={SITE.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="u-label text-paper/80 transition-colors hover:text-gold"
-                >
-                  Facebook ↗
-                </a>
-              </li>
               <li>
                 <a
                   href={SITE.social.upshift}

@@ -6,8 +6,12 @@ import { ProductCard } from "@/components/shop/product-card";
 
 type Filter = ProductCategory | "all";
 
-export function ShopBrowser() {
-  const [filter, setFilter] = useState<Filter>("all");
+export function ShopBrowser({
+  initialFilter = "all",
+}: {
+  initialFilter?: Filter;
+}) {
+  const [filter, setFilter] = useState<Filter>(initialFilter);
 
   const visible = useMemo(
     () =>
@@ -21,7 +25,7 @@ export function ShopBrowser() {
 
   return (
     <>
-      <div className="flex flex-col gap-4 border-y border-line py-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 border-b border-line pt-4 pb-12 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap gap-2">
           {CATEGORIES.map((c) => (
             <button
@@ -43,9 +47,9 @@ export function ShopBrowser() {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((p) => (
-          <ProductCard key={p.id} product={p} />
+      <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+        {visible.map((p, i) => (
+          <ProductCard key={p.id} product={p} index={i} />
         ))}
       </div>
     </>

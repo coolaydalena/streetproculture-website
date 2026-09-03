@@ -29,9 +29,15 @@
   --color-coal: var(--coal);
   --color-coal-soft: var(--coal-soft);
 
-  --font-heading: var(--font-saira), "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-elite), "Courier New", ui-monospace, monospace;
-  --font-mono: var(--font-courier), ui-monospace, "Courier New", monospace;
+  /*
+    --font-mono-face (Cousine) sits in every stack as the first fallback: it is
+    the only one of our three families that ships a ₱ peso-sign glyph (U+20B1,
+    emitted by formatPrice), so prices rendered in the heading or body font get
+    a consistent ₱ instead of a per-OS system substitute.
+  */
+  --font-heading: var(--font-saira), var(--font-mono-face), "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-elite), var(--font-mono-face), "Courier New", ui-monospace, monospace;
+  --font-mono: var(--font-mono-face), ui-monospace, "Courier New", monospace;
 
   --radius: 0.125rem;
 }
@@ -80,15 +86,60 @@ body {
   opacity: 0.4;
 }
 
-/* Worn-print grain overlay */
+/* Worn-print grain overlay — light speckle over everything (matches prototype) */
 .u-grain {
   position: fixed;
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.045;
-  mix-blend-mode: multiply;
+  opacity: 0.09;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/*
+  Section-level paper/canvas grain. Add `u-texture` to any block (dark hero,
+  footer, cards) for a denser, more tactile roughness than the global speckle.
+  Darkens on light surfaces, lifts on dark ones via soft-light blending.
+*/
+.u-texture {
+  position: relative;
+  isolation: isolate;
+}
+.u-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+  mix-blend-mode: soft-light;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.15' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23t)'/%3E%3C/svg%3E");
+  background-size: 140px 140px, 420px 420px;
+}
+
+/*
+  Aged-photo treatment for images. Put `u-vintage` on the wrapping figure:
+  the child <img> gets a warm, faded colour grade; the figure gets a burnt
+  vignette, an amber/oxblood tint wash and a fine film grain on top.
+*/
+.u-vintage > img {
+  filter: sepia(0.34) saturate(0.78) contrast(1.07) brightness(1.03)
+    hue-rotate(-8deg);
+}
+.u-vintage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23v)' opacity='0.5'/%3E%3C/svg%3E"),
+    radial-gradient(115% 115% at 50% 32%, transparent 52%, rgba(20, 19, 18, 0.5) 100%),
+    linear-gradient(205deg, rgba(227, 160, 39, 0.16), rgba(139, 0, 0, 0.12) 60%, rgba(20, 19, 18, 0.2));
+  background-size: 160px 160px, cover, cover;
+  mix-blend-mode: multiply;
 }
 
 /* Checkered flag strip */
@@ -102,8 +153,52 @@ body {
   background-position: 0 0, 0 8px, 8px -8px, -8px 0;
 }
 
+/*
+  Hero carousel — the active slide's background performs a slow Ken Burns
+  push-in; its copy rises in, staggered, each time the slide changes.
+*/
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.hero-zoom {
+  animation: hero-zoom 7s ease-out both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-rise > * {
+  animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-rise > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.hero-rise > *:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.hero-rise > *:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .hero-zoom,
+  .hero-rise > * {
+    animation: none;
   }
 }

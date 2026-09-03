@@ -1,8 +1,8 @@
 import { Hero } from "@/components/home/hero";
 import { Manifesto } from "@/components/home/manifesto";
-import { Heritage } from "@/components/home/heritage";
+import { OneRoof } from "@/components/home/one-roof";
+import { Brands } from "@/components/home/brands";
 import { ArsenalPreview } from "@/components/home/arsenal-preview";
-import { Pillars } from "@/components/home/pillars";
 import { PhysicalShop } from "@/components/home/physical-shop";
 
 export default function HomePage() {
@@ -10,9 +10,9 @@ export default function HomePage() {
     <>
       <Hero />
       <Manifesto />
-      <Heritage />
+      <OneRoof />
+      <Brands />
       <ArsenalPreview />
-      <Pillars />
       <PhysicalShop />
     </>
   );

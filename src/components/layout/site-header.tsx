@@ -32,7 +32,7 @@ export function SiteHeader() {
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         solid
           ? "border-b border-line bg-paper/95 text-ink backdrop-blur"
-          : "border-b border-transparent bg-transparent text-paper"
+          : "border-b border-transparent! bg-transparent text-paper"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -60,7 +60,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`u-label transition-opacity hover:opacity-100 ${
+                className={`font-bold u-label transition-opacity hover:opacity-100 ${
                   active ? "opacity-100" : "opacity-60"
                 }`}
               >
@@ -74,15 +74,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={SITE.social.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden p-2 opacity-70 transition-opacity hover:opacity-100 sm:block"
-            aria-label="Street Pro Culture on Facebook"
-          >
-            <FacebookGlyph />
-          </a>
           <button
             type="button"
             onClick={openCart}
@@ -130,17 +121,5 @@ export function SiteHeader() {
         </div>
       )}
     </header>
-  );
-}
-
-function FacebookGlyph() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="size-4 fill-current"
-      aria-hidden="true"
-    >
-      <path d="M13.5 21v-8.2h2.8l.42-3.25H13.5V7.47c0-.94.26-1.58 1.62-1.58h1.73V3a23.2 23.2 0 0 0-2.52-.13c-2.5 0-4.2 1.52-4.2 4.32v2.41H7.32v3.25h2.6V21h3.58Z" />
-    </svg>
   );
 }

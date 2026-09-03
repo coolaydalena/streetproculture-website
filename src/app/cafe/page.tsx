@@ -15,8 +15,8 @@ export default function CafePage() {
   return (
     <>
       <PageHero
-        kicker="The Cafe"
-        title="Pull Up. Sit Down."
+        kicker="Pull Up. Sit Down."
+        title="The Cafe"
         intro="A cafe corner inside the shop, run in partnership with Upshift. Coffee, a seat, and somewhere to be while the bike is on the lift or the traffic clears."
       />
 

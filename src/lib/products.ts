@@ -234,3 +234,18 @@ export function getFeatured(): Product[] {
 export function getProduct(id: string): Product | undefined {
   return PRODUCTS.find((p) => p.id === id);
 }
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return PRODUCTS.find((p) => p.slug === slug);
+}
+
+/** Other in-stock gear in the same category, for the detail page's related rail. */
+export function getRelated(product: Product, limit = 3): Product[] {
+  return PRODUCTS.filter(
+    (p) => p.id !== product.id && p.category === product.category,
+  ).slice(0, limit);
+}
+
+export function categoryLabel(category: ProductCategory): string {
+  return CATEGORIES.find((c) => c.id === category)?.label ?? category;
+}

@@ -1,17 +1,42 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
-import { Check, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import type { Product } from "@/lib/products";
 import { formatPrice } from "@/lib/site";
 import { useCart } from "@/lib/cart-context";
 import { useCheckoutFlow } from "@/lib/checkout-flow";
 
-export function ProductCard({ product }: { product: Product }) {
+/*
+  Non-uniform shop grid — ported from the base44 prototype.
+  Card height varies by two cycling rules keyed to the card's position:
+  a staggered top offset, and a rotating image aspect ratio.
+*/
+const OFFSETS = ["sm:mt-0", "sm:mt-12"];
+const ASPECTS = [
+  "aspect-3/4",
+  "aspect-4/3",
+  "aspect-3/4",
+  "aspect-4/5",
+  "aspect-3/4",
+  "aspect-4/3",
+];
+
+export function ProductCard({
+  product,
+  index = 0,
+}: {
+  product: Product;
+  index?: number;
+}) {
   const { add } = useCart();
   const { openCart } = useCheckoutFlow();
   const [added, setAdded] = useState(false);
+
+  const offset = OFFSETS[index % OFFSETS.length];
+  const aspect = ASPECTS[index % ASPECTS.length];
 
   function quickAdd() {
     add(product.id);
@@ -21,61 +46,70 @@ export function ProductCard({ product }: { product: Product }) {
   }
 
   return (
-    <article className="group flex flex-col border border-line bg-paper-card">
-      <div className="relative aspect-4/5 overflow-hidden bg-coal">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <span className="u-label absolute left-3 top-3 bg-coal/85 px-2 py-1 text-paper">
+    <article className={`group ${offset}`}>
+      <div className="relative border border-ink/15 p-3">
+        <p className="absolute -top-3 left-3 z-10 bg-oxblood px-2 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-paper">
           {product.tag}
-        </span>
+        </p>
 
-        {/* Technical breakdown — revealed on hover / focus */}
-        <div className="absolute inset-0 flex flex-col justify-end bg-coal/85 p-5 text-paper opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
-          <p className="u-label text-gold">Technical Breakdown</p>
-          <dl className="mt-3 divide-y divide-paper/15">
-            {product.specs.map((s) => (
-              <div key={s.label} className="flex justify-between gap-4 py-1.5">
-                <dt className="u-label text-paper/50">{s.label}</dt>
-                <dd className="u-label text-paper">{s.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </div>
-
-      <div className="flex flex-1 flex-col p-5">
-        <div className="flex items-baseline justify-between gap-3">
-          <h3 className="u-display text-2xl">{product.name}</h3>
-          <p className="u-display text-xl text-oxblood">
-            {formatPrice(product.price)}
-          </p>
-        </div>
-        <p className="mt-2 flex-1 text-sm text-ink-soft">{product.blurb}</p>
-        {product.mock && (
-          <p className="u-label mt-3 text-ink-soft/70">Preview listing</p>
-        )}
-
-        <button
-          type="button"
-          onClick={quickAdd}
-          className="u-label mt-5 flex items-center justify-center gap-2 border border-ink py-3 transition-colors hover:bg-ink hover:text-paper"
+        <Link
+          href={`/shop/${product.slug}`}
+          aria-label={product.name}
+          className={`relative block overflow-hidden bg-line ${aspect}`}
         >
-          {added ? (
-            <>
-              <Check className="size-3.5" strokeWidth={3} /> Added
-            </>
-          ) : (
-            <>
-              <Plus className="size-3.5" strokeWidth={3} /> Quick Add
-            </>
-          )}
-        </button>
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+
+          {/* Technical breakdown — slides up on hover / focus */}
+          <div className="absolute inset-0 flex translate-y-full flex-col justify-between gap-6 bg-ink/95 p-6 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                Technical Breakdown
+              </p>
+              <p className="u-display mt-1 text-2xl text-paper">{product.name}</p>
+            </div>
+            <ul className="space-y-2">
+              {product.specs.map((s) => (
+                <li
+                  key={s.label}
+                  className="flex justify-between gap-4 border-b border-paper/20 pb-2 font-mono text-[10px] uppercase tracking-wider text-paper/70"
+                >
+                  <span>{s.label}</span>
+                  <span className="text-paper">{s.value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Link>
       </div>
+
+      <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-ink/20 pt-3">
+        <h3 className="u-display text-2xl">
+          <Link href={`/shop/${product.slug}`} className="hover:text-oxblood">
+            {product.name}
+          </Link>
+        </h3>
+        <p className="font-mono text-lg text-oxblood">{formatPrice(product.price)}</p>
+      </div>
+      <p className="mt-2 text-xs leading-relaxed text-ink-soft">{product.blurb}</p>
+      {product.mock && (
+        <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-soft/70">
+          Preview listing
+        </p>
+      )}
+
+      <button
+        type="button"
+        onClick={quickAdd}
+        className="mt-4 flex w-full items-center justify-center gap-2 border border-ink py-3 font-mono text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-ink hover:text-paper"
+      >
+        <Plus className="size-3.5" strokeWidth={3} /> {added ? "Added" : "Quick Add"}
+      </button>
     </article>
   );
 }

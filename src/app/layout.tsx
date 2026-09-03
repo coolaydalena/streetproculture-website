@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Saira_Condensed, Special_Elite, Courier_Prime } from "next/font/google";
+import { Saira_Condensed, Special_Elite, Cousine } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import { CheckoutFlowProvider } from "@/lib/checkout-flow";
@@ -23,9 +23,12 @@ const elite = Special_Elite({
   display: "swap",
 });
 
-const courier = Courier_Prime({
-  variable: "--font-courier",
-  subsets: ["latin"],
+// Cousine — a Courier New / Courier Prime metric-compatible slab mono that,
+// unlike Courier Prime, actually ships a ₱ peso-sign glyph (U+20B1, emitted by
+// formatPrice()). The glyph lives in the latin-ext subset.
+const cousine = Cousine({
+  variable: "--font-mono-face",
+  subsets: ["latin", "latin-ext"],
   weight: ["400", "700"],
   display: "swap",
 });
@@ -56,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${saira.variable} ${elite.variable} ${courier.variable} h-full`}
+      className={`${saira.variable} ${elite.variable} ${cousine.variable} h-full`}
     >
       <body className="flex min-h-full flex-col bg-paper text-ink">
         <CartProvider>

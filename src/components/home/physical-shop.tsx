@@ -7,7 +7,7 @@ export function PhysicalShop() {
   return (
     <section className="relative overflow-hidden bg-coal py-24 text-paper sm:py-32">
       <Image
-        src="/images/home/shop-interior.jpg"
+        src="/images/home/one-roof.jpg"
         alt=""
         fill
         sizes="100vw"
