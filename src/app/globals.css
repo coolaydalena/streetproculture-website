@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/*
+  Street Pro Culture design tokens — ported from the base44 prototype
+  (assets/index-DZZu6_YP.css :root). HSL values converted to hex.
+*/
+:root {
+  --paper: #f5f5dc; /* hsl(60 55% 91%) cream page background */
+  --paper-card: #f8f8ea; /* hsl(60 45% 95%) */
+  --ink: #2b2b2b; /* hsl(0 0% 17%) near-black text */
+  --ink-soft: #595959; /* hsl(0 0% 35%) muted foreground */
+  --oxblood: #8b0000; /* hsl(0 100% 27%) primary / accent */
+  --oxblood-deep: #6d0000;
+  --gold: #e3a027; /* amber accent (logo "Culture") */
+  --line: #d9d9c4; /* hsl(60 25% 83%) borders / inputs */
+  --coal: #141312; /* dark inverted sections */
+  --coal-soft: #1f1d1b;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-card: var(--paper-card);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-oxblood: var(--oxblood);
+  --color-oxblood-deep: var(--oxblood-deep);
+  --color-gold: var(--gold);
+  --color-line: var(--line);
+  --color-coal: var(--coal);
+  --color-coal-soft: var(--coal-soft);
+
+  --font-heading: var(--font-saira), "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-elite), "Courier New", ui-monospace, monospace;
+  --font-mono: var(--font-courier), ui-monospace, "Courier New", monospace;
+
+  --radius: 0.125rem;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--coal);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--oxblood);
+  color: var(--paper);
+}
+
+/* Headlines — condensed, tight, uppercase */
+.u-display {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+}
+
+/* Small technical labels — mono, wide tracking */
+.u-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.6875rem;
+}
+
+.u-rule {
+  border-top: 1px solid currentColor;
+  opacity: 0.4;
+}
+
+/* Worn-print grain overlay */
+.u-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Checkered flag strip */
+.u-checker {
+  background-image:
+    linear-gradient(45deg, currentColor 25%, transparent 25%),
+    linear-gradient(-45deg, currentColor 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, currentColor 75%),
+    linear-gradient(-45deg, transparent 75%, currentColor 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
