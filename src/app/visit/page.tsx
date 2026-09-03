@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { PageHero } from "@/components/layout/page-hero";
 import { Cta, Kicker } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/reveal";
@@ -29,13 +28,15 @@ export default function VisitPage() {
 
       <section className="bg-paper py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
-          <Reveal className="relative aspect-4/3 overflow-hidden bg-coal">
-            <Image
-              src="/images/home/shop-interior.jpg"
-              alt="Inside the Street Pro Culture shop"
-              fill
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover"
+          <Reveal className="relative aspect-4/3 overflow-hidden border border-line bg-coal">
+            <iframe
+              title="Map to Street Pro Culture"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(
+                SITE.location.address,
+              )}&output=embed`}
+              className="size-full grayscale-[0.3]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
           </Reveal>
 
@@ -46,27 +47,31 @@ export default function VisitPage() {
             </h2>
 
             <dl className="mt-6 divide-y divide-line border-y border-line">
-              <div className="flex justify-between gap-4 py-3">
-                <dt className="u-label text-ink-soft">Location</dt>
-                <dd className="u-label text-right">{SITE.location.line}</dd>
+              <div className="flex flex-col gap-1 py-3 sm:flex-row sm:justify-between sm:gap-4">
+                <dt className="u-label text-ink-soft">Address</dt>
+                <dd className="text-sm sm:max-w-xs sm:text-right">
+                  {SITE.location.address}
+                </dd>
               </div>
               <div className="flex justify-between gap-4 py-3">
                 <dt className="u-label text-ink-soft">Hours</dt>
                 <dd className="u-label text-right">{SITE.location.hours}</dd>
               </div>
               <div className="flex justify-between gap-4 py-3">
-                <dt className="u-label text-ink-soft">Contact</dt>
-                <dd className="u-label text-right">Messenger / Facebook</dd>
+                <dt className="u-label text-ink-soft">Phone</dt>
+                <dd className="u-label text-right">
+                  <a href={SITE.location.phoneHref} className="hover:text-oxblood">
+                    {SITE.location.phone}
+                  </a>
+                </dd>
               </div>
             </dl>
 
-            <p className="mt-4 text-sm text-ink-soft">
-              Exact address, map pin and phone are being finalised — message us on
-              Facebook for directions in the meantime.
-            </p>
-
-            <div className="mt-8">
-              <Cta href={SITE.social.facebook}>Message on Facebook</Cta>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Cta href={SITE.location.map}>Open in Maps</Cta>
+              <Cta href={SITE.social.facebook} variant="outline">
+                Message on Facebook
+              </Cta>
             </div>
           </Reveal>
         </div>

@@ -37,7 +37,7 @@ export const PRODUCTS: Product[] = [
     category: "caps",
     tag: "CAP — 01",
     name: "Checker Snapback",
-    price: 38,
+    price: 1750,
     image: "/images/products/checker-snapback.jpg",
     blurb:
       "Structured six-panel in jet black with the woven checker patch. Broken in before you even open the box.",
@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
     category: "caps",
     tag: "CAP — 02",
     name: "Heritage Field Cap",
-    price: 36,
+    price: 1650,
     image: "/images/products/heritage-field-cap.jpg",
     blurb:
       "Off-white flat brim with the black badge patch. Ages like a well-kept tank — better every season.",
@@ -75,7 +75,7 @@ export const PRODUCTS: Product[] = [
     category: "helmets",
     tag: "HELMET — 01",
     name: "Trackside Helmet",
-    price: 129,
+    price: 6500,
     image: "/images/products/trackside-helmet.jpg",
     blurb:
       "Matte black shell with a single cream stripe. Quiet, heavy, and honest — like a good engine.",
@@ -93,7 +93,7 @@ export const PRODUCTS: Product[] = [
     category: "helmets",
     tag: "HELMET — 02",
     name: "Oxblood Runner",
-    price: 139,
+    price: 7200,
     image: "/images/products/oxblood-runner.jpg",
     blurb:
       "Deep oxblood shell with a cream racing stripe. For riders who want the paint to remember every ride.",
@@ -113,7 +113,7 @@ export const PRODUCTS: Product[] = [
     category: "helmets",
     tag: "HELMET — 03",
     name: "CGM Italia Full-Face",
-    price: 189,
+    price: 9800,
     image: PLACEHOLDER,
     blurb:
       "Italian-made full-face from CGM. ECE-rated shell, drop-down sun visor, built for daily street miles.",
@@ -133,7 +133,7 @@ export const PRODUCTS: Product[] = [
     category: "helmets",
     tag: "HELMET — 04",
     name: "NZI Fibra Open-Face",
-    price: 165,
+    price: 8500,
     image: PLACEHOLDER,
     blurb:
       "Fibreglass open-face from NZI. Lightweight lay-up, retro profile, bubble-visor ready.",
@@ -153,7 +153,7 @@ export const PRODUCTS: Product[] = [
     category: "cases",
     tag: "CASE — 01",
     name: "X-land Top Case 45L",
-    price: 119,
+    price: 6900,
     image: PLACEHOLDER,
     blurb:
       "Hard-shell 45-litre top case from X-land. Full-face fit, quick-release mount, keyed lock.",
@@ -173,7 +173,7 @@ export const PRODUCTS: Product[] = [
     category: "merch",
     tag: "MERCH — 01",
     name: "OZ Racing Moto Tee",
-    price: 32,
+    price: 1450,
     image: PLACEHOLDER,
     blurb:
       "Heavyweight cotton tee from the OZ Racing moto-lifestyle line. Screen-printed, pre-shrunk.",
@@ -193,7 +193,7 @@ export const PRODUCTS: Product[] = [
     category: "merch",
     tag: "MERCH — 02",
     name: "Culture Sticker Pack",
-    price: 8,
+    price: 350,
     image: PLACEHOLDER,
     blurb:
       "Six die-cut vinyl stickers — badge, wordmark, checker, bolt. Weatherproof, tank-safe.",
@@ -212,7 +212,7 @@ export const PRODUCTS: Product[] = [
     category: "merch",
     tag: "MERCH — 03",
     name: "Heritage Woven Patch",
-    price: 12,
+    price: 450,
     image: PLACEHOLDER,
     blurb:
       "Iron-on woven badge patch. The same one that goes on the Heritage Field Cap.",

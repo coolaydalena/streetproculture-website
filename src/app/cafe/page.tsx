@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/page-hero";
 import { Cta, Kicker } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/reveal";
@@ -26,6 +27,15 @@ export default function CafePage() {
             <h2 className="u-display mt-4 text-[clamp(2.25rem,5vw,3.5rem)]">
               Street Pro × Upshift.
             </h2>
+            <div className="mt-6 inline-flex border border-line bg-white px-6 py-4">
+              <Image
+                src="/images/brands/upshift.png"
+                alt="Upshift Manila logo"
+                width={200}
+                height={110}
+                className="h-16 w-auto object-contain"
+              />
+            </div>
             <p className="mt-6 text-lg leading-relaxed text-ink-soft">
               Upshift handles the coffee; we handle the garage. It&apos;s the same
               idea from both sides of the counter — do a few things properly and

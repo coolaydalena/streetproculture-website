@@ -61,7 +61,27 @@ export function SiteFooter() {
                   Upshift Cafe ↗
                 </a>
               </li>
-              <li className="u-label text-paper/50 pt-2">{SITE.location.line}</li>
+              <li>
+                <a
+                  href={SITE.location.map}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="u-label text-paper/80 transition-colors hover:text-gold"
+                >
+                  Find us on Maps ↗
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE.location.phoneHref}
+                  className="u-label text-paper/80 transition-colors hover:text-gold"
+                >
+                  {SITE.location.phone}
+                </a>
+              </li>
+              <li className="pt-2 text-xs leading-relaxed text-paper/50">
+                {SITE.location.address}
+              </li>
             </ul>
           </div>
         </div>

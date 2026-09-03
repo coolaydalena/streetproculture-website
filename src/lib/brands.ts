@@ -5,6 +5,7 @@ export type Brand = {
   origin: string;
   blurb: string;
   facebook: string;
+  logo: string;
 };
 
 export const BRANDS: Brand[] = [
@@ -16,6 +17,7 @@ export const BRANDS: Brand[] = [
     blurb:
       "Italian helmet house building road, jet and full-face lids with a focus on everyday fit and certified protection.",
     facebook: "https://www.facebook.com/share/1DZQv5isyV/?mibextid=wwXIfr",
+    logo: "/images/brands/cgm-italia.png",
   },
   {
     id: "nzi-fibra",
@@ -25,6 +27,7 @@ export const BRANDS: Brand[] = [
     blurb:
       "Fibreglass-shell helmets from NZI — light lay-ups and a heritage silhouette favoured by cafe and classic riders.",
     facebook: "https://www.facebook.com/share/1D4J5UVrrY/?mibextid=wwXIfr",
+    logo: "/images/brands/nzi-fibra.png",
   },
   {
     id: "x-land",
@@ -34,6 +37,7 @@ export const BRANDS: Brand[] = [
     blurb:
       "Hard cases, top boxes and mounting hardware built for touring loads and daily commuting security.",
     facebook: "https://www.facebook.com/share/1J6ePybA5v/?mibextid=wwXIfr",
+    logo: "/images/brands/x-land.png",
   },
   {
     id: "oz-racing",
@@ -43,5 +47,6 @@ export const BRANDS: Brand[] = [
     blurb:
       "The moto-lifestyle line — tees, caps and ride-day accessories that carry the OZ Racing name off the grid.",
     facebook: "https://www.facebook.com/share/19RFepVYx1/?mibextid=wwXIfr",
+    logo: "/images/brands/oz-racing.png",
   },
 ];

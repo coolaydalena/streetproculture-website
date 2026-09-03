@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
@@ -26,10 +27,14 @@ export default function BrandsPage() {
             {BRANDS.map((brand, i) => (
               <Reveal key={brand.id} delay={i * 0.06} className="bg-paper">
                 <div className="flex h-full flex-col p-8">
-                  <div className="flex aspect-3/1 items-center justify-center border border-line bg-coal">
-                    <span className="u-display text-3xl text-paper sm:text-4xl">
-                      {brand.name}
-                    </span>
+                  <div className="flex aspect-3/1 items-center justify-center border border-line bg-white p-8">
+                    <Image
+                      src={brand.logo}
+                      alt={`${brand.name} logo`}
+                      width={320}
+                      height={120}
+                      className="max-h-full w-auto object-contain"
+                    />
                   </div>
                   <p className="u-label mt-5 text-oxblood">
                     {brand.category} · {brand.origin}

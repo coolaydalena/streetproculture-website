@@ -3,11 +3,15 @@ export const SITE = {
   tagline: "Built for the Street",
   motto: "Godly • Good • Goods",
   url: "https://streetproculture.com",
-  // Physical location — PLACEHOLDER, awaiting real address / hours from the client.
   location: {
-    line: "Metro Manila, Philippines",
+    line: "Paco, Manila",
+    address:
+      "P&R Mansion Unit 105, 1515 Sto. Sepulcro St. cor. Pres. Quirino Ave., Brgy. 682, Paco, Manila 1007, Philippines",
     country: "Philippines",
-    hours: "Tue – Sun · 10:00 – 19:00",
+    hours: "Daily · 8:00 AM – 5:00 PM",
+    phone: "+63 987 654 3210",
+    phoneHref: "tel:+639876543210",
+    map: "https://maps.app.goo.gl/2SeLJ3EUCt49RsDq8",
   },
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61555906356217",
@@ -26,10 +30,10 @@ export const NAV: NavItem[] = [
   { label: "Visit", href: "/visit" },
 ];
 
-// Prototype prices are shown in USD ($). Kept as-is for a faithful port;
-// flip `CURRENCY` / `LOCALE` here when the real PHP catalog lands.
-export const CURRENCY = "USD";
-export const LOCALE = "en-US";
+// Store currency. Product amounts in `src/lib/products.ts` are placeholder
+// figures pending the real catalogue.
+export const CURRENCY = "PHP";
+export const LOCALE = "en-PH";
 
 // Online checkout is deferred until Paymongo is wired up. While false the
 // checkout form renders but its submit button stays disabled.
@@ -39,5 +43,6 @@ export function formatPrice(amount: number): string {
   return new Intl.NumberFormat(LOCALE, {
     style: "currency",
     currency: CURRENCY,
+    maximumFractionDigits: 0,
   }).format(amount);
 }
