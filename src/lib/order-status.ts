@@ -59,8 +59,8 @@ export function isActiveStatus(status: OrderStatus): boolean {
 }
 
 /**
- * Admin-driven status transitions. Automatic ones (webhook → paid, system →
- * expired) are not offered here.
+ * Admin-driven status transitions. Automatic ones (webhook → paid, webhook →
+ * expired on a PayMongo `checkout_session.expired` event) are not offered here.
  */
 export function nextStatuses(order: {
   status: OrderStatus;

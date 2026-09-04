@@ -67,24 +67,6 @@ function rowToOrder(row: any): Order {
   };
 }
 
-type AdminClient = ReturnType<typeof createSupabaseAdminClient>;
-
-/** Lazily flip a stale unpaid online order to `expired` (best-effort). */
-async function sweepExpiry(admin: AdminClient, order: Order): Promise<Order> {
-  if (
-    order.status === "pending_payment" &&
-    order.expiresAt &&
-    new Date(order.expiresAt).getTime() < Date.now()
-  ) {
-    await admin
-      .from("streetproculture_orders")
-      .update({ status: "expired" })
-      .eq("id", order.id)
-      .eq("status", "pending_payment");
-    return { ...order, status: "expired" };
-  }
-  return order;
-}
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
 /** Public order tracking — service-role lookup by the capability token. */
@@ -98,7 +80,7 @@ export async function getOrderByToken(token: string): Promise<Order | null> {
 
   if (error) throw error;
   if (!data) return null;
-  return sweepExpiry(admin, rowToOrder(data));
+  return rowToOrder(data);
 }
 
 /** The signed-in user's own orders (RLS enforced). */
@@ -111,8 +93,7 @@ export async function listOrdersForUser(): Promise<Order[]> {
 
   if (error) throw error;
 
-  const admin = createSupabaseAdminClient();
-  return Promise.all((data ?? []).map((r) => sweepExpiry(admin, rowToOrder(r))));
+  return (data ?? []).map(rowToOrder);
 }
 
 /** Every order — superadmin only (RLS + caller also runs requireSuperadmin). */
@@ -125,8 +106,7 @@ export async function listOrdersForAdmin(): Promise<Order[]> {
 
   if (error) throw error;
 
-  const admin = createSupabaseAdminClient();
-  return Promise.all((data ?? []).map((r) => sweepExpiry(admin, rowToOrder(r))));
+  return (data ?? []).map(rowToOrder);
 }
 
 export async function getOrderForAdmin(id: string): Promise<Order | null> {
@@ -140,6 +120,5 @@ export async function getOrderForAdmin(id: string): Promise<Order | null> {
   if (error) throw error;
   if (!data) return null;
 
-  const admin = createSupabaseAdminClient();
-  return sweepExpiry(admin, rowToOrder(data));
+  return rowToOrder(data);
 }

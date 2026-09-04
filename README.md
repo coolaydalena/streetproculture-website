@@ -38,8 +38,8 @@ npm run lint
 - Webhook: `src/app/api/paymongo/webhook/route.ts` (raw-body HMAC verify,
   service-role client, idempotent). Register it per environment in the PayMongo
   dashboard and set `PAYMONGO_WEBHOOK_SECRET`.
-- Env: `PAYMONGO_SECRET_KEY`, `PAYMONGO_WEBHOOK_SECRET`, `SUPABASE_SECRET_KEY`,
-  `CRON_SECRET` — see `.env.example`. Vercel: test keys on Preview (staging),
+- Env: `PAYMONGO_SECRET_KEY`, `PAYMONGO_WEBHOOK_SECRET`, `SUPABASE_SECRET_KEY`
+  — see `.env.example`. Vercel: test keys on Preview (staging),
   live keys on Production (main).
 
 ## Deferred
