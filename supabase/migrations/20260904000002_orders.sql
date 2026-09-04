@@ -38,6 +38,13 @@ create table public.streetproculture_orders (
   delivery_address               text,
   delivery_city                  text,
   pickup_notes                   text,
+  -- Optional map pin for delivery orders — the customer can drop a pin at
+  -- checkout so the courier has exact coordinates alongside the typed address.
+  -- Nullable; pickup orders never set it.
+  delivery_lat                   numeric(9, 6)
+                                   check (delivery_lat is null or (delivery_lat >= -90 and delivery_lat <= 90)),
+  delivery_lng                   numeric(9, 6)
+                                   check (delivery_lng is null or (delivery_lng >= -180 and delivery_lng <= 180)),
 
   -- Money — all integer centavos, PHP.
   subtotal_centavos              integer not null check (subtotal_centavos >= 0),
