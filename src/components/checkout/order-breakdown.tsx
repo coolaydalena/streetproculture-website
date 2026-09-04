@@ -35,7 +35,7 @@ export function OrderBreakdown({
       <div className="flex items-center justify-between">
         <dt className="text-ink-soft">
           Service Fee
-          {showFeeHint && (
+          {showFeeHint && false && (
             <span className="ml-1 text-xs text-ink-soft/70">
               (handling {formatCentavos(ownFeeCentavos!)} + processing{" "}
               {formatCentavos(paymongoFeeCentavos!)})
