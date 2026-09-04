@@ -2,6 +2,10 @@ import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 
 // Bulk-expire stale unpaid online orders. Wired to a Vercel Cron (vercel.json)
 // and guarded by CRON_SECRET, which Vercel injects as a Bearer token.
+//
+// Runs once a day (Vercel Hobby caps crons at daily). This is only a safety
+// net — orders also lazily self-expire when read — so the coarse schedule is
+// fine; it just sweeps orders nobody ever opens.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
