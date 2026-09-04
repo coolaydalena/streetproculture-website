@@ -2,6 +2,7 @@ import { revalidateTag } from "next/cache";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { PRODUCTS_TAG } from "@/lib/products-db";
 import {
+  PAYMONGO_MERCHANT_ID,
   readPaidEvent,
   verifyWebhookSignature,
   type PayMongoWebhookEvent,
@@ -68,6 +69,9 @@ export async function POST(request: Request) {
   const eventId = evt.data?.id;
   const eventType = evt.data?.attributes?.type;
   if (!eventId || !eventType) return OK();
+
+  const merchantId = evt.data?.attributes?.data?.attributes?.metadata?.merchant_id;
+  if (merchantId !== PAYMONGO_MERCHANT_ID) return OK();
 
   const admin = createSupabaseAdminClient();
 

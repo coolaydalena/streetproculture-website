@@ -15,6 +15,9 @@ const API_BASE =
 const SECRET_KEY = process.env.PAYMONGO_SECRET_KEY ?? "";
 const WEBHOOK_SECRET = process.env.PAYMONGO_WEBHOOK_SECRET ?? "";
 
+/** Stamped on every payment's metadata and checked on every webhook. */
+export const PAYMONGO_MERCHANT_ID = "streetproculture";
+
 /**
  * PayMongo Platforms. When SPC runs as a child account under our platform:
  *  - `PAYMONGO_SECRET_KEY` is the PLATFORM (parent) key — the child has none.

@@ -14,6 +14,7 @@ import {
 import {
   buildOwnFeeSplit,
   createCheckoutSession,
+  PAYMONGO_MERCHANT_ID,
   type PayMongoLineItem,
 } from "@/lib/paymongo";
 import { checkoutSchema, type CheckoutValues } from "@/lib/validation/checkout";
@@ -276,7 +277,11 @@ export async function createCheckout(
       successUrl: `${SITE_URL}/checkout/success?token=${order.public_token}`,
       cancelUrl: `${SITE_URL}/checkout/cancelled?token=${order.public_token}`,
       billing: { name: v.name, email: v.email, phone: v.phone },
-      metadata: { order_id: order.id, public_token: order.public_token },
+      metadata: {
+        order_id: order.id,
+        public_token: order.public_token,
+        merchant_id: PAYMONGO_MERCHANT_ID,
+      },
       // Platform mode: route the "own fee" to our parent account, SPC keeps the rest.
       splitPayment: buildOwnFeeSplit(pricing.ownFeeCentavos),
     });
