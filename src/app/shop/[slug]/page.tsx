@@ -88,7 +88,7 @@ export default async function ProductPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "The Arsenal", item: `${SITE_URL}/shop` },
+      { "@type": "ListItem", position: 1, name: "The Shop", item: `${SITE_URL}/shop` },
       {
         "@type": "ListItem",
         position: 2,
@@ -110,7 +110,7 @@ export default async function ProductPage({ params }: Props) {
           <ol className="u-label flex flex-wrap items-center gap-1.5 text-ink-soft">
             <li>
               <Link href="/shop" className="hover:text-oxblood">
-                The Arsenal
+                The Shop
               </Link>
             </li>
             <ChevronRight className="size-3" aria-hidden="true" />
