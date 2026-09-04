@@ -52,7 +52,7 @@ export function SiteFooter() {
           <div>
             <p className="u-label text-paper/50">Connect</p>
             <ul className="mt-4 space-y-3">
-              <li>
+              {/* <li>
                 <a
                   href={SITE.social.upshift}
                   target="_blank"
@@ -61,7 +61,7 @@ export function SiteFooter() {
                 >
                   Upshift Cafe ↗
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href={SITE.location.map}

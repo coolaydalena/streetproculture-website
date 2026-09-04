@@ -91,7 +91,7 @@ function CartPanel() {
             onClick={closeCart}
             className="u-label border border-ink px-5 py-3 hover:bg-ink hover:text-paper"
           >
-            Browse the Arsenal
+            Browse the Shop
           </Link>
         </div>
       ) : (
