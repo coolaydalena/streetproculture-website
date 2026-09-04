@@ -3,28 +3,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Minus, Plus, X } from "lucide-react";
-import { useCart } from "@/lib/cart-context";
-import { useCheckoutFlow } from "@/lib/checkout-flow";
-import { SITE, formatPrice } from "@/lib/site";
-import { CheckoutForm } from "@/components/shop/checkout-form";
+import { useCart } from "@/lib/store/cart-store";
+import { useCartUI } from "@/lib/store/cart-ui-store";
+import { formatPrice } from "@/lib/site";
 
 export function CartOverlay() {
-  const { stage, close } = useCheckoutFlow();
-  const open = stage !== "closed";
+  const open = useCartUI((s) => s.open);
+  const closeCart = useCartUI((s) => s.closeCart);
+  const pathname = usePathname();
+
+  // Close the drawer on navigation (e.g. after "Proceed to Checkout").
+  useEffect(() => {
+    closeCart();
+  }, [pathname, closeCart]);
 
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && close();
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && closeCart();
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
     };
-  }, [open, close]);
+  }, [open, closeCart]);
 
   return (
     <AnimatePresence>
@@ -37,7 +43,7 @@ export function CartOverlay() {
         >
           <div
             className="absolute inset-0 bg-coal/60 backdrop-blur-sm"
-            onClick={close}
+            onClick={closeCart}
           />
           <motion.aside
             className="absolute inset-y-0 right-0 flex w-full max-w-md flex-col border-l border-line bg-paper text-ink shadow-2xl"
@@ -48,9 +54,7 @@ export function CartOverlay() {
             role="dialog"
             aria-modal="true"
           >
-            {stage === "cart" && <CartPanel />}
-            {stage === "checkout" && <CheckoutForm />}
-            {stage === "confirmation" && <ConfirmationPanel />}
+            <CartPanel />
           </motion.aside>
         </motion.div>
       )}
@@ -58,42 +62,33 @@ export function CartOverlay() {
   );
 }
 
-function PanelHeader({
-  kicker,
-  title,
-  onClose,
-}: {
-  kicker: string;
-  title: string;
-  onClose: () => void;
-}) {
-  return (
-    <div className="flex items-start justify-between border-b border-line p-5">
-      <div>
-        <p className="u-label text-oxblood">{kicker}</p>
-        <p className="u-display mt-1 text-3xl">{title}</p>
-      </div>
-      <button type="button" onClick={onClose} aria-label="Close" className="p-1">
-        <X className="size-5" />
-      </button>
-    </div>
-  );
-}
-
 function CartPanel() {
   const { detailed, subtotal, setQty, remove, count, hasUnavailable } = useCart();
-  const { close, goToCheckout } = useCheckoutFlow();
+  const closeCart = useCartUI((s) => s.closeCart);
 
   return (
     <>
-      <PanelHeader kicker="Your Cart" title="The Haul" onClose={close} />
+      <div className="flex items-start justify-between border-b border-line p-5">
+        <div>
+          <p className="u-label text-oxblood">Your Cart</p>
+          <p className="u-display mt-1 text-3xl">The Haul</p>
+        </div>
+        <button
+          type="button"
+          onClick={closeCart}
+          aria-label="Close"
+          className="p-1"
+        >
+          <X className="size-5" />
+        </button>
+      </div>
 
       {detailed.length === 0 ? (
         <div className="flex flex-1 flex-col items-center justify-center gap-4 p-8 text-center">
           <p className="u-label text-ink-soft">Nothing loaded up yet.</p>
           <Link
             href="/shop"
-            onClick={close}
+            onClick={closeCart}
             className="u-label border border-ink px-5 py-3 hover:bg-ink hover:text-paper"
           >
             Browse the Arsenal
@@ -167,60 +162,33 @@ function CartPanel() {
               <span className="u-display text-2xl">{formatPrice(subtotal)}</span>
             </div>
             <p className="u-label mt-2 text-ink-soft">
-              Shipping calculated at pickup. Cash or card at the shop.
+              Fees and delivery are calculated at checkout.
             </p>
             {hasUnavailable && (
               <p className="u-label mt-2 text-oxblood">
                 Remove unavailable items to continue.
               </p>
             )}
-            <button
-              type="button"
-              onClick={goToCheckout}
-              disabled={count === 0 || hasUnavailable}
-              className="u-label mt-4 w-full bg-oxblood py-4 text-paper transition-colors hover:bg-oxblood-deep disabled:opacity-40"
-            >
-              Proceed to Checkout
-            </button>
+            {count === 0 || hasUnavailable ? (
+              <button
+                type="button"
+                disabled
+                className="u-label mt-4 w-full bg-oxblood py-4 text-paper opacity-40"
+              >
+                Proceed to Checkout
+              </button>
+            ) : (
+              <Link
+                href="/checkout"
+                onClick={closeCart}
+                className="u-label mt-4 block w-full bg-oxblood py-4 text-center text-paper transition-colors hover:bg-oxblood-deep"
+              >
+                Proceed to Checkout
+              </Link>
+            )}
           </div>
         </>
       )}
-    </>
-  );
-}
-
-function ConfirmationPanel() {
-  const { close, lastOrder } = useCheckoutFlow();
-  const count = lastOrder?.itemCount ?? 0;
-
-  return (
-    <>
-      <PanelHeader kicker="Order Placed" title="Rolling Out" onClose={close} />
-      <div className="flex flex-1 flex-col items-center justify-center gap-6 p-8 text-center">
-        <p className="u-display text-4xl">Order Logged.</p>
-        <p className="max-w-xs text-ink-soft">
-          {count} {count === 1 ? "item" : "items"} —{" "}
-          {formatPrice(lastOrder?.total ?? 0)}. We&apos;ll message you on Facebook
-          to confirm pickup.
-        </p>
-        <div className="flex flex-col gap-3">
-          <a
-            href={SITE.social.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="u-label bg-oxblood px-6 py-3 text-paper hover:bg-oxblood-deep"
-          >
-            Message us on Facebook ↗
-          </a>
-          <Link
-            href="/shop"
-            onClick={close}
-            className="u-label border border-ink px-6 py-3 hover:bg-ink hover:text-paper"
-          >
-            Back to the Shop
-          </Link>
-        </div>
-      </div>
     </>
   );
 }

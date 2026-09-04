@@ -11,6 +11,7 @@ export const SITE = {
     hours: "Daily · 8:00 AM – 5:00 PM",
     phone: "+63 987 654 3210",
     phoneHref: "tel:+639876543210",
+    geo: { lat: 14.579624, lng: 120.996187 },
     map: "https://maps.app.goo.gl/2SeLJ3EUCt49RsDq8",
     embedMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.341197906338!2d120.99618747562329!3d14.579623677588849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c90059219341%3A0xc774d690d5b28a1b!2sStreet%20Pro%20Culture!5e0!3m2!1sen!2sph!4v1788444094630!5m2!1sen!2sph"
   },
@@ -40,10 +41,6 @@ export const NAV: NavItem[] = [
 // figures pending the real catalogue.
 export const CURRENCY = "PHP";
 export const LOCALE = "en-PH";
-
-// Online checkout is deferred until Paymongo is wired up. While false the
-// checkout form renders but its submit button stays disabled.
-export const CHECKOUT_ENABLED = false;
 
 export function formatPrice(amount: number): string {
   return new Intl.NumberFormat(LOCALE, {

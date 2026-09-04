@@ -3,14 +3,20 @@ import { SITE_URL } from "@/lib/site";
 import { getPublishedProducts } from "@/lib/products-db";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticRoutes = ["", "/shop", "/services", "/cafe", "/visit"].map(
-    (path) => ({
-      url: `${SITE_URL}${path}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: path === "" ? 1 : 0.7,
-    }),
-  );
+  const legalRoutes = ["/refund-policy", "/privacy-policy", "/terms"];
+  const staticRoutes = [
+    "",
+    "/shop",
+    "/services",
+    "/cafe",
+    "/visit",
+    ...legalRoutes,
+  ].map((path) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: path === "" ? 1 : legalRoutes.includes(path) ? 0.3 : 0.7,
+  }));
 
   const products = await getPublishedProducts();
   const productRoutes = products.map((p) => ({

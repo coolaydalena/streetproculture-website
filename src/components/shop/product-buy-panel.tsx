@@ -3,20 +3,20 @@
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
 import type { Product } from "@/lib/products";
-import { useCart } from "@/lib/cart-context";
-import { useCheckoutFlow } from "@/lib/checkout-flow";
+import { useCartStore } from "@/lib/store/cart-store";
+import { useCartUI } from "@/lib/store/cart-ui-store";
 
 /*
   Buy box for the product detail page. The surrounding page is a Server
   Component; this island owns the quantity state and the cart wiring.
 */
 export function ProductBuyPanel({ product }: { product: Product }) {
-  const { add } = useCart();
-  const { openCart } = useCheckoutFlow();
+  const add = useCartStore((s) => s.add);
+  const openCart = useCartUI((s) => s.openCart);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
-  function reserve() {
+  function addToCart() {
     add(product, qty);
     setAdded(true);
     openCart();
@@ -48,21 +48,17 @@ export function ProductBuyPanel({ product }: { product: Product }) {
 
         <button
           type="button"
-          onClick={reserve}
+          onClick={addToCart}
           disabled={!product.inStock}
           className="u-label flex-1 border border-oxblood bg-oxblood px-6 py-4 text-paper transition-colors hover:bg-oxblood-deep disabled:cursor-not-allowed disabled:opacity-40"
         >
           {added
             ? "Added to Cart"
             : product.inStock
-              ? "Reserve This"
+              ? "Add to Cart"
               : "Out of Stock"}
         </button>
       </div>
-
-      <p className="u-label mt-4 text-ink-soft">
-        Reserve online — pay and pick up at the shop. Cash or card on collection.
-      </p>
     </div>
   );
 }

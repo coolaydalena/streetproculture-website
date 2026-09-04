@@ -24,7 +24,7 @@ export default async function LoginPage({
       <PageHero
         kicker="Members"
         title="Sign In"
-        intro="Sign in with Google to track your reservations and orders. Shop staff use the same login for the product CMS."
+        intro="Sign in with Google to track your orders. Shop staff use the same login for the product CMS."
       />
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <Suspense fallback={null}>

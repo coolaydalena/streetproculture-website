@@ -19,7 +19,7 @@ export default async function AdminLayout({
     <div className="bg-paper pt-16">
       <div className="border-b border-line">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <Link href="/admin/products" className="u-display text-xl">
               SPC Studio
             </Link>
@@ -28,6 +28,18 @@ export default async function AdminLayout({
               className="u-label text-ink-soft hover:text-ink"
             >
               Products
+            </Link>
+            <Link
+              href="/admin/orders"
+              className="u-label text-ink-soft hover:text-ink"
+            >
+              Orders
+            </Link>
+            <Link
+              href="/admin/settings"
+              className="u-label text-ink-soft hover:text-ink"
+            >
+              Settings
             </Link>
           </div>
           <Link href="/" className="u-label text-ink-soft hover:text-oxblood">

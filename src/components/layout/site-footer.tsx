@@ -87,11 +87,28 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col justify-between gap-2 border-t border-paper/15 pt-6 sm:flex-row">
-          <p className="u-label text-paper/50">
-            © {year} Street Pro Culture
-          </p>
-          <p className="u-label text-paper/50">Built for the Street</p>
+        <div className="mt-16 flex flex-col gap-4 border-t border-paper/15 pt-6">
+          <nav className="flex flex-wrap gap-x-5 gap-y-2">
+            {[
+              { href: "/refund-policy", label: "Refund Policy" },
+              { href: "/privacy-policy", label: "Privacy Policy" },
+              { href: "/terms", label: "Terms of Service" },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="u-label text-paper/60 transition-colors hover:text-gold"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="flex flex-col justify-between gap-2 sm:flex-row">
+            <p className="u-label text-paper/50">
+              © {year} Street Pro Culture
+            </p>
+            <p className="u-label text-paper/50">Built for the Street</p>
+          </div>
         </div>
       </div>
     </footer>

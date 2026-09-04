@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, ShoppingBag, User, X } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
-import { useCart } from "@/lib/cart-context";
-import { useCheckoutFlow } from "@/lib/checkout-flow";
+import { useCart } from "@/lib/store/cart-store";
+import { useCartUI } from "@/lib/store/cart-ui-store";
 
 export type HeaderAuth = {
   signedIn: boolean;
@@ -21,7 +21,7 @@ export function SiteHeader({ auth }: { auth: HeaderAuth }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { count, hydrated } = useCart();
-  const { openCart } = useCheckoutFlow();
+  const openCart = useCartUI((s) => s.openCart);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);

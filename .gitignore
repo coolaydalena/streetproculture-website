@@ -37,6 +37,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# PayMongo onboarding — filled-in KYC details, never commit
+/scripts/paymongo/spc-account.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

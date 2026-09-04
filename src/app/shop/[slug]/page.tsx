@@ -199,12 +199,12 @@ export default async function ProductPage({ params }: Props) {
               </section>
             )}
 
-            {/* Pickup */}
+            {/* Pickup / delivery */}
             <section className="mt-12 border border-line bg-paper-card p-6">
-              <h2 className="u-display text-2xl">Pickup &amp; Reservation</h2>
+              <h2 className="u-display text-2xl">Pickup &amp; Delivery</h2>
               <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                Reserve here and we&apos;ll set the piece aside. Collect and pay
-                in person at the shop — we&apos;ll confirm on Facebook first.
+                Check out online for pickup at the shop or delivery. Pay by card,
+                GCash, Maya or GrabPay — or in person on collection.
               </p>
               <dl className="mt-5 space-y-3 text-sm">
                 <div>

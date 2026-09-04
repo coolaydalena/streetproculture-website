@@ -6,8 +6,8 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 import type { Product } from "@/lib/products";
 import { formatPrice } from "@/lib/site";
-import { useCart } from "@/lib/cart-context";
-import { useCheckoutFlow } from "@/lib/checkout-flow";
+import { useCartStore } from "@/lib/store/cart-store";
+import { useCartUI } from "@/lib/store/cart-ui-store";
 
 /*
   Non-uniform shop grid — ported from the base44 prototype.
@@ -31,8 +31,8 @@ export function ProductCard({
   product: Product;
   index?: number;
 }) {
-  const { add } = useCart();
-  const { openCart } = useCheckoutFlow();
+  const add = useCartStore((s) => s.add);
+  const openCart = useCartUI((s) => s.openCart);
   const [added, setAdded] = useState(false);
 
   const offset = OFFSETS[index % OFFSETS.length];
@@ -108,7 +108,8 @@ export function ProductCard({
         onClick={quickAdd}
         className="mt-4 flex w-full items-center justify-center gap-2 border border-ink py-3 font-mono text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-ink hover:text-paper"
       >
-        <Plus className="size-3.5" strokeWidth={3} /> {added ? "Added" : "Quick Add"}
+        <Plus className="size-3.5" strokeWidth={3} />{" "}
+        {added ? "Added" : "Add to Cart"}
       </button>
     </article>
   );

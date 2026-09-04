@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Saira_Condensed, Special_Elite, Cousine } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "@/lib/cart-context";
-import { CheckoutFlowProvider } from "@/lib/checkout-flow";
+import { CartHydrator } from "@/components/layout/cart-hydrator";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { GrainOverlay } from "@/components/layout/grain-overlay";
@@ -82,15 +81,12 @@ export default async function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-paper text-ink">
         <ToastProvider>
-          <CartProvider products={products}>
-            <CheckoutFlowProvider>
-              <GrainOverlay />
-              <SiteHeader auth={auth} />
-              <main className="flex-1">{children}</main>
-              <SiteFooter />
-              <CartOverlay />
-            </CheckoutFlowProvider>
-          </CartProvider>
+          <CartHydrator products={products} />
+          <GrainOverlay />
+          <SiteHeader auth={auth} />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+          <CartOverlay />
         </ToastProvider>
       </body>
     </html>

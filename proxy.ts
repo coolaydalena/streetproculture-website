@@ -7,6 +7,12 @@ import { updateSession } from "@/lib/supabase/proxy-session";
 // in `requireUser()` / `requireSuperadmin()` and in every server action — a
 // Server Action is a POST to its page route, so matcher gaps must never be the
 // only line of defence.
+//
+// `/api/*` is excluded from the matcher: the PayMongo webhook must reach its
+// route handler with the raw request body untouched and no session cookie work,
+// and the cron route authenticates itself with CRON_SECRET. Any future `/api`
+// route that needs the user session must call `updateSession()` / `getUser()`
+// itself.
 
 const GATED_PREFIXES = ["/admin", "/account"];
 
@@ -31,7 +37,7 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Everything except Next internals and static image files.
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:jpg|jpeg|png|gif|svg|webp|avif|ico)$).*)",
+    // Everything except /api, Next internals and static image files.
+    "/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:jpg|jpeg|png|gif|svg|webp|avif|ico)$).*)",
   ],
 };

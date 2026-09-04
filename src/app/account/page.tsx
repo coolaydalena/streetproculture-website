@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { PageHero } from "@/components/layout/page-hero";
 import { ProfileForm } from "@/components/account/profile-form";
 import { getProfile, requireUser } from "@/lib/auth";
+import { listOrdersForUser } from "@/lib/orders";
+import { OrderRowList } from "@/components/checkout/order-row-list";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Your Account",
@@ -11,7 +16,11 @@ export const metadata: Metadata = {
 
 export default async function AccountPage() {
   await requireUser("/account");
-  const profile = await getProfile();
+  const [profile, orders] = await Promise.all([
+    getProfile(),
+    listOrdersForUser(),
+  ]);
+  const recentOrders = orders.slice(0, 3);
 
   return (
     <>
@@ -51,11 +60,23 @@ export default async function AccountPage() {
         </section>
 
         <section className="mt-12 border-t border-line pt-10">
-          <h2 className="u-label text-oxblood">Orders</h2>
-          <p className="mt-4 max-w-md text-sm text-ink-soft">
-            Order history lands here once online checkout goes live. For now,
-            reservations are confirmed over Facebook Messenger.
-          </p>
+          <div className="flex items-center justify-between">
+            <h2 className="u-label text-oxblood">Orders</h2>
+            {orders.length > 0 && (
+              <Link
+                href="/account/orders"
+                className="u-label text-ink-soft hover:text-ink"
+              >
+                View all →
+              </Link>
+            )}
+          </div>
+          <div className="mt-4">
+            <OrderRowList
+              orders={recentOrders}
+              empty="No orders yet. Your purchases will show up here."
+            />
+          </div>
         </section>
       </div>
     </>

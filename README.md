@@ -16,15 +16,34 @@ npm run lint
 
 - `src/app/*` — routes: `/`, `/shop`, `/services`, `/cafe`, `/brands`, `/visit`
 - `src/components/{layout,home,shop,ui}` — components
-- `src/lib/site.ts` — nav, contact, currency, `CHECKOUT_ENABLED` flag
-- `src/lib/products.ts` — mock catalog (4 ported products + brand/merch placeholders)
+- `src/lib/site.ts` — nav, contact, currency helpers
+- `src/lib/products.ts` — product domain types + helpers
 - `src/lib/brands.ts` — brand lineup
-- `src/lib/cart-context.tsx` — cart state (React context + localStorage)
-- `src/lib/checkout-flow.tsx` — cart/checkout/confirmation overlay stage machine
-- `public/images/{home,products,logos}` — imagery (prototype media + resources/)
+- `src/lib/store/cart-store.ts` — cart state (zustand + localStorage `persist`)
+- `src/lib/store/cart-ui-store.ts` — cart slide-over open/close
+- `src/lib/{money,paymongo,orders,settings,payments}.ts` — checkout + orders domain
+- `public/images/{home,products,logos,payment-methods}` — imagery
+
+## Checkout (Phase 2)
+
+- `/checkout` (dedicated page) → PayMongo hosted checkout → `/checkout/success`
+  → `/orders/<token>` (public tracking) / `/account/orders` (signed-in history).
+- The customer picks the payment method on our side so the exact processing fee
+  is known; the PayMongo Checkout Session is locked to that one method.
+  Pickup orders may also "pay at the shop" (no PayMongo transaction).
+- Superadmin: `/admin/settings` (fees + methods, `checkout_enabled` toggle),
+  `/admin/orders` (pending / past, status updates).
+- DB: `supabase/migrations/20260904*` — `streetproculture_{settings,payment_methods,
+  orders,order_items,payment_events}`. Money stored in integer centavos.
+- Webhook: `src/app/api/paymongo/webhook/route.ts` (raw-body HMAC verify,
+  service-role client, idempotent). Register it per environment in the PayMongo
+  dashboard and set `PAYMONGO_WEBHOOK_SECRET`.
+- Env: `PAYMONGO_SECRET_KEY`, `PAYMONGO_WEBHOOK_SECRET`, `SUPABASE_SECRET_KEY`,
+  `CRON_SECRET` — see `.env.example`. Vercel: test keys on Preview (staging),
+  live keys on Production (main).
 
 ## Deferred
 
-- **Payments**: Paymongo. `CHECKOUT_ENABLED = false` in `src/lib/site.ts` keeps the
-  checkout form's submit disabled. Flip to `true` once the API route + keys exist.
+- Transactional email (order confirmation / status updates) — customers rely on
+  PayMongo's receipt + the `/orders/<token>` link for now.
 - Real store address / hours / map, real product catalog & PHP pricing, real brand logos.
