@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { formatCentavos } from "@/lib/money";
 import {
@@ -30,6 +31,10 @@ export function OrderView({ order }: { order: Order }) {
   const steps = timeline(order);
   const currentIndex = steps.indexOf(order.status);
   const closed = order.status === "cancelled" || order.status === "expired";
+  const cancelledAfterOnlinePayment =
+    order.status === "cancelled" &&
+    order.paidAt !== null &&
+    order.paymentMethod !== "pay_at_shop";
 
   return (
     <div className="space-y-10">
@@ -45,10 +50,34 @@ export function OrderView({ order }: { order: Order }) {
       </header>
 
       {closed ? (
-        <p className="border border-line bg-paper-card p-4 text-sm text-ink-soft">
-          This order is {ORDER_STATUS_LABELS[order.status].toLowerCase()}.
-          {order.cancelledReason ? ` ${order.cancelledReason}.` : ""}
-        </p>
+        <div className="space-y-3">
+          <p className="border border-line bg-paper-card p-4 text-sm text-ink-soft">
+            This order is {ORDER_STATUS_LABELS[order.status].toLowerCase()}.
+            {order.cancelledReason ? ` ${order.cancelledReason}.` : ""}
+          </p>
+          {cancelledAfterOnlinePayment && (
+            <div className="border border-oxblood/40 bg-oxblood/5 p-4 text-sm">
+              <p className="u-label text-oxblood">Refund</p>
+              <p className="mt-2 text-ink-soft">
+                This order was paid online, so{" "}
+                <span className="text-ink">
+                  {formatCentavos(order.subtotalCentavos)}
+                </span>{" "}
+                will be refunded to your original payment method. Refunds are
+                issued manually and can take{" "}
+                <span className="text-ink">up to 30 days</span> to reach you,
+                since we can only release them once our payment processor
+                settles the funds to us. We&apos;ll do it sooner if we can.{" "}
+                <Link
+                  href="/refund-policy"
+                  className="underline underline-offset-2 hover:text-ink"
+                >
+                  Refund policy
+                </Link>
+              </p>
+            </div>
+          )}
+        </div>
       ) : (
         <ol className="space-y-3">
           {steps.map((step, i) => {

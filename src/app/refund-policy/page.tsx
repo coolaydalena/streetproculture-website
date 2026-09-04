@@ -89,10 +89,12 @@ export default function RefundPolicyPage() {
 
           <h2>Processing</h2>
           <p>
-            Approved refunds are returned to the original payment method through
-            PayMongo. Card and e-wallet refunds typically post within 5–10
-            business days depending on your bank or wallet provider. Orders paid
-            in person at the shop are refunded in person.
+            Approved refunds for orders paid online are returned to your
+            original payment method through PayMongo. We can only release a
+            refund once our payment processor settles the payment to us, so
+            this can take <strong>up to 30 days</strong> from approval — we
+            aim to do it sooner whenever we can. Orders paid in person at the
+            shop are refunded in person.
           </p>
 
           <h2>Contact</h2>
