@@ -70,8 +70,8 @@ function CartPanel() {
     <>
       <div className="flex items-start justify-between border-b border-line p-5">
         <div>
-          <p className="u-label text-oxblood">Your Cart</p>
-          <p className="u-display mt-1 text-3xl">The Haul</p>
+          <p className="u-label text-oxblood">Your Haul</p>
+          <p className="u-display mt-1 text-3xl">The Cart</p>
         </div>
         <button
           type="button"
@@ -161,8 +161,8 @@ function CartPanel() {
               <span className="u-label">Subtotal</span>
               <span className="u-display text-2xl">{formatPrice(subtotal)}</span>
             </div>
-            <p className="u-label mt-2 text-ink-soft">
-              Fees and delivery are calculated at checkout.
+            <p className="text-[11px] italic leading-relaxed text-ink-soft mt-4 border-t border-line pt-4">
+              * Fees and delivery are calculated at checkout.
             </p>
             {hasUnavailable && (
               <p className="u-label mt-2 text-oxblood">
