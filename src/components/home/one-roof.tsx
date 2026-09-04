@@ -9,15 +9,15 @@ const PILLARS = [
     n: "01",
     href: "/services",
     title: "The Service",
-    body: "Preventive maintenance for motorbikes, vintage builds and big bikes — done by people who ride what they wrench.",
+    body: "Preventive maintenance for motorbikes, vintage builds and big bikes — run with Upshift, done by people who ride what they wrench.",
     cta: "Book a service",
   },
   {
     n: "02",
     href: "/cafe",
     title: "The Cafe",
-    body: "Coffee and a place to sit, in partnership with Upshift. Pull up, talk shop, wait out the traffic.",
-    cta: "Meet Upshift",
+    body: "Coffee and a place to sit, in partnership with KOPA+MLA. Pull up, talk shop, wait out the traffic.",
+    cta: "Meet KOPA+MLA",
   },
   {
     n: "03",

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const UNDER_ONE_ROOF = [
   ["The Store", "Caps, helmets, cases and merch — fitting and shop-only drops."],
   ["The PMS Bay", "Service for motorbikes, vintage bikes and big bikes."],
-  ["The Cafe", "Coffee with Upshift while you wait."],
+  ["The Cafe", "Coffee with KOPA+MLA while you wait."],
   ["Custom Patches", "Get the badge stitched on in person."],
 ];
 
@@ -23,7 +23,7 @@ export default function VisitPage() {
       <PageHero
         kicker="Visit"
         title="Where the Culture Lives."
-        intro="One address for the store, the service bay and the cafe. Walk in to browse, get fitted, or drop the bike off."
+        intro="One address for the store, the service bay and the cafe. Walk in to browse, get fitted, drop the bike off — or just tambike, this is where the crew swings by."
       />
 
       <section className="bg-paper py-20 sm:py-28">

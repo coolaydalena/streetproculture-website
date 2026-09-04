@@ -31,8 +31,8 @@ export function Manifesto() {
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
             A Filipino-owned motorcycle atelier stocking curated riding apparel,
             gears and lifestyle essentials. A multi-brand, community-driven shop
-            from the Philippines — built by riders, for the ones who live on two
-            wheels.
+            from the Philippines — always at the events, always down for an EB,
+            this is the tambike spot for the ones who live on two wheels.
           </p>
           <p className="u-label mt-8 text-ink">
             Modern • Vintage • Retro • Classic Moto Culture

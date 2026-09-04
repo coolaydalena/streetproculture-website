@@ -8,7 +8,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "PMS & Service",
   description:
-    "Preventive maintenance service for motorbikes, vintage bikes and big bikes at Street Pro Culture, Philippines.",
+    "Preventive maintenance for motorbikes, vintage bikes and big bikes — run with Upshift at Street Pro Culture, Philippines. Also the official distributor for CGM Italia and NZI Fibra helmets.",
 };
 
 const FOCUS = [
@@ -46,10 +46,48 @@ export default function ServicesPage() {
       <PageHero
         kicker="Motorcycle Atelier"
         title="The Services."
-        intro="Preventive maintenance done by riders, not a call centre. We work on motorbikes, vintage builds and big bikes — booked through Facebook, serviced at the shop."
+        intro="Preventive maintenance done by riders, not a call centre — run together with Upshift under the Street Pro roof. We work on motorbikes, vintage builds and big bikes, booked through Facebook, serviced at the shop."
       />
 
-      <section className="bg-paper py-20 sm:py-28">
+      <section className="bg-paper py-16 sm:py-20">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+          <Reveal>
+            <Kicker className="text-oxblood">The Partnership</Kicker>
+            <h2 className="u-display mt-4 text-[clamp(2.25rem,5vw,3.5rem)]">
+              Upshift
+            </h2>
+            <div className="mt-6 inline-flex border border-line bg-white px-6 py-4">
+              <Image
+                src="/images/brands/upshift.png"
+                alt="Upshift Manila logo"
+                width={200}
+                height={110}
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+            <p className="mt-6 text-lg leading-relaxed text-ink-soft">
+              Upshift runs the service side of the shop — two brands, one roof.
+              Same crew whether you&apos;re booking a PMS or just dropping by.
+            </p>
+          </Reveal>
+
+          <Reveal className="border border-line bg-paper-card p-8">
+            <p className="u-label text-oxblood">Also Under This Roof</p>
+            <p className="mt-4 text-sm leading-relaxed text-ink-soft">
+              Official Philippine distributor and dealer for CGM Italia and NZI
+              Fibra helmets, plus X-land cases and OZ Racing gear — see the
+              full lineup.
+            </p>
+            <div className="mt-6">
+              <Cta href="/#brands" variant="outline">
+                See the Brands
+              </Cta>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-paper pb-20 sm:pb-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-px border border-line bg-line md:grid-cols-3">
             {FOCUS.map((f, i) => (
