@@ -44,9 +44,9 @@ export function ShopBrowser({
             </button>
           ))}
         </div>
-        <p className="u-label text-ink-soft">
+        {/* <p className="u-label text-ink-soft">
           {inStock} {inStock === 1 ? "unit" : "units"} in stock
-        </p>
+        </p> */}
       </div>
 
       {visible.length === 0 ? (
