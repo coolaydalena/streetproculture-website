@@ -35,6 +35,11 @@ export const PAYMENT_METHOD_LABELS: Record<OrderPaymentMethod, string> = {
   paymaya: "Maya",
   grab_pay: "GrabPay",
   qrph: "QR Ph",
+  brankas_bdo: "BDO Online Banking",
+  dob: "BPI Online Banking",
+  brankas_landbank: "Landbank Online Banking",
+  brankas_metrobank: "Metrobank Online Banking",
+  dob_ubp: "UnionBank Online Banking",
   pay_at_shop: "Pay at shop",
 };
 

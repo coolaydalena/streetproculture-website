@@ -29,6 +29,7 @@ function toDefaults(
       label: m.label,
       feePercent: m.feePercent,
       feeFixedPesos: m.feeFixedCentavos / 100,
+      feeIsFloor: m.feeIsFloor,
       minPesos: m.minCentavos / 100,
       isEnabled: m.isEnabled,
     })),
@@ -142,7 +143,9 @@ export function SettingsForm({
         <p className="text-xs text-ink-soft">
           The processing fee for the method the customer chooses is added to the
           Service Fee (grossed up so PayMongo&apos;s deduction is covered). Keep
-          these in step with PayMongo&apos;s published rates.
+          these in step with PayMongo&apos;s published rates. Check &quot;Floor?&quot;
+          for methods PayMongo prices as &quot;X% or ₱Y, whichever is higher&quot;
+          (e.g. Direct Online Banking) instead of &quot;X% + ₱Y&quot; (e.g. Cards).
         </p>
 
         <div className="overflow-x-auto border border-line">
@@ -153,6 +156,7 @@ export function SettingsForm({
                 <th className="u-label p-3 text-ink-soft">Label</th>
                 <th className="u-label p-3 text-ink-soft">Fee %</th>
                 <th className="u-label p-3 text-ink-soft">Fee ₱</th>
+                <th className="u-label p-3 text-ink-soft">Floor?</th>
                 <th className="u-label p-3 text-ink-soft">Min ₱</th>
                 <th className="u-label p-3 text-ink-soft">On</th>
               </tr>
@@ -182,12 +186,20 @@ export function SettingsForm({
                   <td className="p-3">
                     <input
                       type="number"
-                      step={1}
+                      step={0.01}
                       min={0}
                       className="w-20 border border-line bg-paper-card px-2 py-1.5 text-sm outline-none focus:border-oxblood"
                       {...register(`methods.${i}.feeFixedPesos`, {
                         valueAsNumber: true,
                       })}
+                    />
+                  </td>
+                  <td className="p-3">
+                    <input
+                      type="checkbox"
+                      title="Fee = max(%, ₱) instead of % + ₱"
+                      className="size-4 accent-oxblood"
+                      {...register(`methods.${i}.feeIsFloor`)}
                     />
                   </td>
                   <td className="p-3">

@@ -12,7 +12,6 @@ import {
   methodMinimumCentavos,
 } from "@/lib/money";
 import {
-  buildOwnFeeSplit,
   createCheckoutSession,
   PAYMONGO_MERCHANT_ID,
   type PayMongoLineItem,
@@ -120,13 +119,16 @@ export async function createCheckout(
   let method: {
     feePercent: number;
     feeFixedCentavos: number;
+    feeIsFloor: boolean;
     minCentavos: number;
   } | null = null;
 
   if (!isPayAtShop) {
     const { data: m } = await admin
       .from("streetproculture_payment_methods")
-      .select("fee_percent, fee_fixed_centavos, min_centavos, is_enabled")
+      .select(
+        "fee_percent, fee_fixed_centavos, fee_is_floor, min_centavos, is_enabled",
+      )
       .eq("code", v.paymentMethod)
       .maybeSingle();
     if (!m || !m.is_enabled) {
@@ -138,6 +140,7 @@ export async function createCheckout(
     method = {
       feePercent: Number(m.fee_percent),
       feeFixedCentavos: m.fee_fixed_centavos,
+      feeIsFloor: m.fee_is_floor,
       minCentavos: m.min_centavos,
     };
   }
@@ -199,6 +202,7 @@ export async function createCheckout(
         method_code: v.paymentMethod,
         method_fee_percent: method?.feePercent ?? 0,
         method_fee_fixed_centavos: method?.feeFixedCentavos ?? 0,
+        method_fee_is_floor: method?.feeIsFloor ?? false,
       },
       expires_at: isPayAtShop
         ? null
@@ -282,8 +286,6 @@ export async function createCheckout(
         public_token: order.public_token,
         merchant_id: PAYMONGO_MERCHANT_ID,
       },
-      // Platform mode: route the "own fee" to our parent account, SPC keeps the rest.
-      splitPayment: buildOwnFeeSplit(pricing.ownFeeCentavos),
     });
 
     await admin

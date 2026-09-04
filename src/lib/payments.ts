@@ -10,6 +10,13 @@ export const PAYMENT_METHOD_CODES = [
   "paymaya",
   "grab_pay",
   "qrph",
+  // Direct Online Banking / Brankas — codes are PayMongo's exact
+  // `payment_method_types` values, not a naming choice of ours.
+  "brankas_bdo",
+  "dob", // BPI
+  "brankas_landbank",
+  "brankas_metrobank",
+  "dob_ubp", // UnionBank
 ] as const;
 export type PaymentMethodCode = (typeof PAYMENT_METHOD_CODES)[number];
 
@@ -26,6 +33,8 @@ export type PaymentMethod = {
   label: string;
   feePercent: number;
   feeFixedCentavos: number;
+  /** true: fee = max(feePercent, feeFixedCentavos) — a floor. false: both added. */
+  feeIsFloor: boolean;
   minCentavos: number;
   isEnabled: boolean;
   sortOrder: number;
@@ -42,7 +51,7 @@ export const DEFAULT_SETTINGS: StoreSettings = {
 export const SETTINGS_COLUMNS =
   "own_fee_percent, own_fee_fixed_centavos, delivery_fee_centavos, pay_at_shop_enabled, checkout_enabled";
 export const PAYMENT_METHOD_COLUMNS =
-  "code, label, fee_percent, fee_fixed_centavos, min_centavos, is_enabled, sort_order";
+  "code, label, fee_percent, fee_fixed_centavos, fee_is_floor, min_centavos, is_enabled, sort_order";
 
 type SettingsRow = {
   own_fee_percent: number | string;
@@ -57,6 +66,7 @@ type MethodRow = {
   label: string;
   fee_percent: number | string;
   fee_fixed_centavos: number;
+  fee_is_floor: boolean;
   min_centavos: number;
   is_enabled: boolean;
   sort_order: number;
@@ -78,6 +88,7 @@ export function rowToPaymentMethod(row: MethodRow): PaymentMethod {
     label: row.label,
     feePercent: Number(row.fee_percent),
     feeFixedCentavos: row.fee_fixed_centavos,
+    feeIsFloor: row.fee_is_floor,
     minCentavos: row.min_centavos,
     isEnabled: row.is_enabled,
     sortOrder: row.sort_order,

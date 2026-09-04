@@ -18,66 +18,17 @@ const WEBHOOK_SECRET = process.env.PAYMONGO_WEBHOOK_SECRET ?? "";
 /** Stamped on every payment's metadata and checked on every webhook. */
 export const PAYMONGO_MERCHANT_ID = "streetproculture";
 
-/**
- * PayMongo Platforms. When SPC runs as a child account under our platform:
- *  - `PAYMONGO_SECRET_KEY` is the PLATFORM (parent) key — the child has none.
- *  - `PAYMONGO_ACCOUNT_ID` (org_…) is the SPC child; every payment call is made
- *    "on behalf of" it via the `Account-Id` header, so the transaction, its
- *    ledger and its webhooks all belong to SPC.
- *  - `PAYMONGO_PLATFORM_ACCOUNT_ID` (org_…) is our parent account — the split
- *    recipient that collects the "own fee" commission.
- * Leave these unset to run SPC as a plain standalone merchant (no header, no split).
- */
-const CHILD_ACCOUNT_ID = process.env.PAYMONGO_ACCOUNT_ID ?? "";
-export const PLATFORM_ACCOUNT_ID = process.env.PAYMONGO_PLATFORM_ACCOUNT_ID ?? "";
-
 export const PAYMONGO_CONFIGURED = !!SECRET_KEY;
 export const PAYMONGO_LIVE = SECRET_KEY.startsWith("sk_live");
-export const PAYMONGO_PLATFORM_MODE = !!CHILD_ACCOUNT_ID && !!PLATFORM_ACCOUNT_ID;
 
 function authHeader(): string {
   return "Basic " + Buffer.from(`${SECRET_KEY}:`).toString("base64");
 }
 
-/** Headers for a payment call — adds `Account-Id` when acting for the SPC child. */
 function requestHeaders(): Record<string, string> {
-  const headers: Record<string, string> = {
+  return {
     Authorization: authHeader(),
     "Content-Type": "application/json",
-  };
-  if (CHILD_ACCOUNT_ID) headers["Account-Id"] = CHILD_ACCOUNT_ID;
-  return headers;
-}
-
-/**
- * Split a checkout payment between SPC and our platform. `transfer_to` keeps the
- * remainder with SPC (the child the payment is already attributed to); each
- * recipient is carved off first. We use a single `fixed` recipient = the "own
- * fee" in centavos, paid to the platform account.
- */
-export type PayMongoSplitPayment = {
-  transfer_to: string;
-  recipients: {
-    merchant_id: string;
-    split_type: "fixed" | "percentage_net";
-    value: number;
-  }[];
-};
-
-/** Build the split for an order, or `undefined` when not in platform mode. */
-export function buildOwnFeeSplit(
-  ownFeeCentavos: number,
-): PayMongoSplitPayment | undefined {
-  if (!PAYMONGO_PLATFORM_MODE || ownFeeCentavos <= 0) return undefined;
-  return {
-    transfer_to: CHILD_ACCOUNT_ID,
-    recipients: [
-      {
-        merchant_id: PLATFORM_ACCOUNT_ID,
-        split_type: "fixed",
-        value: ownFeeCentavos,
-      },
-    ],
   };
 }
 
@@ -98,8 +49,6 @@ export type CreateCheckoutSessionInput = {
   cancelUrl: string;
   billing?: { name?: string; email?: string; phone?: string };
   metadata: Record<string, string>;
-  /** Platform split — pass the result of `buildOwnFeeSplit()`. */
-  splitPayment?: PayMongoSplitPayment;
 };
 
 export type CreateCheckoutSessionResult = {
@@ -128,7 +77,6 @@ export async function createCheckoutSession(
         cancel_url: input.cancelUrl,
         billing: input.billing,
         metadata: input.metadata,
-        ...(input.splitPayment ? { split_payment: input.splitPayment } : {}),
       },
     },
   };

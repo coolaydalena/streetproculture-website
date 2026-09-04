@@ -34,6 +34,7 @@ export const settingsFormSchema = z.object({
           .number({ error: "Enter an amount" })
           .min(0, "Cannot be negative")
           .max(100000),
+        feeIsFloor: z.boolean(),
         minPesos: z
           .number({ error: "Enter an amount" })
           .min(0, "Cannot be negative")

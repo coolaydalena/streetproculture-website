@@ -33,6 +33,10 @@ export type PricingInput = {
     feePercent: number; // e.g. 3.5
     feeFixedCentavos: number;
     minCentavos: number;
+    /** true: fee = max(percent, fixed) — a floor, like PayMongo's Direct Online
+     *  Banking ("0.71% or ₱13.39"). false/omitted: fee = percent + fixed, both
+     *  always applied — like Cards ("3.5% + ₱15"). */
+    feeIsFloor?: boolean;
   } | null;
   settings: {
     ownFeePercent: number; // e.g. 2.5
@@ -82,12 +86,27 @@ export function computeOrderPricing(input: PricingInput): Pricing {
 
   if (method) {
     const rate = method.feePercent / 100;
-    // total = base + fee, where fee = total × rate + fixed
-    //   ⇒ total = (base + fixed) / (1 − rate)
-    totalCentavos = Math.ceil(
-      (baseCentavos + method.feeFixedCentavos) / (1 - rate),
-    );
-    paymongoFeeCentavos = totalCentavos - baseCentavos;
+    if (method.feeIsFloor) {
+      // fee = max(total × rate, fixed). Solve the percent regime first
+      //   (total = base / (1 − rate)); if that fee clears the fixed floor
+      //   it's the answer, otherwise PayMongo charges the flat fixed fee.
+      const pctTotal = Math.ceil(baseCentavos / (1 - rate));
+      const pctFee = pctTotal - baseCentavos;
+      if (pctFee >= method.feeFixedCentavos) {
+        totalCentavos = pctTotal;
+        paymongoFeeCentavos = pctFee;
+      } else {
+        totalCentavos = baseCentavos + method.feeFixedCentavos;
+        paymongoFeeCentavos = method.feeFixedCentavos;
+      }
+    } else {
+      // total = base + fee, where fee = total × rate + fixed
+      //   ⇒ total = (base + fixed) / (1 − rate)
+      totalCentavos = Math.ceil(
+        (baseCentavos + method.feeFixedCentavos) / (1 - rate),
+      );
+      paymongoFeeCentavos = totalCentavos - baseCentavos;
+    }
   }
 
   return {

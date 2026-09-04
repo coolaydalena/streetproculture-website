@@ -57,6 +57,7 @@ export async function updateSettings(
         label: m.label,
         fee_percent: m.feePercent,
         fee_fixed_centavos: pesos(m.feeFixedPesos),
+        fee_is_floor: m.feeIsFloor,
         min_centavos: pesos(m.minPesos),
         is_enabled: m.isEnabled,
       })

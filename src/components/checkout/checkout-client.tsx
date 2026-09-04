@@ -35,6 +35,11 @@ const METHOD_LOGOS: Record<PaymentMethod["code"], string[]> = {
   paymaya: ["/images/payment-methods/maya.svg"],
   grab_pay: ["/images/payment-methods/grabpay.svg"],
   qrph: ["/images/payment-methods/qrph.svg"],
+  brankas_bdo: ["/images/payment-methods/bdo.png"],
+  dob: ["/images/payment-methods/bpi.png"],
+  brankas_landbank: ["/images/payment-methods/landbank.png"],
+  brankas_metrobank: ["/images/payment-methods/metrobank.png"],
+  dob_ubp: ["/images/payment-methods/unionbank.png"],
 };
 
 type Fulfilment = "pickup" | "delivery";
@@ -115,6 +120,7 @@ export function CheckoutClient({
               ? {
                   feePercent: selectedOnlineMethod.feePercent,
                   feeFixedCentavos: selectedOnlineMethod.feeFixedCentavos,
+                  feeIsFloor: selectedOnlineMethod.feeIsFloor,
                   minCentavos: selectedOnlineMethod.minCentavos,
                 }
               : null,
