@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Play } from "lucide-react";
 import type { ProductImage } from "@/lib/products";
 import { SITE } from "@/lib/site";
 import { usePdpStore } from "@/lib/store/pdp-store";
+import { MediaLightbox } from "@/components/ui/media-lightbox";
 
 export function ProductGallery({
   productId,
@@ -46,24 +47,47 @@ export function ProductGallery({
 
   const activeId =
     activeProductId === productId && activeMediaId ? activeMediaId : primary.id;
-  const active = gallery.find((i) => i.id === activeId) ?? primary;
+  const activeIndex = Math.max(
+    0,
+    gallery.findIndex((i) => i.id === activeId),
+  );
+  const active = gallery[activeIndex] ?? primary;
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
-    <div>
+    <div className="mx-auto max-w-sm lg:max-w-md">
       <div className="relative border border-ink/15 p-3">
         <p className="absolute -top-3 left-3 z-10 bg-oxblood px-2 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-paper">
           {tag}
         </p>
-        <div className="relative aspect-4/5 overflow-hidden bg-line">
+        <button
+          type="button"
+          onClick={() => setLightboxIndex(activeIndex)}
+          aria-label={
+            active.mediaType === "video"
+              ? "Play video"
+              : "View full screen"
+          }
+          className={`group relative block aspect-4/5 w-full overflow-hidden bg-line ${
+            active.mediaType === "video" ? "cursor-pointer" : "cursor-zoom-in"
+          }`}
+        >
           {active.mediaType === "video" ? (
-            <video
-              key={active.id}
-              src={active.url}
-              controls
-              playsInline
-              preload="metadata"
-              className="size-full object-cover"
-            />
+            <>
+              <video
+                key={active.id}
+                src={`${active.url}#t=0.1`}
+                muted
+                playsInline
+                preload="metadata"
+                tabIndex={-1}
+                className="pointer-events-none size-full object-cover"
+              />
+              <span className="absolute inset-0 grid place-items-center bg-coal/30 text-paper transition-colors group-hover:bg-coal/40">
+                <Play className="size-10 translate-x-0.5" fill="currentColor" />
+              </span>
+            </>
           ) : (
             <Image
               src={active.url}
@@ -71,11 +95,22 @@ export function ProductGallery({
               fill
               priority
               sizes="(min-width: 1024px) 45vw, 90vw"
-              className="object-cover"
+              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             />
           )}
-        </div>
+        </button>
       </div>
+
+      <MediaLightbox
+        items={gallery}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onIndexChange={(i) => {
+          setLightboxIndex(i);
+          select(productId, gallery[i].id);
+        }}
+        altFallback={`${name} — ${category} at ${SITE.name}`}
+      />
 
       {gallery.length > 1 && (
         <div className="mt-3 flex flex-wrap gap-3">
@@ -93,9 +128,19 @@ export function ProductGallery({
               }`}
             >
               {item.mediaType === "video" ? (
-                <span className="grid size-full place-items-center bg-ink/80 text-paper">
-                  <Play className="size-5" fill="currentColor" />
-                </span>
+                <>
+                  <video
+                    src={`${item.url}#t=0.1`}
+                    muted
+                    playsInline
+                    preload="metadata"
+                    tabIndex={-1}
+                    className="pointer-events-none size-full object-cover"
+                  />
+                  <span className="absolute inset-0 grid place-items-center bg-coal/30 text-paper">
+                    <Play className="size-5 translate-x-px" fill="currentColor" />
+                  </span>
+                </>
               ) : (
                 <Image
                   src={item.url}

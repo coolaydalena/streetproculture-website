@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowDown, ArrowUp, Star, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Play, Star, Trash2 } from "lucide-react";
 import type { ProductImage } from "@/lib/products";
+import { MediaLightbox } from "@/components/ui/media-lightbox";
 import {
   deleteProductImage,
   reorderImages,
@@ -23,6 +24,7 @@ export function ImageManager({
   const { push } = useToast();
   const router = useRouter();
   const [pending, startTransition] = useTransition();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const uploaded = images.filter((i) => i.id !== "fallback");
 
@@ -51,7 +53,7 @@ export function ImageManager({
 
   return (
     <div className="space-y-5">
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
         {uploaded.map((img, i) => (
           <div
             key={img.id}
@@ -60,23 +62,43 @@ export function ImageManager({
             } ${pending ? "opacity-60" : ""}`}
           >
             <div className="relative aspect-4/5 overflow-hidden bg-line">
-              {img.mediaType === "video" ? (
-                <video
-                  src={img.url}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="size-full object-cover"
-                />
-              ) : (
-                <Image
-                  src={img.url}
-                  alt={img.alt}
-                  fill
-                  sizes="(min-width: 640px) 40vw, 90vw"
-                  className="object-cover"
-                />
-              )}
+              <button
+                type="button"
+                onClick={() => setLightboxIndex(i)}
+                aria-label={
+                  img.mediaType === "video" ? "Play video" : "View full screen"
+                }
+                className={`block size-full ${
+                  img.mediaType === "video" ? "cursor-pointer" : "cursor-zoom-in"
+                }`}
+              >
+                {img.mediaType === "video" ? (
+                  <>
+                    <video
+                      src={`${img.url}#t=0.1`}
+                      muted
+                      playsInline
+                      preload="metadata"
+                      tabIndex={-1}
+                      className="pointer-events-none size-full object-cover"
+                    />
+                    <span className="absolute inset-0 grid place-items-center bg-coal/30 text-paper">
+                      <Play
+                        className="size-8 translate-x-0.5"
+                        fill="currentColor"
+                      />
+                    </span>
+                  </>
+                ) : (
+                  <Image
+                    src={img.url}
+                    alt={img.alt}
+                    fill
+                    sizes="(min-width: 640px) 40vw, 90vw"
+                    className="object-cover"
+                  />
+                )}
+              </button>
             </div>
             <div className="mt-3 flex items-center justify-between">
               {img.mediaType === "video" ? (
@@ -142,6 +164,13 @@ export function ImageManager({
       </div>
 
       <ImageDropzone productId={productId} />
+
+      <MediaLightbox
+        items={uploaded}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onIndexChange={setLightboxIndex}
+      />
     </div>
   );
 }
