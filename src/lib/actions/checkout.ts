@@ -4,7 +4,7 @@ import { revalidateTag } from "next/cache";
 import { getUser } from "@/lib/auth";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { getSettings } from "@/lib/settings";
-import { PRODUCTS_TAG, storageImageUrl } from "@/lib/products-db";
+import { PRODUCTS_TAG, storageMediaUrl } from "@/lib/products-db";
 import { SITE_URL } from "@/lib/site";
 import {
   computeOrderPricing,
@@ -23,16 +23,28 @@ export type CheckoutResult =
   | { ok: false; error?: string; fieldErrors?: Record<string, string> };
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-function primaryImageUrl(product: any): string | null {
-  const images: any[] = product.images ?? [];
+function pickImageUrl(product: any, variantImageId: string | null): string | null {
+  const images: any[] = (product?.images ?? []).filter(
+    (i: any) => (i.media_type ?? "image") === "image",
+  );
   if (images.length === 0) return null;
   const sorted = [...images].sort(
     (a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0),
   );
-  const pick = sorted.find((i) => i.is_primary) ?? sorted[0];
-  return storageImageUrl(pick.storage_path, pick.is_uploaded);
+  const pick =
+    (variantImageId && sorted.find((i) => i.id === variantImageId)) ||
+    sorted.find((i) => i.is_primary) ||
+    sorted[0];
+  return pick ? storageMediaUrl(pick.storage_path, "image", pick.is_uploaded) : null;
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
+
+/** "333 ONYX" + "Sport — Nero" → "333 ONYX — Sport — Nero" (skip a bare "Default"). */
+function lineName(productName: string, variantLabel: string): string {
+  return variantLabel && variantLabel.toLowerCase() !== "default"
+    ? `${productName} — ${variantLabel}`
+    : productName;
+}
 
 export async function createCheckout(
   input: CheckoutValues,
@@ -61,23 +73,28 @@ export async function createCheckout(
   const user = await getUser();
   const admin = createSupabaseAdminClient();
 
-  // --- Load + validate the cart against the live catalogue --------------------
-  const ids = v.items.map((i) => i.productId);
-  const { data: products, error: productsError } = await admin
-    .from("streetproculture_products")
+  // --- Load + validate the cart against the live catalogue -------------------
+  const variantIds = v.items.map((i) => i.variantId);
+  const { data: variants, error: variantsError } = await admin
+    .from("streetproculture_product_variants")
     .select(
-      `id, slug, name, price, is_published, track_inventory, stock_quantity,
-       images:streetproculture_product_images (
-         storage_path, is_uploaded, is_primary, sort_order
+      `id, label, price, track_inventory, stock_quantity, is_active, image_id,
+       product:streetproculture_products (
+         id, slug, name, is_published,
+         images:streetproculture_product_images (
+           id, storage_path, is_uploaded, is_primary, sort_order, media_type
+         )
        )`,
     )
-    .in("id", ids);
+    .in("id", variantIds);
 
-  if (productsError) return { ok: false, error: productsError.message };
+  if (variantsError) return { ok: false, error: variantsError.message };
 
   const lines: {
-    id: string;
+    productId: string;
+    variantId: string;
     name: string;
+    variantLabel: string;
     slug: string;
     imageUrl: string | null;
     trackInventory: boolean;
@@ -86,8 +103,16 @@ export async function createCheckout(
   }[] = [];
 
   for (const item of v.items) {
-    const p = products?.find((x) => x.id === item.productId);
-    if (!p || !p.is_published) {
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    const variant: any = variants?.find((x) => x.id === item.variantId);
+    const product = variant?.product;
+    if (
+      !variant ||
+      !variant.is_active ||
+      !product ||
+      !product.is_published ||
+      product.id !== item.productId
+    ) {
       return {
         ok: false,
         fieldErrors: {
@@ -96,21 +121,25 @@ export async function createCheckout(
       };
     }
     if (
-      p.track_inventory &&
-      (p.stock_quantity ?? 0) < item.quantity
+      variant.track_inventory &&
+      (variant.stock_quantity ?? 0) < item.quantity
     ) {
       return {
         ok: false,
-        fieldErrors: { items: `“${p.name}” is out of stock.` },
+        fieldErrors: {
+          items: `“${lineName(product.name, variant.label)}” is out of stock.`,
+        },
       };
     }
     lines.push({
-      id: p.id,
-      name: p.name,
-      slug: p.slug,
-      imageUrl: primaryImageUrl(p),
-      trackInventory: p.track_inventory,
-      unitPriceCentavos: p.price * 100,
+      productId: product.id,
+      variantId: variant.id,
+      name: product.name,
+      variantLabel: variant.label,
+      slug: product.slug,
+      imageUrl: pickImageUrl(product, variant.image_id),
+      trackInventory: variant.track_inventory,
+      unitPriceCentavos: variant.price * 100,
       quantity: item.quantity,
     });
   }
@@ -220,8 +249,10 @@ export async function createCheckout(
     .insert(
       lines.map((l) => ({
         order_id: order.id,
-        product_id: l.id,
+        product_id: l.productId,
+        variant_id: l.variantId,
         product_name: l.name,
+        variant_label: l.variantLabel,
         product_slug: l.slug,
         image_url: l.imageUrl,
         unit_price_centavos: l.unitPriceCentavos,
@@ -252,7 +283,7 @@ export async function createCheckout(
   try {
     const lineItems: PayMongoLineItem[] = [
       ...lines.map((l) => ({
-        name: l.name,
+        name: lineName(l.name, l.variantLabel),
         quantity: l.quantity,
         amount: l.unitPriceCentavos,
         currency: "PHP" as const,

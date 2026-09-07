@@ -60,33 +60,49 @@ export function ImageManager({
             } ${pending ? "opacity-60" : ""}`}
           >
             <div className="relative aspect-4/5 overflow-hidden bg-line">
-              <Image
-                src={img.url}
-                alt={img.alt}
-                fill
-                sizes="(min-width: 640px) 40vw, 90vw"
-                className="object-cover"
-              />
+              {img.mediaType === "video" ? (
+                <video
+                  src={img.url}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="size-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={img.url}
+                  alt={img.alt}
+                  fill
+                  sizes="(min-width: 640px) 40vw, 90vw"
+                  className="object-cover"
+                />
+              )}
             </div>
             <div className="mt-3 flex items-center justify-between">
-              <button
-                type="button"
-                onClick={() =>
-                  act(
-                    () => setPrimaryImage(productId, img.id),
-                    "Primary image set",
-                  )
-                }
-                disabled={img.isPrimary}
-                className="u-label inline-flex items-center gap-1 disabled:opacity-100"
-              >
-                <Star
-                  className={`size-4 ${
-                    img.isPrimary ? "fill-gold text-gold" : "text-ink-soft"
-                  }`}
-                />
-                {img.isPrimary ? "Primary" : "Set primary"}
-              </button>
+              {img.mediaType === "video" ? (
+                <span className="u-label inline-flex items-center gap-1 text-ink-soft">
+                  Video
+                </span>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() =>
+                    act(
+                      () => setPrimaryImage(productId, img.id),
+                      "Primary image set",
+                    )
+                  }
+                  disabled={img.isPrimary}
+                  className="u-label inline-flex items-center gap-1 disabled:opacity-100"
+                >
+                  <Star
+                    className={`size-4 ${
+                      img.isPrimary ? "fill-gold text-gold" : "text-ink-soft"
+                    }`}
+                  />
+                  {img.isPrimary ? "Primary" : "Set primary"}
+                </button>
+              )}
               <div className="flex items-center gap-1">
                 <button
                   type="button"

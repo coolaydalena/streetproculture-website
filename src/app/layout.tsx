@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { GrainOverlay } from "@/components/layout/grain-overlay";
 import { CartOverlay } from "@/components/shop/cart-overlay";
+import { SiteJsonLd } from "@/components/seo/site-json-ld";
 import { ToastProvider } from "@/components/ui/toast";
 import { SITE_URL } from "@/lib/site";
 import { getPublishedProducts } from "@/lib/products-db";
@@ -80,6 +81,7 @@ export default async function RootLayout({
       className={`${saira.variable} ${elite.variable} ${cousine.variable} h-full`}
     >
       <body className="flex min-h-full flex-col bg-paper text-ink">
+        <SiteJsonLd />
         <ToastProvider>
           <CartHydrator products={products} />
           <GrainOverlay />

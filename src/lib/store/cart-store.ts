@@ -3,22 +3,29 @@
 import { useMemo } from "react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { Product } from "@/lib/products";
+import type { Product, ProductVariant } from "@/lib/products";
 
-/** The product fields captured on a cart line at add-time. */
-export type CartSnapshot = Pick<
-  Product,
-  "id" | "slug" | "name" | "tag" | "image" | "price"
->;
+/** The product + variant fields captured on a cart line at add-time. */
+export type CartSnapshot = {
+  productId: string;
+  slug: string;
+  name: string;
+  tag: string;
+  image: string;
+  variantId: string;
+  variantLabel: string;
+  price: number; // whole PHP, the variant's price
+};
 
+/** A cart line is keyed on the variant id. */
 export type CartLine = { id: string; qty: number; snapshot: CartSnapshot };
 
-/** The resolved view of a cart line: live product data when available, else the snapshot. */
+/** The resolved view of a cart line: live product/variant data when available, else the snapshot. */
 export type DetailedLine = {
   product: CartSnapshot & { inStock: boolean };
   qty: number;
   lineTotal: number;
-  /** true when the product is no longer published / has been deleted. */
+  /** true when the variant is no longer published / active / has been deleted. */
   unavailable: boolean;
 };
 
@@ -28,13 +35,17 @@ type CartState = {
   catalog: Product[];
   hydrated: boolean;
   setCatalog: (catalog: Product[]) => void;
-  add: (product: CartSnapshot, qty?: number) => void;
-  setQty: (id: string, qty: number) => void;
-  remove: (id: string) => void;
+  add: (product: Product, variant: ProductVariant, qty?: number) => void;
+  setQty: (variantId: string, qty: number) => void;
+  remove: (variantId: string) => void;
   clear: () => void;
 };
 
-const LEGACY_KEY = "spc-cart-v2";
+function variantImage(product: Product, variant: { imageId: string | null }): string {
+  return (
+    product.images.find((i) => i.id === variant.imageId)?.url ?? product.image
+  );
+}
 
 function isValidLine(value: unknown): value is CartLine {
   if (!value || typeof value !== "object") return false;
@@ -45,7 +56,8 @@ function isValidLine(value: unknown): value is CartLine {
     typeof l.qty === "number" &&
     l.qty > 0 &&
     !!s &&
-    typeof s.id === "string" &&
+    typeof s.productId === "string" &&
+    typeof s.variantId === "string" &&
     typeof s.slug === "string" &&
     typeof s.name === "string" &&
     typeof s.price === "number"
@@ -59,68 +71,51 @@ export const useCartStore = create<CartState>()(
       catalog: [],
       hydrated: false,
       setCatalog: (catalog) => set({ catalog }),
-      add: (product, qty = 1) =>
+      add: (product, variant, qty = 1) =>
         set((s) => {
           const snapshot: CartSnapshot = {
-            id: product.id,
+            productId: product.id,
             slug: product.slug,
             name: product.name,
             tag: product.tag,
-            image: product.image,
-            price: product.price,
+            image: variantImage(product, variant),
+            variantId: variant.id,
+            variantLabel: variant.label,
+            price: variant.price,
           };
-          const existing = s.lines.find((l) => l.id === snapshot.id);
+          const existing = s.lines.find((l) => l.id === variant.id);
           return {
             lines: existing
               ? s.lines.map((l) =>
-                  l.id === snapshot.id
+                  l.id === variant.id
                     ? { ...l, qty: l.qty + qty, snapshot }
                     : l,
                 )
-              : [...s.lines, { id: snapshot.id, qty, snapshot }],
+              : [...s.lines, { id: variant.id, qty, snapshot }],
           };
         }),
-      setQty: (id, qty) =>
+      setQty: (variantId, qty) =>
         set((s) => ({
           lines: s.lines
-            .map((l) => (l.id === id ? { ...l, qty } : l))
+            .map((l) => (l.id === variantId ? { ...l, qty } : l))
             .filter((l) => l.qty > 0),
         })),
-      remove: (id) => set((s) => ({ lines: s.lines.filter((l) => l.id !== id) })),
+      remove: (variantId) =>
+        set((s) => ({ lines: s.lines.filter((l) => l.id !== variantId) })),
       clear: () => set({ lines: [] }),
     }),
     {
-      name: "spc-cart-v3",
-      version: 3,
+      name: "spc-cart-v4",
+      version: 4,
       partialize: (s) => ({ lines: s.lines }),
       migrate: (persisted): { lines: CartLine[] } => {
-        if (Array.isArray(persisted)) {
-          return { lines: persisted.filter(isValidLine) };
-        }
+        // Pre-v4 lines have no variant id — drop them.
         const p = persisted as { lines?: unknown[] } | undefined;
-        return {
-          lines: Array.isArray(p?.lines) ? p.lines.filter(isValidLine) : [],
-        };
+        const raw = Array.isArray(persisted) ? persisted : p?.lines;
+        return { lines: Array.isArray(raw) ? raw.filter(isValidLine) : [] };
       },
       onRehydrateStorage: () => (state) => {
         if (!state) return;
-        // One-time pull from the pre-zustand cart (a bare array under spc-cart-v2).
-        if (state.lines.length === 0) {
-          try {
-            const legacy = localStorage.getItem(LEGACY_KEY);
-            if (legacy) {
-              const parsed: unknown = JSON.parse(legacy);
-              if (Array.isArray(parsed)) state.lines = parsed.filter(isValidLine);
-            }
-          } catch {
-            /* ignore */
-          }
-        }
-        try {
-          localStorage.removeItem(LEGACY_KEY);
-        } catch {
-          /* ignore */
-        }
         state.hydrated = true;
       },
     },
@@ -142,7 +137,7 @@ export type CartView = {
 
 /**
  * Cart hook with the derived view (line details, subtotal, count) reconciled
- * against the live catalogue. Same shape the old CartProvider exposed.
+ * against the live catalogue.
  */
 export function useCart(): CartView {
   const lines = useCartStore((s) => s.lines);
@@ -155,23 +150,29 @@ export function useCart(): CartView {
 
   return useMemo<CartView>(() => {
     const detailed: DetailedLine[] = lines.map((l) => {
-      const live = catalog.find((p) => p.id === l.id);
-      const product = live
-        ? {
-            id: live.id,
-            slug: live.slug,
-            name: live.name,
-            tag: live.tag,
-            image: live.image,
-            price: live.price,
-            inStock: live.inStock,
-          }
-        : { ...l.snapshot, inStock: false };
+      const liveProduct = catalog.find((p) => p.id === l.snapshot.productId);
+      const liveVariant = liveProduct?.variants.find(
+        (v) => v.id === l.id && v.isActive,
+      );
+      const product =
+        liveProduct && liveVariant
+          ? {
+              productId: liveProduct.id,
+              slug: liveProduct.slug,
+              name: liveProduct.name,
+              tag: liveProduct.tag,
+              image: variantImage(liveProduct, liveVariant),
+              variantId: liveVariant.id,
+              variantLabel: liveVariant.label,
+              price: liveVariant.price,
+              inStock: liveVariant.inStock,
+            }
+          : { ...l.snapshot, inStock: false };
       return {
         product,
         qty: l.qty,
         lineTotal: product.price * l.qty,
-        unavailable: !live,
+        unavailable: !liveVariant,
       };
     });
 

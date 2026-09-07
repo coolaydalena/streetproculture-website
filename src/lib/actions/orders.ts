@@ -14,12 +14,12 @@ async function decrementStockForOrder(orderId: string): Promise<void> {
   const admin = createSupabaseAdminClient();
   const { data: items } = await admin
     .from("streetproculture_order_items")
-    .select("product_id, quantity, track_inventory_at_purchase")
+    .select("variant_id, quantity, track_inventory_at_purchase")
     .eq("order_id", orderId);
 
   const payload = (items ?? [])
-    .filter((i) => i.track_inventory_at_purchase && i.product_id)
-    .map((i) => ({ product_id: i.product_id, qty: i.quantity }));
+    .filter((i) => i.track_inventory_at_purchase && i.variant_id)
+    .map((i) => ({ variant_id: i.variant_id, qty: i.quantity }));
 
   if (payload.length === 0) return;
 

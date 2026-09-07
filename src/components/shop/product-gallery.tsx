@@ -1,32 +1,52 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect } from "react";
+import { Play } from "lucide-react";
 import type { ProductImage } from "@/lib/products";
 import { SITE } from "@/lib/site";
+import { usePdpStore } from "@/lib/store/pdp-store";
 
 export function ProductGallery({
+  productId,
   images,
   fallback,
   name,
   category,
   tag,
 }: {
+  productId: string;
   images: ProductImage[];
   fallback: string;
   name: string;
   category: string;
   tag: string;
 }) {
-  const gallery =
+  const gallery: ProductImage[] =
     images.length > 0
       ? images
-      : [{ id: "fallback", url: fallback, alt: name, isPrimary: true, sortOrder: 0 }];
+      : [
+          {
+            id: "fallback",
+            url: fallback,
+            alt: name,
+            isPrimary: true,
+            sortOrder: 0,
+            mediaType: "image",
+          },
+        ];
 
-  const [activeId, setActiveId] = useState(
-    (gallery.find((i) => i.isPrimary) ?? gallery[0]).id,
-  );
-  const active = gallery.find((i) => i.id === activeId) ?? gallery[0];
+  const primary = gallery.find((i) => i.isPrimary) ?? gallery[0];
+  const { productId: activeProductId, activeMediaId, select } = usePdpStore();
+
+  // Default the shared selection to this product's primary media on mount.
+  useEffect(() => {
+    select(productId, primary.id);
+  }, [productId, primary.id, select]);
+
+  const activeId =
+    activeProductId === productId && activeMediaId ? activeMediaId : primary.id;
+  const active = gallery.find((i) => i.id === activeId) ?? primary;
 
   return (
     <div>
@@ -35,37 +55,56 @@ export function ProductGallery({
           {tag}
         </p>
         <div className="relative aspect-4/5 overflow-hidden bg-line">
-          <Image
-            src={active.url}
-            alt={active.alt || `${name} — ${category} at ${SITE.name}`}
-            fill
-            priority
-            sizes="(min-width: 1024px) 45vw, 90vw"
-            className="object-cover"
-          />
+          {active.mediaType === "video" ? (
+            <video
+              key={active.id}
+              src={active.url}
+              controls
+              playsInline
+              preload="metadata"
+              className="size-full object-cover"
+            />
+          ) : (
+            <Image
+              src={active.url}
+              alt={active.alt || `${name} — ${category} at ${SITE.name}`}
+              fill
+              priority
+              sizes="(min-width: 1024px) 45vw, 90vw"
+              className="object-cover"
+            />
+          )}
         </div>
       </div>
 
       {gallery.length > 1 && (
         <div className="mt-3 flex flex-wrap gap-3">
-          {gallery.map((img) => (
+          {gallery.map((item) => (
             <button
-              key={img.id}
+              key={item.id}
               type="button"
-              onClick={() => setActiveId(img.id)}
-              aria-label={`View ${img.alt || name}`}
-              aria-current={img.id === activeId}
+              onClick={() => select(productId, item.id)}
+              aria-label={`View ${item.alt || name}`}
+              aria-current={item.id === activeId}
               className={`relative size-16 overflow-hidden border bg-line transition-colors ${
-                img.id === activeId ? "border-oxblood" : "border-ink/15 hover:border-ink"
+                item.id === activeId
+                  ? "border-oxblood"
+                  : "border-ink/15 hover:border-ink"
               }`}
             >
-              <Image
-                src={img.url}
-                alt=""
-                fill
-                sizes="64px"
-                className="object-cover"
-              />
+              {item.mediaType === "video" ? (
+                <span className="grid size-full place-items-center bg-ink/80 text-paper">
+                  <Play className="size-5" fill="currentColor" />
+                </span>
+              ) : (
+                <Image
+                  src={item.url}
+                  alt=""
+                  fill
+                  sizes="64px"
+                  className="object-cover"
+                />
+              )}
             </button>
           ))}
         </div>

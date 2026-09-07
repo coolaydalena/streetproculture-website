@@ -94,7 +94,9 @@ export function nextStatuses(order: {
 export type OrderItem = {
   id: string;
   productId: string | null;
+  variantId: string | null;
   productName: string;
+  variantLabel: string | null;
   productSlug: string;
   imageUrl: string | null;
   unitPriceCentavos: number;

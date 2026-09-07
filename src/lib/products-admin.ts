@@ -8,11 +8,15 @@ import type { Product } from "@/lib/products";
 // superadmin; the calling page/action also runs requireSuperadmin().
 
 const ADMIN_PRODUCT_COLUMNS = `
-  id, slug, category, tag, name, price, blurb, brand, specs,
-  track_inventory, stock_quantity, is_highlighted, is_published, is_mock,
+  id, slug, category, tag, name, blurb, description, brand, specs,
+  is_highlighted, is_published, is_mock,
   created_at, updated_at,
   images:streetproculture_product_images (
-    id, storage_path, is_uploaded, alt, sort_order, is_primary
+    id, storage_path, is_uploaded, alt, sort_order, is_primary, media_type
+  ),
+  variants:streetproculture_product_variants (
+    id, label, sku, price, compare_at_price, track_inventory, stock_quantity,
+    image_id, is_active, position
   )
 `;
 

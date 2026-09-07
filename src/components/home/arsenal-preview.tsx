@@ -49,8 +49,8 @@ export async function ArsenalPreview() {
                       {p.name}
                     </h3>
                   </div>
-                  <p className="font-mono text-lg text-oxblood">
-                    {formatPrice(p.price)}
+                  <p className="shrink-0 font-mono text-lg text-oxblood">
+                    {formatPrice(p.priceFrom)}
                   </p>
                 </div>
               </Link>

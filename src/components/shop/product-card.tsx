@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import type { Product } from "@/lib/products";
+import { variantOnSale, type Product } from "@/lib/products";
 import { formatPrice } from "@/lib/site";
 import { useCartStore } from "@/lib/store/cart-store";
 import { useCartUI } from "@/lib/store/cart-ui-store";
@@ -33,13 +34,26 @@ export function ProductCard({
 }) {
   const add = useCartStore((s) => s.add);
   const openCart = useCartUI((s) => s.openCart);
+  const router = useRouter();
   const [added, setAdded] = useState(false);
 
   const offset = OFFSETS[index % OFFSETS.length];
   const aspect = ASPECTS[index % ASPECTS.length];
 
+  const activeVariants = product.variants.filter((v) => v.isActive);
+  const multiVariant = activeVariants.length > 1;
+  const hasRange = product.priceTo !== product.priceFrom;
+  const onSale = product.defaultVariant
+    ? variantOnSale(product.defaultVariant)
+    : false;
+
   function quickAdd() {
-    add(product);
+    // Multi-variant products need a choice — send the buyer to the detail page.
+    if (multiVariant || !product.defaultVariant) {
+      router.push(`/shop/${product.slug}`);
+      return;
+    }
+    add(product, product.defaultVariant);
     setAdded(true);
     openCart();
     window.setTimeout(() => setAdded(false), 1200);
@@ -94,7 +108,19 @@ export function ProductCard({
             {product.name}
           </Link>
         </h3>
-        <p className="font-mono text-lg text-oxblood">{formatPrice(product.price)}</p>
+        <p className="shrink-0 font-mono text-lg text-oxblood">
+          {hasRange && (
+            <span className="mr-1 text-[10px] uppercase tracking-wider text-ink-soft">
+              from
+            </span>
+          )}
+          {formatPrice(product.priceFrom)}
+          {onSale && product.defaultVariant?.compareAtPrice && !hasRange && (
+            <span className="ml-2 text-xs text-ink-soft line-through">
+              {formatPrice(product.defaultVariant.compareAtPrice)}
+            </span>
+          )}
+        </p>
       </div>
       <p className="mt-2 text-xs leading-relaxed text-ink-soft">{product.blurb}</p>
       {product.isMock && (
@@ -109,7 +135,7 @@ export function ProductCard({
         className="mt-4 flex w-full items-center justify-center gap-2 border border-ink py-3 font-mono text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-ink hover:text-paper"
       >
         <Plus className="size-3.5" strokeWidth={3} />{" "}
-        {added ? "Added" : "Add to Cart"}
+        {added ? "Added" : multiVariant ? "Choose Options" : "Add to Cart"}
       </button>
     </article>
   );

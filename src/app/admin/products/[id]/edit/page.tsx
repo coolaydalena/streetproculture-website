@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getProductForAdmin } from "@/lib/products-admin";
 import { ProductForm } from "@/components/admin/product-form";
 import { ImageManager } from "@/components/admin/image-manager";
+import { VariantManager } from "@/components/admin/variant-manager";
 
 export const dynamic = "force-dynamic";
 
@@ -39,9 +40,25 @@ export default async function EditProductPage({
       </div>
 
       <section className="mt-12 border-t border-line pt-8">
-        <h2 className="u-display text-2xl">Images</h2>
+        <h2 className="u-display text-2xl">Variants</h2>
+        <p className="mt-2 text-sm text-ink-soft">
+          Every buyable option — price, compare-at (sale) price and stock live
+          here. A single-variant product just keeps one row.
+        </p>
+        <div className="mt-5">
+          <VariantManager
+            productId={product.id}
+            variants={product.variants}
+            images={product.images}
+          />
+        </div>
+      </section>
+
+      <section className="mt-12 border-t border-line pt-8">
+        <h2 className="u-display text-2xl">Media</h2>
         <p className="mt-2 text-sm text-ink-soft">
           The primary image is used on cards, the home page and social previews.
+          Videos play in the storefront gallery.
         </p>
         <div className="mt-5">
           <ImageManager productId={product.id} images={product.images} />

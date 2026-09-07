@@ -20,7 +20,7 @@ export default async function AdminLayout({
       <div className="border-b border-line">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4">
-            <Link href="/admin/products" className="u-display text-xl">
+            <Link href="/admin/orders" className="u-display text-xl">
               SPC Studio
             </Link>
             <Link

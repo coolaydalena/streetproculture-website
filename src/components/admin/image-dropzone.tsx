@@ -4,11 +4,20 @@ import { useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { UploadCloud } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
-import { addProductImage } from "@/lib/actions/products";
+import { addProductMedia } from "@/lib/actions/products";
+import type { ProductMediaType } from "@/lib/products";
 import { useToast } from "@/components/ui/toast";
 
-const ACCEPT = ["image/png", "image/jpeg", "image/webp", "image/avif"];
-const MAX_BYTES = 5 * 1024 * 1024;
+const IMAGE_ACCEPT = ["image/png", "image/jpeg", "image/webp", "image/avif"];
+const VIDEO_ACCEPT = ["video/mp4", "video/webm"];
+const IMAGE_MAX = 5 * 1024 * 1024; // 5 MB
+const VIDEO_MAX = 50 * 1024 * 1024; // 50 MB
+
+function kindOf(type: string): ProductMediaType | null {
+  if (IMAGE_ACCEPT.includes(type)) return "image";
+  if (VIDEO_ACCEPT.includes(type)) return "video";
+  return null;
+}
 
 export function ImageDropzone({ productId }: { productId: string }) {
   const { push } = useToast();
@@ -20,20 +29,23 @@ export function ImageDropzone({ productId }: { productId: string }) {
   async function upload(files: FileList | File[]) {
     const supabase = createClient();
     for (const file of Array.from(files)) {
-      if (!ACCEPT.includes(file.type)) {
+      const kind = kindOf(file.type);
+      if (!kind) {
         push(`${file.name}: unsupported type`, "error");
         continue;
       }
-      if (file.size > MAX_BYTES) {
-        push(`${file.name}: over 5 MB`, "error");
+      const max = kind === "video" ? VIDEO_MAX : IMAGE_MAX;
+      if (file.size > max) {
+        push(`${file.name}: over ${kind === "video" ? "50 MB" : "5 MB"}`, "error");
         continue;
       }
 
-      const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
+      const ext = file.name.split(".").pop()?.toLowerCase() ?? "bin";
       const path = `${productId}/${crypto.randomUUID()}.${ext}`;
+      const bucket = kind === "video" ? "product-videos" : "product-images";
 
       const { error: uploadError } = await supabase.storage
-        .from("product-images")
+        .from(bucket)
         .upload(path, file, { contentType: file.type, upsert: false });
 
       if (uploadError) {
@@ -41,12 +53,16 @@ export function ImageDropzone({ productId }: { productId: string }) {
         continue;
       }
 
-      const res = await addProductImage({ productId, storagePath: path });
+      const res = await addProductMedia({
+        productId,
+        storagePath: path,
+        mediaType: kind,
+      });
       if (!res.ok) {
-        push(res.error ?? "Could not save image", "error");
+        push(res.error ?? "Could not save media", "error");
         continue;
       }
-      push("Image added", "success");
+      push(kind === "video" ? "Video added" : "Image added", "success");
     }
     router.refresh();
   }
@@ -71,7 +87,7 @@ export function ImageDropzone({ productId }: { productId: string }) {
     >
       <UploadCloud className="size-6 text-ink-soft" />
       <p className="text-sm text-ink-soft">
-        Drag images here, or{" "}
+        Drag images or videos here, or{" "}
         <button
           type="button"
           className="text-oxblood underline underline-offset-2"
@@ -80,12 +96,14 @@ export function ImageDropzone({ productId }: { productId: string }) {
           browse
         </button>
       </p>
-      <p className="text-xs text-ink-soft">PNG, JPG, WebP or AVIF · up to 5 MB</p>
+      <p className="text-xs text-ink-soft">
+        PNG, JPG, WebP, AVIF up to 5 MB · MP4 or WebM up to 50 MB
+      </p>
       {pending && <p className="u-label text-oxblood">Uploading…</p>}
       <input
         ref={inputRef}
         type="file"
-        accept={ACCEPT.join(",")}
+        accept={[...IMAGE_ACCEPT, ...VIDEO_ACCEPT].join(",")}
         multiple
         hidden
         onChange={(e) => {

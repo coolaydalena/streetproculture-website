@@ -102,6 +102,14 @@ public = true
 file_size_limit = "5MiB"
 allowed_mime_types = ["image/png", "image/jpeg", "image/webp", "image/avif"]
 
+# Product video bucket. Also created/secured by migration
+# 0008_product_media_video.sql for the hosted project; this block configures it
+# for `supabase start`.
+[storage.buckets.product-videos]
+public = true
+file_size_limit = "50MiB"
+allowed_mime_types = ["video/mp4", "video/webm"]
+
 [auth]
 enabled = true
 # The base URL of your website. Used as an allow-list for redirects and for constructing URLs used

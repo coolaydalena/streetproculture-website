@@ -169,7 +169,11 @@ export function CheckoutClient({
       pickupNotes: form.pickupNotes,
       deliveryLat: form.fulfilment === "delivery" ? coords?.lat ?? null : null,
       deliveryLng: form.fulfilment === "delivery" ? coords?.lng ?? null : null,
-      items: lines.map((l) => ({ productId: l.id, quantity: l.qty })),
+      items: lines.map((l) => ({
+        productId: l.snapshot.productId,
+        variantId: l.id,
+        quantity: l.qty,
+      })),
     };
 
     const parsed = checkoutSchema.safeParse(payload);
@@ -351,7 +355,7 @@ export function CheckoutClient({
           <ul className="mt-4 divide-y divide-line">
             {detailed.map(({ product, qty, lineTotal, unavailable }) => (
               <li
-                key={product.id}
+                key={product.variantId}
                 className="flex items-center gap-3 py-3 text-sm"
               >
                 <div className="relative size-12 shrink-0 overflow-hidden bg-coal">
@@ -364,7 +368,13 @@ export function CheckoutClient({
                   />
                 </div>
                 <span className="flex-1">
-                  {product.name}{" "}
+                  {product.name}
+                  {product.variantLabel &&
+                    product.variantLabel.toLowerCase() !== "default" && (
+                      <span className="block text-ink-soft">
+                        {product.variantLabel}
+                      </span>
+                    )}{" "}
                   <span className="text-ink-soft">× {qty}</span>
                 </span>
                 <span className="font-mono">

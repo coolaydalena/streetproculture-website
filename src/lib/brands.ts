@@ -50,3 +50,17 @@ export const BRANDS: Brand[] = [
     logo: "/images/brands/oz-racing.png",
   },
 ];
+
+/**
+ * Resolve a product's free-text `brand` string ("CGM", "SKAP", "NZI", "X-Land")
+ * to a BRANDS entry for the on-page brand block. SKAP is CGM Italia's value
+ * line, so it maps to the CGM entry. Returns undefined when there's no match.
+ */
+export function brandForName(name: string | null | undefined): Brand | undefined {
+  if (!name) return undefined;
+  const n = name.toLowerCase();
+  if (n === "cgm" || n === "skap") return BRANDS.find((b) => b.id === "cgm-italia");
+  if (n === "nzi") return BRANDS.find((b) => b.id === "nzi-fibra");
+  if (n === "x-land" || n === "xland") return BRANDS.find((b) => b.id === "x-land");
+  return BRANDS.find((b) => b.name.toLowerCase() === n);
+}

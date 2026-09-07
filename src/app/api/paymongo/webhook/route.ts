@@ -37,12 +37,12 @@ async function findOrder(admin: any, info: ReturnType<typeof readPaidEvent>) {
 async function decrementStock(admin: any, orderId: string) {
   const { data: items } = await admin
     .from("streetproculture_order_items")
-    .select("product_id, quantity, track_inventory_at_purchase")
+    .select("variant_id, quantity, track_inventory_at_purchase")
     .eq("order_id", orderId);
 
   const payload = (items ?? [])
-    .filter((i: any) => i.track_inventory_at_purchase && i.product_id)
-    .map((i: any) => ({ product_id: i.product_id, qty: i.quantity }));
+    .filter((i: any) => i.track_inventory_at_purchase && i.variant_id)
+    .map((i: any) => ({ variant_id: i.variant_id, qty: i.quantity }));
 
   if (payload.length > 0) {
     await admin.rpc("streetproculture_decrement_stock", { items: payload });
@@ -110,7 +110,12 @@ export async function POST(request: Request) {
       } else {
         orderId = order.id;
         if (order.status === "pending_payment") {
-          await admin
+          // PayMongo fires both `checkout_session.payment.paid` and
+          // `payment.paid` for one payment; they can land concurrently. The
+          // `status = 'pending_payment'` filter means only one UPDATE actually
+          // flips the row (Postgres re-checks the predicate after the row lock),
+          // so gate the one-time side effect (stock) on that row count.
+          const { data: flipped } = await admin
             .from("streetproculture_orders")
             .update({
               status: "paid",
@@ -119,9 +124,12 @@ export async function POST(request: Request) {
               paymongo_fee_actual_centavos: info.feeCentavos ?? null,
             })
             .eq("id", order.id)
-            .eq("status", "pending_payment");
+            .eq("status", "pending_payment")
+            .select("id");
 
-          await decrementStock(admin, order.id);
+          if (flipped && flipped.length > 0) {
+            await decrementStock(admin, order.id);
+          }
         }
       }
     } else if (eventType === "payment.failed") {

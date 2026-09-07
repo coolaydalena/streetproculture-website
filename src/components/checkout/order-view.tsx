@@ -126,6 +126,11 @@ export function OrderView({ order }: { order: Order }) {
                 <p className="u-display text-lg leading-tight">
                   {item.productName}
                 </p>
+                {item.variantLabel &&
+                  item.variantLabel.toLowerCase() !== "default" &&
+                  item.variantLabel !== item.productName && (
+                    <p className="u-label text-ink-soft">{item.variantLabel}</p>
+                  )}
                 <p className="text-sm text-ink-soft">
                   {formatCentavos(item.unitPriceCentavos)} × {item.quantity}
                 </p>

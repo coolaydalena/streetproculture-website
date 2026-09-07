@@ -15,7 +15,7 @@ const ORDER_COLUMNS = `
   paymongo_checkout_url, paymongo_payment_id, paid_at, expires_at,
   status_changed_at, admin_notes, cancelled_reason, created_at,
   items:streetproculture_order_items (
-    id, product_id, product_name, product_slug, image_url,
+    id, product_id, variant_id, product_name, variant_label, product_slug, image_url,
     unit_price_centavos, quantity, line_total_centavos, track_inventory_at_purchase
   )
 `;
@@ -56,7 +56,9 @@ function rowToOrder(row: any): Order {
     items: (row.items ?? []).map((i: any) => ({
       id: i.id,
       productId: i.product_id,
+      variantId: i.variant_id,
       productName: i.product_name,
+      variantLabel: i.variant_label,
       productSlug: i.product_slug,
       imageUrl: i.image_url,
       unitPriceCentavos: i.unit_price_centavos,

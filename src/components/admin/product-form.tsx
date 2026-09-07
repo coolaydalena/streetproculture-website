@@ -24,11 +24,9 @@ function defaults(product?: AdminProduct): ProductFormValues {
     category: product?.category ?? "caps",
     tag: product?.tag ?? "",
     brand: product?.brand ?? "",
-    price: product?.price ?? 0,
     blurb: product?.blurb ?? "",
+    description: product?.description ?? "",
     specs: product?.specs ?? [],
-    trackInventory: product?.trackInventory ?? false,
-    stockQuantity: product?.stockQuantity ?? 0,
     isHighlighted: product?.isHighlighted ?? false,
     isPublished: product?.isPublished ?? false,
     isMock: product?.isMock ?? false,
@@ -50,7 +48,6 @@ export function ProductForm({ product }: { product?: AdminProduct }) {
   const errors = formState.errors;
 
   const specs = useFieldArray({ control, name: "specs" });
-  const trackInventory = useWatch({ control, name: "trackInventory" });
   const nameValue = useWatch({ control, name: "name" });
 
   // Auto-fill the slug from the name until the user edits it directly.
@@ -63,7 +60,6 @@ export function ProductForm({ product }: { product?: AdminProduct }) {
   const onSubmit = handleSubmit((values) => {
     const payload: ProductFormValues = {
       ...values,
-      stockQuantity: values.trackInventory ? values.stockQuantity : null,
       specs: values.specs.filter((s) => s.label.trim() && s.value.trim()),
     };
 
@@ -135,33 +131,31 @@ export function ProductForm({ product }: { product?: AdminProduct }) {
           </Field>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
-          <Field
-            label="Brand"
-            htmlFor="brand"
-            error={errors.brand?.message}
-            hint="Optional — free text"
-          >
-            <Input id="brand" {...register("brand")} />
-          </Field>
-          <Field
-            label="Price (₱)"
-            htmlFor="price"
-            error={errors.price?.message}
-            hint="Whole pesos, no decimals"
-          >
-            <Input
-              id="price"
-              type="number"
-              min={0}
-              step={1}
-              {...register("price", { valueAsNumber: true })}
-            />
-          </Field>
-        </div>
+        <Field
+          label="Brand"
+          htmlFor="brand"
+          error={errors.brand?.message}
+          hint="Optional — free text"
+        >
+          <Input id="brand" {...register("brand")} />
+        </Field>
 
-        <Field label="Blurb" htmlFor="blurb" error={errors.blurb?.message}>
-          <Textarea id="blurb" rows={3} {...register("blurb")} />
+        <Field
+          label="Blurb"
+          htmlFor="blurb"
+          error={errors.blurb?.message}
+          hint="One line — used on cards and the Google search snippet"
+        >
+          <Textarea id="blurb" rows={2} {...register("blurb")} />
+        </Field>
+
+        <Field
+          label="Description"
+          htmlFor="description"
+          error={errors.description?.message}
+          hint="Full copy shown on the product page. Blank line between paragraphs."
+        >
+          <Textarea id="description" rows={8} {...register("description")} />
         </Field>
 
         {/* Specs */}
@@ -227,29 +221,6 @@ export function ProductForm({ product }: { product?: AdminProduct }) {
         </div>
 
         <div className="border-t border-line pt-5">
-          <Checkbox
-            label="Track inventory"
-            description="Off = unlimited stock"
-            {...register("trackInventory")}
-          />
-          {trackInventory && (
-            <Field
-              label="Stock quantity"
-              htmlFor="stockQuantity"
-              error={errors.stockQuantity?.message}
-            >
-              <Input
-                id="stockQuantity"
-                type="number"
-                min={0}
-                step={1}
-                {...register("stockQuantity", { valueAsNumber: true })}
-              />
-            </Field>
-          )}
-        </div>
-
-        <div className="border-t border-line pt-5">
           <Button type="submit" disabled={pending} className="w-full">
             {pending
               ? "Saving…"
@@ -257,11 +228,11 @@ export function ProductForm({ product }: { product?: AdminProduct }) {
                 ? "Create draft"
                 : "Save changes"}
           </Button>
-          {mode === "create" && (
-            <p className="mt-2 text-xs text-ink-soft">
-              Save the draft first, then add images.
-            </p>
-          )}
+          <p className="mt-2 text-xs text-ink-soft">
+            {mode === "create"
+              ? "Save the draft first, then set variants, pricing and media."
+              : "Pricing and stock live on the variants below."}
+          </p>
         </div>
       </aside>
     </form>

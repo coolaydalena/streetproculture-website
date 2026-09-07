@@ -98,7 +98,7 @@ function CartPanel() {
         <>
           <ul className="flex-1 divide-y divide-line overflow-y-auto">
             {detailed.map(({ product, qty, lineTotal, unavailable }) => (
-              <li key={product.id} className="flex gap-4 p-5">
+              <li key={product.variantId} className="flex gap-4 p-5">
                 <div className="relative size-20 shrink-0 overflow-hidden bg-coal">
                   <Image
                     src={product.image}
@@ -111,6 +111,12 @@ function CartPanel() {
                 <div className="flex flex-1 flex-col">
                   <p className="u-label text-ink-soft">{product.tag}</p>
                   <p className="u-display text-lg leading-tight">{product.name}</p>
+                  {product.variantLabel &&
+                    product.variantLabel.toLowerCase() !== "default" && (
+                      <p className="u-label text-ink-soft">
+                        {product.variantLabel}
+                      </p>
+                    )}
                   {unavailable ? (
                     <p className="text-sm text-oxblood">No longer available</p>
                   ) : (
@@ -123,7 +129,7 @@ function CartPanel() {
                       <button
                         type="button"
                         aria-label="Decrease quantity"
-                        onClick={() => setQty(product.id, qty - 1)}
+                        onClick={() => setQty(product.variantId, qty - 1)}
                         className="p-2 hover:bg-line"
                       >
                         <Minus className="size-3" strokeWidth={3} />
@@ -134,7 +140,7 @@ function CartPanel() {
                       <button
                         type="button"
                         aria-label="Increase quantity"
-                        onClick={() => setQty(product.id, qty + 1)}
+                        onClick={() => setQty(product.variantId, qty + 1)}
                         className="p-2 hover:bg-line"
                       >
                         <Plus className="size-3" strokeWidth={3} />
@@ -146,7 +152,7 @@ function CartPanel() {
                   </div>
                   <button
                     type="button"
-                    onClick={() => remove(product.id)}
+                    onClick={() => remove(product.variantId)}
                     className="u-label mt-2 self-start text-ink-soft underline-offset-2 hover:text-oxblood hover:underline"
                   >
                     Remove

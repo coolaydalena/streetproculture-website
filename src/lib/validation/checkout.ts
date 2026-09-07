@@ -3,6 +3,7 @@ import { PAYMENT_METHOD_CODES } from "@/lib/payments";
 
 export const checkoutItemSchema = z.object({
   productId: z.uuid(),
+  variantId: z.uuid(),
   quantity: z.number().int().min(1).max(9),
 });
 
