@@ -31,7 +31,13 @@ export default async function OgImage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = await getPublishedProductBySlug(slug);
+  // This route is decorative — never let a data hiccup 500 the share card.
+  let product: Product | null = null;
+  try {
+    product = await getPublishedProductBySlug(slug);
+  } catch {
+    product = null;
+  }
   const name = product?.name ?? SITE.name;
   const kicker = product
     ? `${product.brand ? `${product.brand} · ` : ""}${categoryNoun(product.category)}`

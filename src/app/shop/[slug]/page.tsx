@@ -19,10 +19,16 @@ import { ProductGallery } from "@/components/shop/product-gallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
-/* Prerender the current catalogue; new products render on-demand (dynamicParams). */
+/* Prerender the current catalogue; new products render on-demand (dynamicParams).
+ * A DB error here (e.g. code deployed ahead of a migration) must not fail the
+ * build — fall back to zero prerendered pages; they render on request instead. */
 export async function generateStaticParams() {
-  const products = await getPublishedProducts();
-  return products.map((p) => ({ slug: p.slug }));
+  try {
+    const products = await getPublishedProducts();
+    return products.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

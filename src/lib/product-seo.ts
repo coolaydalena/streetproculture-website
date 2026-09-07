@@ -37,9 +37,10 @@ export function priceRangeLabel(product: Product): string {
 export function colourPhrases(product: Product): string[] {
   const seen = new Map<string, string>();
   for (const v of activeVariants(product)) {
-    let c = v.label.includes("—")
-      ? v.label.slice(v.label.lastIndexOf("—") + 1)
-      : v.label;
+    const label = v.label ?? "";
+    let c = label.includes("—")
+      ? label.slice(label.lastIndexOf("—") + 1)
+      : label;
     c = c
       .replace(/\([^)]*\)/g, "") // drop "(Long Visor)"
       .replace(/^\s*\d+\s*L\s+/i, "") // drop "45L "
@@ -51,7 +52,8 @@ export function colourPhrases(product: Product): string[] {
 
 /** ≤158-char meta description — `blurb` when set, otherwise derived. */
 export function productMetaDescription(product: Product): string {
-  if (product.blurb.trim()) return product.blurb.trim();
+  const blurb = (product.blurb ?? "").trim();
+  if (blurb) return blurb;
 
   const noun = categoryNoun(product.category);
   const n = activeVariants(product).length;
@@ -73,8 +75,9 @@ export function productMetaDescription(product: Product): string {
 
 /** A fuller paragraph for the JSON-LD `description` — the real copy when set. */
 export function productLdDescription(product: Product): string {
-  if (product.description.trim()) {
-    return product.description.replace(/\s*\n\s*/g, " ").trim();
+  const authored = (product.description ?? "").trim();
+  if (authored) {
+    return authored.replace(/\s*\n\s*/g, " ");
   }
   const noun = categoryNoun(product.category);
   const n = activeVariants(product).length;
@@ -99,7 +102,7 @@ export function productLdDescription(product: Product): string {
 
 export function productKeywords(product: Product): string[] {
   const out = new Set<string>();
-  for (const w of product.name.split(/\s+/)) if (w.length > 1) out.add(w);
+  for (const w of (product.name ?? "").split(/\s+/)) if (w.length > 1) out.add(w);
   if (product.brand) out.add(product.brand);
   out.add(categoryNoun(product.category));
   out.add(categoryLabel(product.category));
