@@ -51,7 +51,7 @@ export default function VisitPage() {
                   {SITE.location.address}
                 </dd>
               </div>
-              <div className="flex justify-between gap-4 py-3">
+              {/* <div className="flex justify-between gap-4 py-3">
                 <dt className="u-label text-ink-soft">Hours</dt>
                 <dd className="u-label text-right">{SITE.location.hours}</dd>
               </div>
@@ -62,7 +62,7 @@ export default function VisitPage() {
                     {SITE.location.phone}
                   </a>
                 </dd>
-              </div>
+              </div> */}
             </dl>
 
             <div className="mt-8 flex flex-wrap gap-4">
