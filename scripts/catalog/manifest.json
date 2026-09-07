@@ -1,0 +1,3247 @@
+{
+  "generatedAt": "2026-09-07T08:46:02.814Z",
+  "products": [
+    {
+      "slug": "x-land-s-series-top-case",
+      "name": "X-Land S-Series Top Case",
+      "brand": "X-Land",
+      "category": "cases",
+      "tag": "X-LAND",
+      "blurb": "X-Land S-Series 45L motorcycle top case — hard-plastic rear box that locks to a standard luggage rack, room for one full-face helmet.",
+      "description": "The X-Land S-Series is the entry-level top case in the X-Land line: a 45-litre hard-plastic rear box that bolts to a standard motorcycle luggage rack and locks shut, swallowing a full-face helmet or a day's shopping without a bungee net in sight.\n\nExternal size is 42×36×34 cm. It ships in black.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "45 L"
+        },
+        {
+          "label": "Shell",
+          "value": "Hard plastic"
+        },
+        {
+          "label": "External size",
+          "value": "42×36×34 cm"
+        }
+      ],
+      "variants": [
+        {
+          "label": "45L Black",
+          "sku": "S-45-B",
+          "price": 3250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "x-land-h-series-aluminium-top-case",
+      "name": "X-Land H-Series Aluminium Top Case",
+      "brand": "X-Land",
+      "category": "cases",
+      "tag": "X-LAND",
+      "blurb": "X-Land H-Series aluminium top case in 45 / 55 / 65 L — 1.2 mm alloy shell, lockable, mounts to a standard rear rack. Five finishes.",
+      "description": "The X-Land H-Series is X-Land's core aluminium top case — a 1.2 mm alloy shell with welded seams, a weather lip and a barrel lock, built for commuters and weekend tourers who want a box that shrugs off knocks and looks the part.\n\nPick your capacity: 45 L holds one full-face helmet, 55 L takes a helmet plus a jacket, and 65 L is a genuine two-up touring box. External sizes run 42×36×34 cm to 57×38×34 cm. Every size comes in Black, Silver, Chrome Black, Colorful and Special Silver — 15 combinations in all. Sizes and part numbers are listed on this page.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "45 / 55 / 65 L"
+        },
+        {
+          "label": "Shell",
+          "value": "1.2 mm aluminium alloy"
+        },
+        {
+          "label": "External size",
+          "value": "42×36×34 – 57×38×34 cm"
+        }
+      ],
+      "variants": [
+        {
+          "label": "45L Black",
+          "sku": "H-45-B",
+          "price": 5650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "45L Silver",
+          "sku": "H-45-S",
+          "price": 5650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "45L Chrome Black",
+          "sku": "H-45-CB",
+          "price": 5650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "45L Colorful",
+          "sku": "H-45-CL",
+          "price": 5650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "45L Special Silver",
+          "sku": "H-45-SS",
+          "price": 5650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "55L Black",
+          "sku": "H-55-B",
+          "price": 5950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "55L Silver",
+          "sku": "H-55-S",
+          "price": 5950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "55L Chrome Black",
+          "sku": "H-55-CB",
+          "price": 5950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "55L Colorful",
+          "sku": "H-55-CL",
+          "price": 5950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "55L Special Silver",
+          "sku": "H-55-SS",
+          "price": 5950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "65L Black",
+          "sku": "H-65-B",
+          "price": 6850,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "65L Silver",
+          "sku": "H-65-S",
+          "price": 6850,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "65L Chrome Black",
+          "sku": "H-65-CB",
+          "price": 6850,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "65L Colorful",
+          "sku": "H-65-CL",
+          "price": 6850,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "65L Special Silver",
+          "sku": "H-65-SS",
+          "price": 6850,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "x-land-m-series-aluminium-top-case",
+      "name": "X-Land M-Series Aluminium Top Case",
+      "brand": "X-Land",
+      "category": "cases",
+      "tag": "X-LAND",
+      "blurb": "X-Land M-Series aluminium top case, 45 / 55 / 65 L — smooth-sided 1.2 mm alloy shell, lockable rear box in black or silver.",
+      "description": "The X-Land M-Series is a cleaner-lined 1.2 mm aluminium top case for riders who want the alloy build without the textured panels — a smooth-sided lockable rear box in three capacities.\n\n45, 55 and 65 L, each in Black or Silver. External sizes 42×36×34 cm to 57×38×34 cm. It mounts to a standard motorcycle luggage rack.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "45 / 55 / 65 L"
+        },
+        {
+          "label": "Shell",
+          "value": "1.2 mm aluminium alloy"
+        },
+        {
+          "label": "External size",
+          "value": "42×36×34 – 57×38×34 cm"
+        }
+      ],
+      "variants": [
+        {
+          "label": "45L Black",
+          "sku": "M-45-B",
+          "price": 5650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "45L Silver",
+          "sku": "M-45-S",
+          "price": 5650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "55L Black",
+          "sku": "M-55-B",
+          "price": 5950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "55L Silver",
+          "sku": "M-55-S",
+          "price": 5950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "65L Black",
+          "sku": "M-65-B",
+          "price": 6850,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "65L Silver",
+          "sku": "M-65-S",
+          "price": 6850,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "x-land-y-series-aluminium-top-case",
+      "name": "X-Land Y-Series Aluminium Top Case",
+      "brand": "X-Land",
+      "category": "cases",
+      "tag": "X-LAND",
+      "blurb": "X-Land Y-Series heavy-duty aluminium top case — thicker 1.5 mm alloy shell, 45 / 55 / 65 L, black or silver.",
+      "description": "The X-Land Y-Series is the heavy-duty option: the same lockable X-Land top-case design in a thicker 1.5 mm aluminium alloy for riders loading the box hard — long tours, rough roads, daily heavy use.\n\nThree capacities (45 / 55 / 65 L) in Black or Silver, external sizes 42×36×34 cm to 57×38×34 cm. Fits a standard rear luggage rack.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "45 / 55 / 65 L"
+        },
+        {
+          "label": "Shell",
+          "value": "1.5 mm aluminium alloy"
+        },
+        {
+          "label": "External size",
+          "value": "42×36×34 – 57×38×34 cm"
+        }
+      ],
+      "variants": [
+        {
+          "label": "45L Black",
+          "sku": "Y-45-B",
+          "price": 7450,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "45L Silver",
+          "sku": "Y-45-S",
+          "price": 7450,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "55L Black",
+          "sku": "Y-55-B",
+          "price": 7950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "55L Silver",
+          "sku": "Y-55-S",
+          "price": 7950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "65L Black",
+          "sku": "Y-65-B",
+          "price": 8450,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "65L Silver",
+          "sku": "Y-65-S",
+          "price": 8450,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "nzi-fibra-atto-duo",
+      "name": "NZI Fibra Atto Duo",
+      "brand": "NZI",
+      "category": "helmets",
+      "tag": "NZI",
+      "blurb": "NZI Fibra Atto Duo modular helmet — Spanish fibreglass flip-up with a drop-down sun visor and a clear outer visor. Four graphics.",
+      "description": "The NZI Fibra Atto Duo is a modular (flip-up) helmet from NZI of Spain, built on a fibreglass shell and finished to European ECE safety standards. The chin bar lifts for a full open-face feel at the lights; drop the internal sun visor and you're covered without swapping the clear outer visor.\n\nFour finishes — Olas Black & Blue, Olas Black & Red, Matt Black and White. Each ships with a clear visor fitted.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full Face Modular"
+        },
+        {
+          "label": "Shell",
+          "value": "Fibreglass"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Olas Black & Blue",
+          "sku": "150384A011V2",
+          "price": 4250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Olas Black & Red",
+          "sku": "150384A009V2",
+          "price": 4250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Matt Black",
+          "sku": "150384A003V2",
+          "price": 3750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "White",
+          "sku": "150384A007V2",
+          "price": 3750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "nzi-fibra-exa-duo",
+      "name": "NZI Fibra Exa Duo",
+      "brand": "NZI",
+      "category": "helmets",
+      "tag": "NZI",
+      "blurb": "NZI Fibra Exa Duo full-face helmet — fibreglass shell, dual-visor (clear outer + drop-down sun visor). Bobber, Braden and Delvon graphics.",
+      "description": "The NZI Fibra Exa Duo is a dual-visor full-face from NZI Spain — a fibreglass shell with a built-in retractable sun visor alongside the clear outer visor, so you're set for a bright ride home without carrying a tinted spare.\n\nFour graphics — Bobber White & Red, Bobber White & Grey, Braden Black & Neon Matt and Delvon Black & Red — each with a clear visor included.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full Face Double Visor"
+        },
+        {
+          "label": "Shell",
+          "value": "Fibreglass"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Bobber White & Red",
+          "sku": "150344A562V2",
+          "price": 4250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Bobber White & Grey",
+          "sku": "150344A560V2",
+          "price": 4250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Braden Black & Neon Matt",
+          "sku": "150344A567V2",
+          "price": 4250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Delvon Black & Red",
+          "sku": "150344A576V2",
+          "price": 4250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "nzi-fibra-giga",
+      "name": "NZI Fibra Giga",
+      "brand": "NZI",
+      "category": "helmets",
+      "tag": "NZI",
+      "blurb": "NZI Fibra Giga full-face helmet — lightweight Spanish fibreglass shell, single clear visor, seven graphics.",
+      "description": "The NZI Fibra Giga is NZI Spain's everyday full-face: a light fibreglass lay-up, a wide single clear visor and a snug fit favoured by commuters and cafe riders. Built to European ECE standards.\n\nSeven finishes — Veneno Antracite, Tecno Black & Orange, Falcon Black & Pink Matt, Global Black & Red Matt, Global Black & Blue, Venom Black & Red and Solid Noveau White. Graphic names and part numbers are on this page.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full Face Single Visor"
+        },
+        {
+          "label": "Shell",
+          "value": "Fibreglass"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Veneno Antracite",
+          "sku": "150331A625V2",
+          "price": 3950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Tecno Black & Orange",
+          "sku": "150330A631V2",
+          "price": 3950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Falcon Black & Pink Matt",
+          "sku": "150330A456V2",
+          "price": 3950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Global Black & Red Matt",
+          "sku": "150330A459V2",
+          "price": 3950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Global Black & Blue",
+          "sku": "150330A379V2",
+          "price": 3950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Venom Black & Red",
+          "sku": "150330A365V2",
+          "price": 3950,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Solid Noveau White",
+          "sku": "150330A649V2",
+          "price": 3650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "nzi-fibra-byte-stream",
+      "name": "NZI Fibra Byte Stream",
+      "brand": "NZI",
+      "category": "helmets",
+      "tag": "NZI",
+      "blurb": "NZI Fibra Byte Stream full-face helmet — fibreglass shell, single clear visor, three graphics.",
+      "description": "The NZI Fibra Byte Stream is a single-visor full-face from NZI Spain on a fibreglass shell — a straightforward, road-legal lid for daily riding.\n\nThree finishes — Extreme Black & Antracite & Red, Plieger Blue & White & Red and Matt Black — each with a clear visor fitted.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full Face Single Visor"
+        },
+        {
+          "label": "Shell",
+          "value": "Fibreglass"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Extreme Black & Antracite & Red",
+          "sku": "150354A808V2",
+          "price": 3650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Plieger Blue & White & Red",
+          "sku": "150354A675V2",
+          "price": 3650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Matt Black",
+          "sku": "150354A622V2",
+          "price": 3350,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "nzi-fibra-one-bit",
+      "name": "NZI Fibra One Bit",
+      "brand": "NZI",
+      "category": "helmets",
+      "tag": "NZI",
+      "blurb": "NZI Fibra One Bit open-face helmet — fibreglass three-quarter lid with a clear flip visor, seven graphics.",
+      "description": "The NZI Fibra One Bit is a fibreglass open-face (three-quarter) helmet from NZI Spain — the classic cafe and city silhouette with a clip-in clear visor and an ECE-standard build.\n\nSeven finishes across the Lander, Thunder and Solid Nouveau lines. Colourways and part numbers are listed below.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Open Face"
+        },
+        {
+          "label": "Shell",
+          "value": "Fibreglass"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Lander Black & Antracite & Red",
+          "sku": "150385A158V14",
+          "price": 2650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Lander Blue & Grey",
+          "sku": "150385A162V14",
+          "price": 2650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Lander Nardo Grey & Black",
+          "sku": "150385A164V14",
+          "price": 2650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Thunder Black & Yellow",
+          "sku": "150385A180V14",
+          "price": 2650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Thunder Blue & White",
+          "sku": "150385A182V14",
+          "price": 2650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Thunder White & Blue & Red",
+          "sku": "150385A188V14",
+          "price": 2650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Solid Nouveau Black & Silver Matt",
+          "sku": "150385A111V14",
+          "price": 2450,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-361-avent",
+      "name": "CGM 361 AVENT",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 361 Avent Pro — carbon-shell full-face helmet from CGM Italia, Pinlock 70 anti-fog lens included. Four carbon finishes.",
+      "description": "The CGM 361 Avent Pro is CGM Italia's flagship full-face: a real carbon-fibre shell for low weight and high rigidity, with a Pinlock 70 anti-fog lens already in the box and the visor pinned to take it. Built to European ECE standards.\n\nFour carbon finishes across the Avent Pro and Avent Pro Sport lines — Carbon Nero Opaco, Carbon Nero, Carbon Rosso Opaco and Carbon Giallo Fluo Opaco.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full-face"
+        },
+        {
+          "label": "Shell",
+          "value": "Carbon"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 lens included"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Pro — Carbon Nero Opaco",
+          "sku": "361C-ALV-01",
+          "price": 21500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Pro — Carbon Nero",
+          "sku": "361C-ALV-83",
+          "price": 21500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Pro Sport — Carbon Rosso Opaco",
+          "sku": "361G-ALV-03",
+          "price": 22500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Pro Sport — Carbon Giallo Fluo Opaco",
+          "sku": "361G-ALV-19",
+          "price": 22500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-363-shot",
+      "name": "CGM 363 SHOT",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 363 Shot full-face helmet — CGM Italia, high-performance terpolymer shell, Pinlock 70-ready visor. Mono, Race, Nippo and Run graphics.",
+      "description": "The CGM 363 Shot is a sport-styled full-face from CGM Italia on a high-performance terpolymer shell, with a visor that's already pinned for a Pinlock 70 anti-fog lens (lens optional, DKS002CGMCL). ECE-standard European build.\n\nFive finishes across the Mono, Race, Nippo and Run lines — colourways and part numbers on this page.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 ready — lens DKS002CGMCL (optional)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "363A-ALV-01",
+          "price": 9250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "363A-ALV-14",
+          "price": 9250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Race — Antracite Rosso Opaco",
+          "sku": "363G-ALV-03",
+          "price": 10250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Nippo — Nero Giallo Fluo Opaco",
+          "sku": "363S-ALV-19",
+          "price": 10250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Run — Nero Fucsia Fluo Opaco",
+          "sku": "363X-ALV-20",
+          "price": 10250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-333-onyx",
+      "name": "CGM 333 ONYX",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 333 Onyx full-face helmet — CGM Italia, terpolymer shell, Pinlock 70-ready visor. Nine Mono and Sport colourways.",
+      "description": "The CGM 333 Onyx is CGM Italia's value full-face — a high-performance terpolymer shell, a wide clear visor pinned for a Pinlock 70 anti-fog lens (optional, DKS002CGMCL), and an easy all-day fit. Built to European ECE safety standards.\n\nNine colourways: the plain-styled Mono line (Nero Opaco, Blu Satinato, Grafite Opaco, Bianco) and the graphic Sport line (Nero Rosso Opaco, Grigio Verde Fluo Opaco, Nero Giallo Fluo Opaco, Blu Giallo Fluo, Grigio Rosa Fluo). Every colourway and its part number is listed below.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 ready — lens DKS002CGMCL (optional)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "333A-ALV-01",
+          "price": 7750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Blu Satinato",
+          "sku": "333A-ALV-06",
+          "price": 7750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Grafite Opaco",
+          "sku": "333A-ALV-09",
+          "price": 7750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "333A-ALV-14",
+          "price": 7750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Nero Rosso Opaco",
+          "sku": "333G-ALV-03",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Grigio Verde Fluo Opaco",
+          "sku": "333G-ALV-07",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Nero Giallo Fluo Opaco",
+          "sku": "333G-ALV-19",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Blu Giallo Fluo",
+          "sku": "333G-ALV-79",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Grigio Rosa Fluo",
+          "sku": "333G-ALV-94",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-311-blast",
+      "name": "CGM 311 BLAST",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 311 Blast full-face helmet — CGM Italia, terpolymer shell with a Fog City anti-fog insert included. Ten graphics.",
+      "description": "The CGM 311 Blast is a graphic-heavy full-face from CGM Italia built on a terpolymer shell, and it ships with a Fog City anti-fog insert already included — clear vision on cold and wet mornings with nothing extra to buy. ECE-standard European build.\n\nTen finishes across the Mono, Sport, Maya, Race, Jelly and Skull lines. Colourways and part numbers are on this page.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Fog City anti-fog insert included"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "311A-ALV-01",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bigio",
+          "sku": "311A-ALV-66",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Nero Giallo Fluo Opaco",
+          "sku": "311G-ALV-19",
+          "price": 7500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Bianco Blu",
+          "sku": "311G-ALV-79",
+          "price": 7500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Maya — Nero Rosso Opaco",
+          "sku": "311M-ALV-03",
+          "price": 7500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Maya — Nero Arancione Azzurro",
+          "sku": "311M-ALV-87",
+          "price": 7500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Race — Antracite Rosso Opaco",
+          "sku": "311R-ALV-03",
+          "price": 7500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Race — Nero Giallo Fluo",
+          "sku": "311R-ALV-93",
+          "price": 7500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Jelly — Nero Viola",
+          "sku": "311S-ALV-83",
+          "price": 7500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Skull — Nero Blu Rosso Opaco",
+          "sku": "311X-ALV-01",
+          "price": 7500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-330-riot",
+      "name": "CGM 330 RIOT",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 330 Riot full-face helmet — CGM Italia's most affordable full-face, terpolymer shell, Pinlock 70-ready visor. Six graphics.",
+      "description": "The CGM 330 Riot is CGM Italia's most affordable full-face — a terpolymer shell, a clear visor pinned for a Pinlock 70 anti-fog lens (optional), and bold youth-market graphics. A solid first proper helmet, built to European ECE standards.\n\nSix finishes across the Mono, Sport, Ripper, Space and Undead lines — see the table below for colourways and part numbers.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 ready — lens DKS002CGMCL (optional)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "330A-ALA-01",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "330A-ALA-14",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Nero Giallo Fluo Opaco",
+          "sku": "330G-ALA-19",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Ripper — Nero Verde Giallo Fluo",
+          "sku": "330R-ALA-89",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Space — Bianco Nero Rosso",
+          "sku": "330S-ALA-85",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Undead — Azzurro Rosa",
+          "sku": "330U-ALA-73",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-560-mad",
+      "name": "CGM 560 MAD",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 560 Mad modular helmet — CGM Italia, fibreglass shell flip-up with a Pinlock 70 lens included and a drop-down sun visor.",
+      "description": "The CGM 560 Mad is CGM Italia's premium modular (flip-up) helmet: a fibreglass shell, an internal drop-down sun visor, and a Pinlock 70 anti-fog lens already in the box. Ride it closed as a full-face or flip the chin bar up at a stop. ECE-standard European build.\n\nFour finishes across the Mad Mono and Mad Ride lines — Nero Opaco, Bianco, Nero Rosso Opaco and Grafite Giallo Fluo Opaco.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Modular (flip-up)"
+        },
+        {
+          "label": "Shell",
+          "value": "Fibreglass"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 lens included"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "560A-ALV-01",
+          "price": 18500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "560A-ALV-14",
+          "price": 18500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Ride — Nero Rosso Opaco",
+          "sku": "560G-ALV-03",
+          "price": 19500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Ride — Grafite Giallo Fluo Opaco",
+          "sku": "560G-ALV-19",
+          "price": 19500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-568-ber",
+      "name": "CGM 568 BER",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 568 Ber modular helmet — CGM Italia flip-up on a terpolymer shell with a drop-down sun visor, Pinlock 70-ready. Eight colourways.",
+      "description": "The CGM 568 Ber is a mid-range modular from CGM Italia — a terpolymer-shell flip-up with an internal sun visor and a clear outer visor pinned for a Pinlock 70 anti-fog lens (optional). Full-face protection with open-face convenience at the lights. Built to European ECE standards.\n\nEight finishes across the Mono, Dresda and Sport lines. Colourways and part numbers are listed on this page.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Modular (flip-up)"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 ready — lens DKS002CGMCL (optional)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "568A-ALV-01",
+          "price": 11250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Blu Satinato",
+          "sku": "568A-ALV-06",
+          "price": 11250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Grafite Opaco",
+          "sku": "568A-ALV-09",
+          "price": 11250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "568A-ALV-14",
+          "price": 11250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Dresda — Nero Rosso Opaco",
+          "sku": "568G-ALV-03",
+          "price": 11750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Dresda — Grafite Giallo Fluo Opaco",
+          "sku": "568G-ALV-19",
+          "price": 11750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Bianco Blu",
+          "sku": "568S-ALV-79",
+          "price": 11750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Nero Fucsia Fluo",
+          "sku": "568S-ALV-83",
+          "price": 11750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-569-c-max",
+      "name": "CGM 569 C-MAX",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 569 C-Max modular helmet — CGM Italia flip-up, terpolymer shell, drop-down sun visor, Pinlock 70-ready. Ten colourways.",
+      "description": "The CGM 569 C-Max is CGM Italia's everyday modular (flip-up) helmet — a terpolymer shell, an internal drop-down sun visor and a clear visor pinned for a Pinlock 70 anti-fog lens (optional). A practical touring and commuting lid. ECE-standard European build.\n\nTen finishes across the C-Max Mono and C-Max City lines — see the table below for every colourway and part number.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Modular (flip-up)"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 ready — lens DKS002CGMCL (optional)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "569A-ALV-01",
+          "price": 10250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Nero",
+          "sku": "569A-ALV-83",
+          "price": 10250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "569A-ALV-14",
+          "price": 10250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Antracite Satinato",
+          "sku": "569A-ALV-10",
+          "price": 10250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Blu Satinato",
+          "sku": "569A-ALV-06",
+          "price": 10250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "City — Nero Fucsia Fluo Opaco",
+          "sku": "569G-ALV-20",
+          "price": 11250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "City — Nero Giallo Fluo Opaco",
+          "sku": "569G-ALV-19",
+          "price": 11250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "City — Blu Bianco Rosso",
+          "sku": "569G-ALV-79",
+          "price": 11250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "City — Grafite Nero",
+          "sku": "569G-ALV-88",
+          "price": 11250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "City — Nero Rosso Opaco",
+          "sku": "569G-ALV-03",
+          "price": 11250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-160-jad",
+      "name": "CGM 160 JAD",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 160 Jad jet helmet — CGM Italia fibreglass open-face with a clear visor, Pinlock 70-ready. Five finishes.",
+      "description": "The CGM 160 Jad is a premium jet (open-face) helmet from CGM Italia on a fibreglass shell, with a clear flip-down visor pinned for a Pinlock 70 anti-fog lens (optional). The classic three-quarter shape with a proper Italian build. ECE-standard.\n\nFive finishes across the Jad Mono and Jad Ride lines — Nero Opaco, Blu Satinato, Bianco, Nero Rosso Opaco and Grafite Giallo Fluo Opaco.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Jet / open-face"
+        },
+        {
+          "label": "Shell",
+          "value": "Fibreglass"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 ready — lens DKS002CGMCL (optional)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "160A-ALV-01",
+          "price": 13250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Blu Satinato",
+          "sku": "160A-ALV-06",
+          "price": 13250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "160A-ALV-14",
+          "price": 13250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Ride — Nero Rosso Opaco",
+          "sku": "160G-ALV-03",
+          "price": 14000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Ride — Grafite Giallo Fluo Opaco",
+          "sku": "160G-ALV-19",
+          "price": 14000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-136-rna",
+      "name": "CGM 136 RNA",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 136 RNA jet helmet — CGM Italia open-face in carbon or terpolymer, Pinlock 70 lens included. 13 finishes.",
+      "description": "The CGM 136 RNA is CGM Italia's jet (open-face) helmet, offered in two builds: a carbon-fibre shell for the RNA Pro and Pro Street lines, and a high-performance terpolymer shell for the Mono, Race and Sport lines. Every version ships with a Pinlock 70 anti-fog lens and meets European ECE standards.\n\n13 finishes in total. Shell material, colourway and part number for each are listed on this page.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Jet / open-face"
+        },
+        {
+          "label": "Shell",
+          "value": "Carbon / High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 lens included"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Pro — Carbon Nero Opaco",
+          "sku": "136C-BLV-01",
+          "price": 18000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Pro — Carbon Nero",
+          "sku": "136C-BLV-83",
+          "price": 18000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Pro Street — Carbon Giallo Fluo Opaco",
+          "sku": "136X-BLV-19",
+          "price": 18500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "136A-BLV-01",
+          "price": 7750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Blu Satinato",
+          "sku": "136A-BLV-06",
+          "price": 7750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Antracite Satinato",
+          "sku": "136A-BLV-10",
+          "price": 7750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "136A-BLV-14",
+          "price": 7750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Race — Grigio Rosso Opaco",
+          "sku": "136S-BLV-03",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Race — Blu Giallo Fluo",
+          "sku": "136S-BLV-79",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Grigio Rosso Opaco",
+          "sku": "136G-BLV-03",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Grigio Giallo Fluo Opaco",
+          "sku": "136G-BLV-19",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Nero Rosso Blu",
+          "sku": "136G-BLV-85",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Nero Giallo Fluo",
+          "sku": "136G-BLV-93",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-127-deep",
+      "name": "CGM 127 DEEP",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 127 Deep jet helmet — CGM Italia open-face, terpolymer shell, clear visor, Pinlock 70-ready. Ten finishes.",
+      "description": "The CGM 127 Deep is a jet (open-face) helmet from CGM Italia on a terpolymer shell, with a clear flip visor pinned for a Pinlock 70 anti-fog lens (optional). A clean, city-friendly three-quarter lid. Built to European ECE standards.\n\nTen finishes across the Mono, Race, Rune and Freaker lines — colourways and part numbers below.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Jet / open-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 ready — lens DKS002CGMCL (optional)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "127A-ALV-01",
+          "price": 8000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Verde Opaco",
+          "sku": "127A-ALV-07",
+          "price": 8000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "127A-ALV-14",
+          "price": 8000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Petrolio Satinato",
+          "sku": "127A-ALV-28",
+          "price": 8000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Grigio",
+          "sku": "127A-ALV-78",
+          "price": 8000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Race — Grafite Rosso Opaco",
+          "sku": "127G-ALV-03",
+          "price": 8750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Race — Grafite Giallo Fluo Opaco",
+          "sku": "127G-ALV-19",
+          "price": 8750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Rune — Nero Grafite Opaco",
+          "sku": "127S-ALV-09",
+          "price": 8750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Freaker — Nero Rosso Opaco",
+          "sku": "127X-ALV-03",
+          "price": 8750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Freaker — Nero Giallo Fluo",
+          "sku": "127X-ALV-93",
+          "price": 8750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-116-air",
+      "name": "CGM 116 AIR",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 116 Air jet helmet — CGM Italia's lightweight open-face on a terpolymer shell with a clear visor. Six finishes.",
+      "description": "The CGM 116 Air is CGM Italia's light, no-fuss jet (open-face) helmet — a terpolymer shell and a clear flip visor, made for short city hops and scooter riders. ECE-standard European build.\n\nSix finishes across the Air Mono and Air Bico lines — Nero Opaco, Verde Opaco, Bianco, Bigio, Grafite Giallo Fluo Opaco and Bianco Blu.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Jet / open-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "116A-ALV-01",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Verde Opaco",
+          "sku": "116A-ALV-07",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "116A-ALV-14",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bigio",
+          "sku": "116A-ALV-66",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Bico — Grafite Giallo Fluo Opaco",
+          "sku": "116G-ALV-19",
+          "price": 7000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Bico — Bianco Blu",
+          "sku": "116G-ALV-79",
+          "price": 7000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-167-flo",
+      "name": "CGM 167 FLO",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 167 Flo jet helmet — CGM Italia open-face with a choice of long or shape visor. 34 colourway and visor combinations.",
+      "description": "The CGM 167 Flo is CGM Italia's most-configurable jet (open-face) helmet — a terpolymer shell offered with two visor profiles: the Long visor for maximum coverage, or the shorter Shape visor for a retro cut. Built to European ECE standards.\n\nSix style lines — Mono, City, Bico, Joy, Sport and Dot — across a wide colour range, each available with either visor, for 34 combinations in all. Pick your exact colourway and visor from the table below; each has its own part number.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Jet / open-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Visor",
+          "value": "Long-visor & Shape-visor options"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco (Long Visor)",
+          "sku": "167A-ALA-01",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Verde Opaco (Long Visor)",
+          "sku": "167A-ALA-07",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Antracite Satinato (Long Visor)",
+          "sku": "167A-ALA-10",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Tortora Satinato (Long Visor)",
+          "sku": "167A-ALA-11",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco (Long Visor)",
+          "sku": "167A-ALA-14",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Viola Opaco (Long Visor)",
+          "sku": "167A-ALA-16",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Petrolio Satinato (Long Visor)",
+          "sku": "167A-ALA-28",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bigio (Long Visor)",
+          "sku": "167A-ALA-66",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Nero (Long Visor)",
+          "sku": "167A-ALA-83",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "City — Nero Rosso Opaco (Long Visor)",
+          "sku": "167K-ALA-03",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "City — Nero Giallo Fluo Opaco (Long Visor)",
+          "sku": "167K-ALA-19",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Bico — Bianco Grigio (Long Visor)",
+          "sku": "167L-ALA-78",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Bico — Bianco Blu (Long Visor)",
+          "sku": "167L-ALA-79",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Joy — Nero Azzurro Verde Opaco (Long Visor)",
+          "sku": "167S-ALA-01",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Blu Bianco Rosso (Long Visor)",
+          "sku": "167D-ALA-85",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Dot — Nero Arancione Fluo Opaco (Long Visor)",
+          "sku": "167M-ALA-17",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Dot — Nero Fucsia Fluo Opaco (Long Visor)",
+          "sku": "167M-ALA-20",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Nero Opaco (Shape Visor)",
+          "sku": "167A-ASA-01",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Verde Opaco (Shape Visor)",
+          "sku": "167A-ASA-07",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Antracite Satinato (Shape Visor)",
+          "sku": "167A-ASA-10",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Tortora Satinato (Shape Visor)",
+          "sku": "167A-ASA-11",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco (Shape Visor)",
+          "sku": "167A-ASA-14",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Viola Opaco (Shape Visor)",
+          "sku": "167A-ASA-16",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Petrolio Satinato (Shape Visor)",
+          "sku": "167A-ASA-28",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bigio (Shape Visor)",
+          "sku": "167A-ASA-66",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Nero (Shape Visor)",
+          "sku": "167A-ASA-83",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "City — Nero Rosso Opaco (Shape Visor)",
+          "sku": "167K-ASA-03",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "City — Nero Giallo Fluo Opaco (Shape Visor)",
+          "sku": "167K-ASA-19",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Bico — Bianco Grigio (Shape Visor)",
+          "sku": "167L-ASA-78",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Bico — Bianco Blu (Shape Visor)",
+          "sku": "167L-ASA-79",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Joy — Nero Azzurro Verde Opaco (Shape Visor)",
+          "sku": "167S-ASA-01",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Blu Bianco Rosso (Shape Visor)",
+          "sku": "167D-ASA-85",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Dot — Nero Arancione Fluo Opaco (Shape Visor)",
+          "sku": "167M-ASA-17",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Dot — Nero Fucsia Fluo Opaco (Shape Visor)",
+          "sku": "167M-ASA-20",
+          "price": 6500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-191-pix",
+      "name": "CGM 191 PIX",
+      "brand": "CGM",
+      "category": "helmets",
+      "tag": "CGM",
+      "blurb": "CGM 191 Pix jet helmet — compact CGM Italia open-face with long- or shape-visor options. 18 combinations.",
+      "description": "The CGM 191 Pix is a compact jet (open-face) helmet from CGM Italia — a terpolymer shell with a slim profile, offered with a Long visor or a shorter Shape visor. ECE-standard European build.\n\nStyle lines Mono, Sprint, It and Vintage across several colourways, each with a choice of visor — 18 combinations. Colourways, visor type and part numbers are on this page.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Jet / open-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Visor",
+          "value": "Long-visor & Shape-visor options"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco (Long Visor)",
+          "sku": "191A-ALA-01",
+          "price": 5500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco (Long Visor)",
+          "sku": "191A-ALA-14",
+          "price": 5500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Grigio (Long Visor)",
+          "sku": "191A-ALA-78",
+          "price": 5500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sprint — Celeste Arancione Opaco (Long Visor)",
+          "sku": "191G-ALA-26",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sprint — Rosso Bianco (Long Visor)",
+          "sku": "191G-ALA-85",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sprint — Viola Fucsia Fluo (Long Visor)",
+          "sku": "191G-ALA-95",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "It — Verde Bianco Rosso (Long Visor)",
+          "sku": "191I-ALA-14",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Vintage — Blu Argento Satinato (Long Visor)",
+          "sku": "191V-ALA-06",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Vintage — Bianco Bordeaux (Long Visor)",
+          "sku": "191V-ALA-14",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Nero Opaco (Shape Visor)",
+          "sku": "191A-ASA-01",
+          "price": 5500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco (Shape Visor)",
+          "sku": "191A-ASA-14",
+          "price": 5500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Grigio (Shape Visor)",
+          "sku": "191A-ASA-78",
+          "price": 5500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sprint — Celeste Arancione Opaco (Shape Visor)",
+          "sku": "191G-ASA-26",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sprint — Rosso Bianco (Shape Visor)",
+          "sku": "191G-ASA-85",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sprint — Viola Fucsia Fluo (Shape Visor)",
+          "sku": "191G-ASA-95",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "It — Verde Bianco Rosso (Shape Visor)",
+          "sku": "191I-ASA-14",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Vintage — Blu Argento Satinato (Shape Visor)",
+          "sku": "191V-ASA-06",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Vintage — Bianco Bordeaux (Shape Visor)",
+          "sku": "191V-ASA-14",
+          "price": 6750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "skap-3mh-speeder",
+      "name": "SKAP 3MH SPEEDER",
+      "brand": "SKAP",
+      "category": "helmets",
+      "tag": "SKAP",
+      "blurb": "SKAP 3MH Speeder full-face helmet — value line from CGM Italia, terpolymer shell, Pinlock 70-ready visor. Six graphics.",
+      "description": "The SKAP 3MH Speeder is a full-face helmet from SKAP, CGM Italia's value brand — a terpolymer shell and a clear visor pinned for a Pinlock 70 anti-fog lens (optional), at a keen price. Built to European ECE standards.\n\nSix finishes across the Speeder Mono, Sport and Rainbow lines. Colourways and part numbers below.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Full-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 ready — lens DKS002CGMCL (optional)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "3MHA-ALV-01",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "3MHA-ALV-14",
+          "price": 5750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Nero Giallo Fluo Opaco",
+          "sku": "3MHG-ALV-19",
+          "price": 6250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Grigio Rosso",
+          "sku": "3MHG-ALV-85",
+          "price": 6250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Blu Giallo Fluo",
+          "sku": "3MHG-ALV-93",
+          "price": 6250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Rainbow — Nero Verde Rosso Opaco",
+          "sku": "3MHS-ALV-01",
+          "price": 6250,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "skap-5th-falcon",
+      "name": "SKAP 5TH FALCON",
+      "brand": "SKAP",
+      "category": "helmets",
+      "tag": "SKAP",
+      "blurb": "SKAP 5TH Falcon modular helmet — flip-up from CGM Italia's value line, terpolymer shell, Pinlock 70-ready. Four finishes.",
+      "description": "The SKAP 5TH Falcon is a modular (flip-up) helmet from SKAP, CGM Italia's value brand — a terpolymer-shell flip-up with a clear visor pinned for a Pinlock 70 anti-fog lens (optional). Full-face and open-face in one, at an entry price. ECE-standard.\n\nFour finishes across the Falcon Mono and Sport lines — Nero Opaco, Antracite Satinato, Bianco and Nero Giallo Fluo Opaco.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Modular (flip-up)"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        },
+        {
+          "label": "Pinlock",
+          "value": "Pinlock 70 ready — lens DKS002CGMCL (optional)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "5THA-ALV-01",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Antracite Satinato",
+          "sku": "5THA-ALV-10",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "5THA-ALV-14",
+          "price": 8500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Nero Giallo Fluo Opaco",
+          "sku": "5THG-ALV-19",
+          "price": 9000,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "skap-1lh-luke",
+      "name": "SKAP 1LH LUKE",
+      "brand": "SKAP",
+      "category": "helmets",
+      "tag": "SKAP",
+      "blurb": "SKAP 1LH Luke jet helmet — affordable open-face from CGM Italia's value line, terpolymer shell. Six finishes.",
+      "description": "The SKAP 1LH Luke is a jet (open-face) helmet from SKAP, CGM Italia's value brand — a simple terpolymer-shell three-quarter lid for city riding and scooters, at the sharp end of the range. Built to European ECE standards.\n\nSix finishes across the Luke Mono and Sport lines — colourways and part numbers on this page.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Jet / open-face"
+        },
+        {
+          "label": "Shell",
+          "value": "High-Performance Terpolymer"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Mono — Nero Opaco",
+          "sku": "1LHA-BLA-01",
+          "price": 3750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Antracite Satinato",
+          "sku": "1LHA-BLA-10",
+          "price": 3750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Bianco",
+          "sku": "1LHA-BLA-14",
+          "price": 3750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Rosa Fluo Opaco",
+          "sku": "1LHA-BLA-24",
+          "price": 3750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Mono — Nero",
+          "sku": "1LHA-BLA-83",
+          "price": 3750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Sport — Antracite Giallo Fluo Satinato",
+          "sku": "1LHG-BLA-19",
+          "price": 4500,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "slug": "x-land-top-case-back-cushion",
+      "name": "X-Land Top Case Back Cushion",
+      "brand": "X-Land",
+      "category": "parts",
+      "tag": "X-LAND",
+      "blurb": "X-Land top case back cushion — a padded backrest that fixes inside the lid so a pillion has something to lean on. In stock at Street Pro Culture, Manila.",
+      "description": "A padded backrest pad for X-Land aluminium top cases. It attaches to the inside of the case lid and gives a pillion passenger a comfortable place to rest against on longer rides.\n\nFits the X-Land H, M and Y-Series cases.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Padded backrest"
+        },
+        {
+          "label": "Fits",
+          "value": "X-Land H / M / Y-Series aluminium top cases"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Default",
+          "sku": "BC",
+          "price": 375,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "nzi-fibra-clear-visor",
+      "name": "NZI Fibra Clear Visor",
+      "brand": "NZI",
+      "category": "parts",
+      "tag": "NZI",
+      "blurb": "Genuine NZI Fibra replacement visor — a clear outer visor, one to match each helmet model. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement clear outer visor for NZI Fibra Atto Duo, Exa Duo, Giga and Byte Stream helmets. There's a specific visor for each model — Atto Duo, Exa Duo, Giga and Byte Stream — so pick the one that matches your helmet from the list below.\n\nIt clips on with the helmet's own visor mechanism, no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "NZI Fibra Atto Duo, Exa Duo, Giga and Byte Stream helmets"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Atto Duo",
+          "sku": "060762G004",
+          "price": 750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Exa Duo",
+          "sku": "060824G000",
+          "price": 750,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Giga",
+          "sku": "060696G705",
+          "price": 550,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Byte Stream",
+          "sku": "060762G026",
+          "price": 550,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-pinlock-70-lens",
+      "name": "CGM Pinlock 70 Anti-Fog Lens",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine CGM Pinlock 70 anti-fog lens — clips inside a Pinlock-ready visor to stop it misting up. In stock at Street Pro Culture, Manila.",
+      "description": "The Pinlock 70 lens is a thin inner shield that snaps onto the pins inside a Pinlock-ready visor and seals against it, forming a double-glazed pane that stays clear in cold and wet weather.\n\nPick the lens that matches your helmet — most CGM and SKAP models take the standard DKS002CGMCL; the 361 Avent Pro and 560 Mad use their own. Your helmet's spec sheet says which, and each part number is listed on this page.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Pinlock 70 anti-fog visor insert"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM & SKAP helmets marked Pinlock-70 ready (see the helmet's spec sheet)"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Standard fit — most CGM & SKAP helmets",
+          "sku": "DKS002CGMCL",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "361 Avent Pro",
+          "sku": "DKS442",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "560 Mad",
+          "sku": "DKS413",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-fog-city-insert",
+      "name": "CGM Fog City Anti-Fog Insert",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "CGM Fog City anti-fog insert for the CGM 311 Blast — a stick-on inner film that keeps the visor clear in cold and wet weather. In stock at Street Pro Culture, Manila.",
+      "description": "The Fog City insert is a self-adhesive anti-fog film that presses onto the inside of the visor. It's the anti-fog fix for the CGM 311 Blast, which isn't cut for a Pinlock lens.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Stick-on anti-fog insert"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 311 Blast"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Default",
+          "sku": "FCG001",
+          "price": 1650,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-361-avent-visor",
+      "name": "CGM 361 Avent Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 361 Avent, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 361 Avent, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 361 Avent helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9361-AL1-00P Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9361-AL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-363-shot-visor",
+      "name": "CGM 363 Shot Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 363 Shot, available in clear, smoke 50%, and iridium mirror. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 363 Shot, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding, smoke 50% for bright days, or an iridium mirror finish that cuts glare hardest. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 363 Shot helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%, Iridium mirror"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9363-AL1-00P Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9363-AL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Iridium mirror",
+          "sku": "9363-AL4-00P Visor Iridium",
+          "price": 2400,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-333-onyx-visor",
+      "name": "CGM 333 Onyx Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 333 Onyx, available in clear, smoke 50%, and iridium mirror. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 333 Onyx, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding, smoke 50% for bright days, or an iridium mirror finish that cuts glare hardest. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 333 Onyx helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%, Iridium mirror"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9333-AL1-00P Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9333-AL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Iridium mirror",
+          "sku": "9333-AL4-00P Visor Iridium",
+          "price": 2400,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-311-blast-visor",
+      "name": "CGM 311 Blast Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 311 Blast, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 311 Blast, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 311 Blast helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9311-AL1-00F Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9311-AL2-00F Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-330-riot-visor",
+      "name": "CGM 330 Riot Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 330 Riot, available in clear, smoke 50%, and iridium mirror. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 330 Riot, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding, smoke 50% for bright days, or an iridium mirror finish that cuts glare hardest. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 330 Riot helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%, Iridium mirror"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9330-AL1-00P Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9330-AL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Iridium mirror",
+          "sku": "9330-AL4-00P Visor Iridium",
+          "price": 2400,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-560-mad-visor",
+      "name": "CGM 560 Mad Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 560 Mad, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 560 Mad, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 560 Mad helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9560-AL1-00P Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9560-AL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-568-ber-visor",
+      "name": "CGM 568 Ber Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 568 Ber, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 568 Ber, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 568 Ber helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9568-AL1-00P Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9568-AL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-569-c-max-visor",
+      "name": "CGM 569 C-Max Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 569 C-Max, available in clear, smoke 50%, and iridium mirror. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 569 C-Max, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding, smoke 50% for bright days, or an iridium mirror finish that cuts glare hardest. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 569 C-Max helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%, Iridium mirror"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9569-AL1-00Z Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9569-AL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Iridium mirror",
+          "sku": "9569-AL4-00P Visor Iridium",
+          "price": 2400,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-160-jad-visor",
+      "name": "CGM 160 Jad Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 160 Jad, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 160 Jad, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 160 Jad helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9160-AL1-00P Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9160-AL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-136-rna-visor",
+      "name": "CGM 136 Rna Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 136 Rna, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 136 Rna, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 136 Rna helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9136-BL1-00P Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9136-BL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-127-deep-visor",
+      "name": "CGM 127 Deep Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 127 Deep, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 127 Deep, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 127 Deep helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9127-AL1-00P Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "9127-AL2-00P Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-126-visor",
+      "name": "CGM 126 Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 126, available in clear. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 126, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 126 helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9126-AL1-00Z Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-116-air-visor",
+      "name": "CGM 116 Air Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 116 Air, available in clear. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 116 Air, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 116 Air helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "9116-AL1-00Z Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-167-flo-visor",
+      "name": "CGM 167 Flo Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 167 Flo, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 167 Flo, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It comes in long visor and shape visor profiles — order the one your helmet shipped with. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 167 Flo helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        },
+        {
+          "label": "Visor profile",
+          "value": "Long visor, Shape visor"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear — Long visor",
+          "sku": "9167-AL1-00Z Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50% — Long visor",
+          "sku": "9167-AL2-00Z Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Clear — Shape visor",
+          "sku": "9167-AS1-00Z Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50% — Shape visor",
+          "sku": "9167-AS2-00Z Smoke 50%",
+          "price": 2100,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "cgm-191-pix-visor",
+      "name": "CGM 191 Pix Visor",
+      "brand": "CGM",
+      "category": "parts",
+      "tag": "CGM",
+      "blurb": "Genuine replacement visor for the CGM 191 Pix, available in clear. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the CGM 191 Pix, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding. It comes in long visor and shape visor profiles — order the one your helmet shipped with. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "CGM 191 Pix helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear"
+        },
+        {
+          "label": "Visor profile",
+          "value": "Long visor, Shape visor"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear — Long visor",
+          "sku": "9191-AL1-00Z Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Clear — Shape visor",
+          "sku": "9191-AS1-00Z Transparent",
+          "price": 1800,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "skap-3mh-speeder-visor",
+      "name": "SKAP 3MH Speeder Visor",
+      "brand": "SKAP",
+      "category": "parts",
+      "tag": "SKAP",
+      "blurb": "Genuine replacement visor for the SKAP 3MH Speeder, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the SKAP 3MH Speeder, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "SKAP 3MH Speeder helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "93MH-AL1-00P Transparent",
+          "price": 1700,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "93MH-AL2-00P Smoke 50%",
+          "price": 1900,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "skap-5th-falcon-visor",
+      "name": "SKAP 5TH Falcon Visor",
+      "brand": "SKAP",
+      "category": "parts",
+      "tag": "SKAP",
+      "blurb": "Genuine replacement visor for the SKAP 5TH Falcon, available in clear. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the SKAP 5TH Falcon, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "SKAP 5TH Falcon helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "95TH-AL1-00P Transparent",
+          "price": 1700,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    },
+    {
+      "slug": "skap-1lh-luke-visor",
+      "name": "SKAP 1LH Luke Visor",
+      "brand": "SKAP",
+      "category": "parts",
+      "tag": "SKAP",
+      "blurb": "Genuine replacement visor for the SKAP 1LH Luke, available in clear and smoke 50%. In stock at Street Pro Culture, Manila.",
+      "description": "A factory replacement outer visor for the SKAP 1LH Luke, so a scratched, cracked or hazed visor never keeps you off the bike. Choose clear for everyday and night riding or smoke 50% for bright days. It swaps on using the helmet's own visor mechanism — no tools.\n\nSold by Street Pro Culture, a motorcycle gear shop in Paco, Manila. Reserve online for in-store pickup or nationwide delivery — pay by GCash, Maya, GrabPay, card, or cash on collection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Replacement outer visor"
+        },
+        {
+          "label": "Fits",
+          "value": "SKAP 1LH Luke helmet"
+        },
+        {
+          "label": "Tints",
+          "value": "Clear, Smoke 50%"
+        }
+      ],
+      "variants": [
+        {
+          "label": "Clear",
+          "sku": "91LH-BL1-00Z Transparent",
+          "price": 1700,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        },
+        {
+          "label": "Smoke 50%",
+          "sku": "91LH-BL2-00Z Smoke 50%",
+          "price": 1900,
+          "compareAtPrice": null,
+          "trackInventory": true,
+          "stockQuantity": 0
+        }
+      ]
+    }
+  ]
+}
