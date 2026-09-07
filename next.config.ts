@@ -13,6 +13,11 @@ const supabaseHost = (() => {
 
 const nextConfig: NextConfig = {
   images: {
+    // Next 16 blocks image optimization for hosts that resolve to a private IP
+    // (SSRF guard), which breaks the local `supabase start` stack on
+    // 127.0.0.1:54321 with `400 "url" parameter is not allowed`. Allow it only
+    // in dev — production always talks to the public *.supabase.co host.
+    dangerouslyAllowLocalIP: process.env.NODE_ENV === "development",
     remotePatterns: [
       ...(supabaseHost
         ? ([
