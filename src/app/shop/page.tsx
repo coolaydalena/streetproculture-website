@@ -26,7 +26,7 @@ export default async function ShopPage({
 }) {
   const { category } = await searchParams;
   const initialFilter: ProductCategory | "all" =
-    category && isProductCategory(category) ? category : "all";
+    category && isProductCategory(category) ? category : "helmets";
 
   const products = await getPublishedProducts();
 

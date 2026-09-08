@@ -65,12 +65,12 @@ export type Product = {
 export const PLACEHOLDER_IMAGE = "/images/products/placeholder.svg";
 
 export const CATEGORIES: { id: ProductCategory | "all"; label: string }[] = [
-  { id: "all", label: "All Gear" },
-  { id: "caps", label: "Caps" },
   { id: "helmets", label: "Helmets" },
+  { id: "caps", label: "Caps" },
   { id: "cases", label: "Cases" },
   { id: "merch", label: "Merch" },
   { id: "parts", label: "Parts" },
+  { id: "all", label: "All Gear" },
 ];
 
 /** The real categories, for the CMS form `<select>`. */

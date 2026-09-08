@@ -26,7 +26,7 @@ function matchesQuery(p: Product, terms: string[]): boolean {
 
 export function ShopBrowser({
   products,
-  initialFilter = "all",
+  initialFilter = "helmets",
 }: {
   products: Product[];
   initialFilter?: Filter;
