@@ -56,7 +56,7 @@ export function SiteJsonLd() {
         "@id": `${SITE_URL}/#org`,
         name: SITE.name,
         url: SITE_URL,
-        logo: `${SITE_URL}/icon.jpg`,
+        logo: `${SITE_URL}/icon.png`,
         sameAs: [SITE.social.facebook],
       },
     ],
