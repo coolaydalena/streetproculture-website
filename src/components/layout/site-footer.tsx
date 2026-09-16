@@ -72,14 +72,6 @@ export function SiteFooter() {
                   Find us on Maps ↗
                 </a>
               </li>
-              <li>
-                <a
-                  href={SITE.location.phoneHref}
-                  className="u-label text-paper/80 transition-colors hover:text-gold"
-                >
-                  {SITE.location.phone}
-                </a>
-              </li>
               <li className="pt-2 text-xs leading-relaxed text-paper/50">
                 {SITE.location.address}
               </li>
